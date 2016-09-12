@@ -1,0 +1,81 @@
+{#
+ # Sharif Judge
+ # file: side_bar.twig
+ # author: Mohammad Javad Naderi <mjnaderi@gmail.com>
+ #}
+<div id="side_bar" class="sidebar_open">
+	<ul>
+		<li class="color-dashboard{{ selected=='dashboard' ? ' selected' }}">
+			<a href="{{ site_url('dashboard') }}">
+				<i class="fa fa-dashboard fa-lg"></i>
+				<span class="sidebar_text">仪表盘</span>
+			</a>
+		</li>
+		{% if user.level == 3 %}
+		<li class="color-settings{{ selected=='settings' ? ' selected' }}">
+			<a href="{{ site_url('settings') }}">
+				<i class="fa fa-gear fa-lg"></i>
+				<span class="sidebar_text">设置</span>
+			</a>
+		</li>
+		<li class="color-users{{ selected=='users' ? ' selected' }}">
+			<a href="{{ site_url('users') }}">
+				<i class="fa fa-users fa-lg"></i>
+				<span class="sidebar_text">用户</span>
+			</a>
+		</li>
+		{% endif %}
+		<li class="color-notifications{{ selected=='notifications' ? ' selected' }}">
+			<a href="{{ site_url('notifications') }}">
+				<i class="fa fa-bell fa-lg"></i>
+				<span class="sidebar_text">通知</span>
+			</a>
+		</li>
+		<li class="color-assignments{{ selected=='assignments' ? ' selected' }}">
+			<a href="{{ site_url('assignments') }}">
+				<i class="fa fa-folder-open fa-lg"></i>
+				<span class="sidebar_text">任务</span>
+			</a>
+		</li>
+		<li class="color-problems{{ selected=='problems' ? ' selected' }}">
+			<a href="{{ site_url('problems') }}">
+				<i class="fa fa-puzzle-piece fa-lg"></i>
+				<span class="sidebar_text">问题</span>
+			</a>
+		</li>
+		<li class="color-submit{{ selected=='submit' ? ' selected' }}">
+			<a href="{{ site_url('submit') }}">
+				<i class="fa fa-location-arrow fa-lg"></i>
+				<span class="sidebar_text">代码提交</span>
+			</a>
+		</li>
+		<li class="color-final_submissions{{ selected=='final_submissions' ? ' selected' }}">
+			<a href="{{ site_url('submissions/final') }}">
+				<i class="fa fa-map-marker fa-lg"></i>
+				<span class="sidebar_text">最近的提交</span>
+			</a>
+		</li>
+		<li class="color-all_submissions{{ selected=='all_submissions' ? ' selected' }}">
+			<a href="{{ site_url('submissions/all') }}">
+				<i class="fa fa-bars fa-lg"></i>
+				<span class="sidebar_text">所有的提交</span>
+			</a>
+		</li>
+		<li class="color-scoreboard{{ selected=='scoreboard' ? ' selected' }}">
+			<a href="{{ site_url('scoreboard') }}">
+				<i class="fa fa-star fa-lg"></i>
+				<span class="sidebar_text">积分板</span>
+			</a>
+		</li>
+	</ul>
+	<div id="sidebar_bottom">
+		<p>
+			<a href="https://github.com/countstarlight/OnlineJudge" target="_blank">&copy; Online Judge {{ SHJ_VERSION }}</a>
+			<a href="https://github.com/countstarlight/OnlineJudge/wiki" target="_blank">Docs</a>
+		</p>
+		<p class="timer"></p>
+		<div id="shj_collapse" class="pointer">
+			<i id="collapse" class="fa fa-caret-square-o-left fa-lg"></i><span class="sidebar_text">隐藏侧边栏</span>
+		</div>
+	</div>
+</div>
