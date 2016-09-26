@@ -1,6 +1,6 @@
-# Online Judge
+# MySui Online Judge
 
-[Online Judge](https://github.com/countstarlight/OnlineJudge) 是一个开源的在线评测 C, C++, Java 和
+[Online Judge](https://github.com/mysuioj/mysuioj) 是一个开源的在线评测 C, C++, Java 和
 Python 程序的系统,基于Sharif Judge开发，使更适用于中国环境。
 
 前端网页及交互页面由PHP语言开发，后端主要采用BASH。
@@ -9,7 +9,7 @@ Python代码的测试目前还没有使用沙箱，仅使用一种低权限的�
 
 如果你想要使用Online　Judge来判定python, 用你自己的安全环境或使用支持python的沙箱。
 
-关于Online Judge完整的使用文档在 https://github.com/countstarlight/OnlineJudge/wiki
+关于Online Judge完整的使用文档在 https://github.com/mysuioj/mysuioj/wiki
 
 ## 功能
   * 多种用户权限 (管理员, 班主任, 老师, 学生)
