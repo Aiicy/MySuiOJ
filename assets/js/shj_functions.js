@@ -1,5 +1,5 @@
 /**
- * Sharif Judge
+ * MySui Online Judge
  * @file shj_functions.js
  * @author Mohammad Javad Naderi <mjnaderi@gmail.com>
  */
@@ -88,7 +88,7 @@ shj.update_clock = function(){
 	}
 	shj.time = moment();
 	var now = moment().add('milliseconds', shj.offset);
-	$('.timer').html('Server Time: '+now.format('MMM DD - HH:mm:ss'));
+	$('.timer').html('服务器时间： '+now.format('MMM DD - HH:mm:ss'));
 	var countdown = shj.finish_time.diff(now);
 	if (countdown<=0 && countdown + shj.extra_time.asMilliseconds()>=0){
 		countdown = countdown + shj.extra_time.asMilliseconds();
