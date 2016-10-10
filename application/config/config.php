@@ -416,6 +416,7 @@ $config['cookie_httponly'] 	= FALSE;
 | (usually \n) and Windows (\r\n).
 |
 */
+$config['standardize_newlines'] = FALSE;/*
 $config['standardize_newlines'] = TRUE;/**/
 
 /*
@@ -486,7 +487,8 @@ $config['compress_output'] = FALSE;
 | helper' page of the user guide for information regarding date handling.
 |
 */
-$config['time_reference'] = 'gmt';/**/
+/*$config['time_reference'] = 'gmt';/**/
+$config['time_reference'] = 'local';/**/
 
 /*
 |--------------------------------------------------------------------------

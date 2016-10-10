@@ -1,19 +1,12 @@
-<?php
-/**
- * @author Bennet Matschullat <hello@bennet-matschullat.com>
- * @since 07.03.2011 - 12:02:20
- * @version 1.0
- */
-defined('BASEPATH') OR exit('No direct script access allowed');
-
+<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 // 默认扩展名
 $config['extension'] = ".twig";
 
 // 默认模版路劲
-$config['template_dir'] = VIEWPATH;
+$config['template_dir'] = APPPATH . "views/";
 
 // 缓存目录
-$config['cache_dir'] = APPPATH.'cache/Twig';
+$config['cache_dir'] = APPPATH . "cache/twig/";
 
 // 是否开启调试模式
 $config['debug'] = false;
