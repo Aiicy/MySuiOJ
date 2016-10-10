@@ -404,7 +404,7 @@ if ( ! function_exists('show_error'))
 	 * @param	string
 	 * @return	void
 	 */
-	function show_error($message, $status_code = 500, $heading = '出现一个错误')
+	function show_error($message, $status_code = 500, $heading = 'An Error Was Encountered')
 	{
 		$status_code = abs($status_code);
 		if ($status_code < 100)
@@ -849,9 +849,3 @@ if ( ! function_exists('function_usable'))
 		return FALSE;
 	}
 }
-<<<<<<< HEAD
-
-/* End of file Common.php */
-/* Location: ./system/core/Common.php */
-=======
->>>>>>> new branch dev
