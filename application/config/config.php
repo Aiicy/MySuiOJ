@@ -23,7 +23,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | a PHP script and you can easily do that on your own.
 |
 */
-$config['base_url'] = 'http://localhost:80/CodeIgniter/MySui/';
+$config['base_url'] = 'http://localhost:80/CodeIgniter/MySui/';/**/
 
 /*
 |--------------------------------------------------------------------------
@@ -76,7 +76,7 @@ $config['url_suffix'] = '';
 | than english.
 |
 */
-$config['language']	= 'english';/**/
+$config['language']	= 'chinese';/**/
 
 /*
 |--------------------------------------------------------------------------
@@ -314,7 +314,7 @@ $config['cache_query_string'] = FALSE;
 | https://codeigniter.com/user_guide/libraries/encryption.html
 |
 */
-$config['encryption_key'] = '';
+$config['encryption_key'] = 'l9j8RvYQ2zN0CiTEV3ewBaKbLs7Pf';
 
 /*
 |--------------------------------------------------------------------------
@@ -375,13 +375,18 @@ $config['sess_match_ip'] = FALSE;
 $config['sess_time_to_update'] = 300;
 $config['sess_regenerate_destroy'] = FALSE;
 /*
-$config['sess_driver']			= 'database';
+$config['sess_driver']			= 'cookie';
+$config['sess_valid_drivers']	= array();
 $config['sess_cookie_name']		= 'shjsession';
 $config['sess_expiration']		= 7200;
-$config['sess_save_path']		= 'ci_sessions';
+$config['sess_expire_on_close']	= FALSE;
+$config['sess_encrypt_cookie']	= TRUE;
+$config['sess_use_database']	= TRUE;
+$config['sess_table_name']		= 'sessions';
 $config['sess_match_ip']		= FALSE;
+$config['sess_match_useragent']	= TRUE;
 $config['sess_time_to_update']	= 300;
-*/
+/**/
 
 /*
 |--------------------------------------------------------------------------
@@ -416,7 +421,7 @@ $config['cookie_httponly'] 	= FALSE;
 | (usually \n) and Windows (\r\n).
 |
 */
-$config['standardize_newlines'] = FALSE;/*
+/*$config['standardize_newlines'] = FALSE;*/
 $config['standardize_newlines'] = TRUE;/**/
 
 /*
@@ -453,6 +458,14 @@ $config['csrf_cookie_name'] = 'csrf_cookie_name';
 $config['csrf_expire'] = 7200;
 $config['csrf_regenerate'] = TRUE;
 $config['csrf_exclude_uris'] = array();
+/*
+$config['csrf_protection'] = TRUE;
+$config['csrf_token_name'] = 'shj_csrf_token';
+$config['csrf_cookie_name'] = 'shjcsrftoken';
+$config['csrf_expire'] = 7200;
+$config['csrf_regenerate'] = FALSE;
+$config['csrf_exclude_uris'] = array();
+/**/
 
 /*
 |--------------------------------------------------------------------------
@@ -487,8 +500,8 @@ $config['compress_output'] = FALSE;
 | helper' page of the user guide for information regarding date handling.
 |
 */
-/*$config['time_reference'] = 'gmt';/**/
-$config['time_reference'] = 'local';/**/
+/*$config['time_reference'] = 'local';/**/
+$config['time_reference'] = 'gmt';
 
 /*
 |--------------------------------------------------------------------------
@@ -521,3 +534,7 @@ $config['rewrite_short_tags'] = FALSE;
 | Array:		array('10.0.1.200', '192.168.5.0/24')
 */
 $config['proxy_ips'] = '';
+
+
+/* End of file config.php */
+/* Location: ./application/config/config.php */

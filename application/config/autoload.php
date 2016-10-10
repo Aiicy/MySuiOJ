@@ -91,7 +91,7 @@ $autoload['drivers'] = array('session');/**/
 |
 |	$autoload['helper'] = array('url', 'file');
 */
-$autoload['helper'] = array();/*
+/*$autoload['helper'] = array();/**/
 $autoload['helper'] = array('url','form','shj');/**/
 
 /*
@@ -107,7 +107,7 @@ $autoload['helper'] = array('url','form','shj');/**/
 |
 */
 
-$autoload['config']   = array('twig');/*
+/*$autoload['config']   = array('twig');*/
 $autoload['config']   = array();/**/
 
 /*
@@ -137,5 +137,9 @@ $autoload['language'] = array();
 |
 |	$autoload['model'] = array('first_model' => 'first');
 */
-$autoload['model'] = array();/*
+/*$autoload['model'] = array();*/
 $autoload['model'] = array('user', 'settings_model', 'user_model', 'assignment_model');/**/
+
+
+/* End of file autoload.php */
+/* Location: ./application/config/autoload.php */

@@ -7,9 +7,9 @@ Python 程序的系统,基于Sharif Judge开发，使更适用于中国环境。
 
 Python代码的测试目前还没有使用沙箱，仅使用一种低权限的操作来判定python。
 
-如果你想要使用MySui Online　Judge来判定python, 用你自己的安全环境或使用支持python的沙箱。
+如果你想要使用Online　Judge来判定python, 用你自己的安全环境或使用支持python的沙箱。
 
-关于MySui Online Judge完整的使用文档在 https://github.com/mysuioj/mysuioj/wiki
+关于Online Judge完整的使用文档在 https://github.com/mysuioj/mysuioj/wiki
 
 ## 功能
   * 多种用户权限 (管理员, 班主任, 老师, 学生)
@@ -42,10 +42,10 @@ Python代码的测试目前还没有使用沙箱，仅使用一种低权限的�
 
   1. 通过clone或zip形式下载最新的代码 [code page](https://github.com/mysuioj/mysuioj) ，把clone或解压缩所得的文件放入网页文件夹里，例如apache2默认的文件夹是/var/www/html。
   2. **[可选]** 移动文件夹 `system` 和 `application` 到你的个人目录下， 并把所在目录的完整路径写在　`index.php`　文件里 （`$system_path`　和　`$application_folder` 这两个参数）。
-  3. 专门为MySui Online Judge创建一个MySql或是PostgreSql的数据库。不要安装任何用C/C++, Java或Python语言编写的数据库连接软件。
+  3. 专门为Online Judge创建一个MySql或是PostgreSql的数据库。不要安装任何用C/C++, Java或Python语言编写的数据库连接软件。
   4. 在`application/config/database.php`文件里设置数据库连接选项。
   5. **[重要]**使文件夹 `application/cache/Twig` php可写，而不是只有owner。
-  6. 在浏览器里打开MySui Online Judge的主页，开始安装。
+  6. 在浏览器里打开Online Judge的主页，开始安装。
   7. 使用上一步设置的管理员账户登陆。
   8. **[重要]** 移动文件夹 `tester` 和 `assignments` 到你的个人目录下，然后把它们的完整路径写在 `设置` 页面里. **这两个文件夹必须使得PHP可写而不是只有owner.** 提交的文件将被放置在 `assignments` 文件夹里，所以应该放在不是公开目录里。
   9. **[重要]** [MySui Online Judge安全相关](https://github.com/mysuioj/mysuioj/wiki)

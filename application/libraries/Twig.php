@@ -1,4 +1,4 @@
-<?php if (!defined('BASEPATH')) exit('No direct script access allowed');
+<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 /**
  * Library to wrap Twig layout engine. Originally from Bennet Matschullat.
  * Code cleaned up to CodeIgniter standards by Erik Torsner
@@ -16,8 +16,10 @@
 /**
  * Main (and only) class for the Twig wrapper library
  */
-class Twig
-{
+
+require_once APPPATH.'third_party/Twig/lib/Twig/Autoloader.php';
+
+class Twig {
 	const TWIG_CONFIG_FILE = 'twig';
 
 	/**
@@ -46,48 +48,116 @@ class Twig
 	 *
 	 * @var Twig_Envoronment object
 	 */
-	private $twig;
+	public $twig;
+
+    public $config;
+
+    private $data = array();
 
 	/**
 	 * constructor of twig ci class
 	 */
-	public function __construct()
-	{
-		$this->_ci = & get_instance();
-		$this->_ci->config->load(self::TWIG_CONFIG_FILE); // load config file
-		// set include path for twig
-		//ini_set('include_path', ini_get('include_path') . PATH_SEPARATOR . ');
-		require_once APPPATH.'third_party/Twig/lib/Twig/Autoloader.php';
-		// register autoloader
+
+    /**
+     * 读取配置文件twig.php并初始化设置
+     *
+     */
+    public function __construct($config)
+    {
+    	$config_default = array(
+            'cache_dir' => true,
+            'debug' => false,
+            'auto_reload' => true,
+            'extension' => '.tpl',
+        );
+        $this->config = array_merge($config_default, $config);
 		Twig_Autoloader::register();
 		log_message('debug', 'twig autoloader loaded');
-		// init paths
-		$this->template_dir = $this->_ci->config->item('template_dir');
-		$this->cache_dir = $this->_ci->config->item('cache_dir');
 		// load environment
-		$loader = new Twig_Loader_Filesystem($this->template_dir);
+        $loader = new Twig_Loader_Filesystem ($this->config['template_dir']);
 		$this->twig = new Twig_Environment($loader, array(
-			'cache' => $this->cache_dir,
-			'auto_reload' => TRUE
+			'cache' => $this->config['cache_dir'],
+            'debug' => $this->config['debug'],
+            'auto_reload' => $this->config['auto_reload'],
 		));
+    	$this->_ci = & get_instance();
+        $this->_ci ->load->helper(array('url'));
+        $this->twig->addFunction(new Twig_SimpleFunction('site_url', 'site_url'));
+        $this->twig->addFunction(new Twig_SimpleFunction('base_url', 'base_url'));
 		$this->ci_function_init();
-	}
+    }
 
-	/**
-	 * render a twig template file
-	 *
-	 * @param string $template template name
-	 * @param array $data contains all varnames
-	 * @param boolean $render render or return raw?
-	 *
-	 * @return string
-	 *
-	 */
-	public function render($template, $data = array(), $render = TRUE)
-	{
-		$template = $this->twig->loadTemplate($template);
-		return ($render) ? $template->render($data) : $template;
-	}
+    /**
+     * 给变量赋值
+     *
+     * @param string|array $var
+     * @param string $value
+     */
+    public function assign($var, $value = NULL)
+    {
+        if(is_array($var)) {
+            foreach($var as $key => $val) {
+                $this->data[$key] = $val;
+            }
+        } else {
+            $this->data[$var] = $value;
+        }
+    }
+
+    /**
+     * 模版渲染
+     *
+     * @param string $template 模板名
+     * @param array $data 变量数组
+     * @param bool $return true返回 false直接输出页面
+     * @return string
+     */
+    public function render($template, $data = array(), $return = TRUE)
+    {
+        $template = $this->twig->loadTemplate ( $this->getTemplateName($template) );
+        $data = array_merge($this->data, $data);
+        if ($return === TRUE) {
+            return $template->render ( $data );
+        } else {
+            return $template->display ( $data );
+        }
+    }
+
+    /**
+     * 获取模版名
+     *
+     * @param string $template
+     * @return string
+     */
+    public function getTemplateName($template)
+    {
+        $default_ext_len = strlen($this->config['extension']);
+        if(substr($template, -$default_ext_len) != $this->config['extension']) {
+            $template .= $this->config['extension'];
+        }
+        return $template;
+    }
+
+    /**
+     * 字符串渲染
+     *
+     * @param string $string 需要渲染的字符串
+     * @param array $data 变量数组
+     * @param bool $return true返回 false直接输出页面
+     * @return object
+     */
+    public function parse($string, $data = array(), $return = FALSE)
+    {
+        $string = $this->twig->loadTemplate ( $string );
+        $data = array_merge($this->data, $data);
+        if ($return === TRUE) {
+            return $string->render ( $data );
+        } else {
+            return $string->display ( $data );
+        }
+    }
+
+
 
 	/**
 	 * Execute the template and send to CI output
@@ -186,6 +256,6 @@ class Twig
 
 	}
 }
-
 /* End of file Twig.php */
-/* Location: ./libraries/Twig.php */
+/* Location: ./application/libraries/Twig.php */
+

@@ -9,6 +9,7 @@
  */
 
 define('SHJ_VERSION','1.4');/**/
+
 /**
  * CodeIgniter
  *
