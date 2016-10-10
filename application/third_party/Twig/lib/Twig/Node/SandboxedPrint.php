@@ -21,21 +21,11 @@
  */
 class Twig_Node_SandboxedPrint extends Twig_Node_Print
 {
-    public function __construct(Twig_Node_Expression $expr, $lineno, $tag = null)
-    {
-        parent::__construct($expr, $lineno, $tag);
-    }
-
-    /**
-     * Compiles the node to PHP.
-     *
-     * @param Twig_Compiler A Twig_Compiler instance
-     */
     public function compile(Twig_Compiler $compiler)
     {
         $compiler
             ->addDebugInfo($this)
-            ->write('echo $this->env->getExtension(\'sandbox\')->ensureToStringAllowed(')
+            ->write('echo $this->env->getExtension(\'Twig_Extension_Sandbox\')->ensureToStringAllowed(')
             ->subcompile($this->getNode('expr'))
             ->raw(");\n")
         ;
@@ -47,6 +37,8 @@ class Twig_Node_SandboxedPrint extends Twig_Node_Print
      * This is mostly needed when another visitor adds filters (like the escaper one).
      *
      * @param Twig_Node $node A Node
+     *
+     * @return Twig_Node
      */
     protected function removeNodeFilter($node)
     {

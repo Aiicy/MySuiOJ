@@ -22,19 +22,26 @@ class Twig_Node implements Twig_NodeInterface
     protected $lineno;
     protected $tag;
 
+    private $filename;
+
     /**
      * Constructor.
      *
      * The nodes are automatically made available as properties ($this->node).
      * The attributes are automatically made available as array items ($this['name']).
      *
-     * @param array   $nodes      An array of named nodes
-     * @param array   $attributes An array of attributes (should not be nodes)
-     * @param integer $lineno     The line number
-     * @param string  $tag        The tag name associated with the Node
+     * @param array  $nodes      An array of named nodes
+     * @param array  $attributes An array of attributes (should not be nodes)
+     * @param int    $lineno     The line number
+     * @param string $tag        The tag name associated with the Node
      */
     public function __construct(array $nodes = array(), array $attributes = array(), $lineno = 0, $tag = null)
     {
+        foreach ($nodes as $name => $node) {
+            if (!$node instanceof Twig_NodeInterface) {
+                @trigger_error(sprintf('Using "%s" for the value of node "%s" of "%s" is deprecated since version 1.25 and will be removed in 2.0.', is_object($node) ? get_class($node) : null === $node ? 'null' : gettype($node), $name, get_class($this)), E_USER_DEPRECATED);
+            }
+        }
         $this->nodes = $nodes;
         $this->attributes = $attributes;
         $this->lineno = $lineno;
@@ -69,8 +76,13 @@ class Twig_Node implements Twig_NodeInterface
         return implode("\n", $repr);
     }
 
+    /**
+     * @deprecated since 1.16.1 (to be removed in 2.0)
+     */
     public function toXml($asDom = false)
     {
+        @trigger_error(sprintf('%s is deprecated since version 1.16.1 and will be removed in 2.0.', __METHOD__), E_USER_DEPRECATED);
+
         $dom = new DOMDocument('1.0', 'UTF-8');
         $dom->formatOutput = true;
         $dom->appendChild($xml = $dom->createElement('twig'));
@@ -96,7 +108,7 @@ class Twig_Node implements Twig_NodeInterface
             $node->appendChild($child);
         }
 
-        return $asDom ? $dom : $dom->saveXml();
+        return $asDom ? $dom : $dom->saveXML();
     }
 
     public function compile(Twig_Compiler $compiler)
@@ -119,9 +131,9 @@ class Twig_Node implements Twig_NodeInterface
     /**
      * Returns true if the attribute is defined.
      *
-     * @param  string  The attribute name
+     * @param string $name The attribute name
      *
-     * @return Boolean true if the attribute is defined, false otherwise
+     * @return bool true if the attribute is defined, false otherwise
      */
     public function hasAttribute($name)
     {
@@ -129,11 +141,11 @@ class Twig_Node implements Twig_NodeInterface
     }
 
     /**
-     * Gets an attribute.
+     * Gets an attribute value by name.
      *
-     * @param  string The attribute name
+     * @param string $name
      *
-     * @return mixed The attribute value
+     * @return mixed
      */
     public function getAttribute($name)
     {
@@ -145,10 +157,10 @@ class Twig_Node implements Twig_NodeInterface
     }
 
     /**
-     * Sets an attribute.
+     * Sets an attribute by name to a value.
      *
-     * @param string The attribute name
-     * @param mixed  The attribute value
+     * @param string $name
+     * @param mixed  $value
      */
     public function setAttribute($name, $value)
     {
@@ -156,9 +168,9 @@ class Twig_Node implements Twig_NodeInterface
     }
 
     /**
-     * Removes an attribute.
+     * Removes an attribute by name.
      *
-     * @param string The attribute name
+     * @param string $name
      */
     public function removeAttribute($name)
     {
@@ -166,11 +178,11 @@ class Twig_Node implements Twig_NodeInterface
     }
 
     /**
-     * Returns true if the node with the given identifier exists.
+     * Returns true if the node with the given name exists.
      *
-     * @param  string  The node name
+     * @param string $name
      *
-     * @return Boolean true if the node with the given name exists, false otherwise
+     * @return bool
      */
     public function hasNode($name)
     {
@@ -180,9 +192,9 @@ class Twig_Node implements Twig_NodeInterface
     /**
      * Gets a node by name.
      *
-     * @param  string The node name
+     * @param string $name
      *
-     * @return Twig_Node A Twig_Node instance
+     * @return Twig_Node
      */
     public function getNode($name)
     {
@@ -196,18 +208,22 @@ class Twig_Node implements Twig_NodeInterface
     /**
      * Sets a node.
      *
-     * @param string    The node name
-     * @param Twig_Node A Twig_Node instance
+     * @param string    $name
+     * @param Twig_Node $node
      */
     public function setNode($name, $node = null)
     {
+        if (!$node instanceof Twig_NodeInterface) {
+            @trigger_error(sprintf('Using "%s" for the value of node "%s" of "%s" is deprecated since version 1.25 and will be removed in 2.0.', is_object($node) ? get_class($node) : null === $node ? 'null' : gettype($node), $name, get_class($this)), E_USER_DEPRECATED);
+        }
+
         $this->nodes[$name] = $node;
     }
 
     /**
      * Removes a node by name.
      *
-     * @param string The node name
+     * @param string $name
      */
     public function removeNode($name)
     {
@@ -222,5 +238,20 @@ class Twig_Node implements Twig_NodeInterface
     public function getIterator()
     {
         return new ArrayIterator($this->nodes);
+    }
+
+    public function setFilename($filename)
+    {
+        $this->filename = $filename;
+        foreach ($this->nodes as $node) {
+            if (null !== $node) {
+                $node->setFilename($filename);
+            }
+        }
+    }
+
+    public function getFilename()
+    {
+        return $this->filename;
     }
 }

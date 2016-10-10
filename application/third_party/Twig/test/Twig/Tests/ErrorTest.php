@@ -38,7 +38,7 @@ class Twig_Tests_ErrorTest extends PHPUnit_Framework_TestCase
 
             $this->fail();
         } catch (Twig_Error_Runtime $e) {
-            $this->assertEquals('Variable "foo" does not exist in "index.html" at line 3', $e->getMessage());
+            $this->assertEquals('Variable "foo" does not exist in "index.html" at line 3.', $e->getMessage());
             $this->assertEquals(3, $e->getTemplateLine());
             $this->assertEquals('index.html', $e->getTemplateFile());
         }
@@ -69,7 +69,7 @@ class Twig_Tests_ErrorTest extends PHPUnit_Framework_TestCase
 
             $this->fail();
         } catch (Twig_Error_Runtime $e) {
-            $this->assertEquals(sprintf('Variable "foo" does not exist in "%s" at line %d', $name, $line), $e->getMessage());
+            $this->assertEquals(sprintf('Variable "foo" does not exist in "%s" at line %d.', $name, $line), $e->getMessage());
             $this->assertEquals($line, $e->getTemplateLine());
             $this->assertEquals($name, $e->getTemplateFile());
         }
@@ -99,7 +99,7 @@ class Twig_Tests_ErrorTest extends PHPUnit_Framework_TestCase
             // error occurs in an included template
             array(
                 array(
-                    'index'   => "{% include 'partial' %}",
+                    'index' => "{% include 'partial' %}",
                     'partial' => '{{ foo.bar }}',
                 ),
                 'partial', 1,
@@ -112,7 +112,7 @@ class Twig_Tests_ErrorTest extends PHPUnit_Framework_TestCase
                     {% block content %}
                         {{ parent() }}
                     {% endblock %}",
-                    'base' => '{% block content %}{{ foo.bar }}{% endblock %}'
+                    'base' => '{% block content %}{{ foo.bar }}{% endblock %}',
                 ),
                 'base', 1,
             ),
@@ -127,7 +127,7 @@ class Twig_Tests_ErrorTest extends PHPUnit_Framework_TestCase
                     {% block foo %}
                         {{ foo.bar }}
                     {% endblock %}",
-                    'base' => '{% block content %}{% endblock %}'
+                    'base' => '{% block content %}{% endblock %}',
                 ),
                 'index', 3,
             ),

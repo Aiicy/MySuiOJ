@@ -5,6 +5,12 @@ This document lists all deprecated features in Twig. Deprecated features are
 kept for backward compatibility and removed in the next major release (a
 feature that was deprecated in Twig 1.x is removed in Twig 2.0).
 
+Deprecation Notices
+-------------------
+
+As of Twig 1.21, Twig generates deprecation notices when a template uses
+deprecated features. See :ref:`deprecation-notices` for more information.
+
 Token Parsers
 -------------
 
@@ -20,11 +26,25 @@ Extensions
 * As of Twig 1.x, the ability to remove an extension is deprecated and the
   ``Twig_Environment::removeExtension()`` method will be removed in 2.0.
 
+* As of Twig 1.23, the ``Twig_ExtensionInterface::initRuntime()`` method is
+  deprecated. You have two options to avoid the deprecation notice: if you
+  implement this method to store the environment for your custom filters,
+  functions, or tests, use the ``needs_environment`` option instead; if you
+  have more complex needs, explicitly implement
+  ``Twig_Extension_InitRuntimeInterface`` (not recommended).
+
+* As of Twig 1.23, the ``Twig_ExtensionInterface::getGlobals()`` method is
+  deprecated. Implement ``Twig_Extension_GlobalsInterface`` to avoid
+  deprecation notices.
+
+* As of Twig 1.26, the ``Twig_ExtensionInterface::getName()`` method is
+  deprecated and it is not used internally anymore.
+
 PEAR
 ----
 
-PEAR support will be discontinued in Twig 2.0, and no PEAR packages will be
-provided. Use Composer instead.
+PEAR support has been discontinued in Twig 1.15.1, and no PEAR packages are
+provided anymore. Use Composer instead.
 
 Filters
 -------
@@ -80,6 +100,22 @@ Tests
 * The ``sameas`` and ``divisibleby`` tests are deprecated in favor of ``same
   as`` and ``divisible by`` respectively.
 
+Tags
+----
+
+* As of Twig 1.x, the ``raw`` tag is deprecated. You should use ``verbatim``
+  instead.
+
+Nodes
+-----
+
+* As of Twig 1.x, ``Node::toXml()`` is deprecated and will be removed in Twig
+  2.0.
+
+* As of Twig 1.26, ``Node::$nodes`` should only contains ``Twig_Node``
+  instances, storing a ``null`` value is deprecated and won't be possible in
+  Twig 2.x.
+
 Interfaces
 ----------
 
@@ -95,9 +131,49 @@ Interfaces
   those constants Twig_Template::ANY_CALL, Twig_Template::ARRAY_CALL,
   Twig_Template::METHOD_CALL)
 
+Compiler
+--------
+
+* As of Twig 1.26, the ``Twig_Compiler::getFilename()`` has been deprecated.
+  You should not use it anyway as its values is not reliable.
+
+Loaders
+-------
+
+* As of Twig 1.x, ``Twig_Loader_String`` is deprecated and will be removed in
+  2.0. You can render a string via ``Twig_Environment::createTemplate()``.
+
+Node Visitors
+-------------
+
+* Because of the removal of ``Twig_NodeInterface`` in 2.0, you need to extend
+  ``Twig_BaseNodeVisitor`` instead of implementing ``Twig_NodeVisitorInterface``
+  directly to make your node visitors compatible with both Twig 1.x and 2.x.
+
 Globals
 -------
 
 * As of Twig 2.x, the ability to register a global variable after the runtime
   or the extensions have been initialized is not possible anymore (but
   changing the value of an already registered global is possible).
+
+* As of Twig 1.x, using the ``_self`` global variable to get access to the
+  current ``Twig_Template`` instance is deprecated; most usages only need the
+  current template name, which will continue to work in Twig 2.0. In Twig 2.0,
+  ``_self`` returns the current template name instead of the current
+  ``Twig_Template`` instance.
+
+Miscellaneous
+-------------
+
+* As of Twig 1.x, ``Twig_Environment::clearTemplateCache()``,
+  ``Twig_Environment::writeCacheFile()``,
+  ``Twig_Environment::clearCacheFiles()``,
+  ``Twig_Environment::getCacheFilename()``,
+  ``Twig_Environment::getTemplateClassPrefix()``,
+  ``Twig_Environment::getLexer()``, ``Twig_Environment::getParser()``, and
+  ``Twig_Environment::getCompiler()`` are deprecated and will be removed in 2.0.
+
+* As of Twig 1.x, ``Twig_Template::getEnvironment()`` and
+  ``Twig_TemplateInterface::getEnvironment()`` are deprecated and will be
+  removed in 2.0.
