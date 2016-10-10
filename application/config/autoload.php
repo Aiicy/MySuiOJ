@@ -58,7 +58,7 @@ $autoload['packages'] = array();
 |
 |	$autoload['libraries'] = array('user_agent' => 'ua');
 */
-$autoload['libraries'] = array('Twig');/*
+/*$autoload['libraries'] = array('Twig');/**/
 $autoload['libraries'] = array('database', 'form_validation', 'twig');/**/
 
 /*
@@ -80,7 +80,7 @@ $autoload['libraries'] = array('database', 'form_validation', 'twig');/**/
 |	$autoload['drivers'] = array('cache' => 'cch');
 |
 */
-$autoload['drivers'] = array();/*
+/*$autoload['drivers'] = array();/**/
 $autoload['drivers'] = array('session');/**/
 
 /*

@@ -83,7 +83,7 @@ $db['default'] = array(
 	'database' => 'mysuioj',           // database name
 	'dbprefix' => 'shj_',       // table prefix
 	/**********************************************/
-	'pconnect' => TRUE,
+	'pconnect' => FALSE,
 	'db_debug' => (ENVIRONMENT !== 'production'),
 	'cache_on' => FALSE,
 	'cachedir' => '',
