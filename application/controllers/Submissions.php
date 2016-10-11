@@ -59,11 +59,11 @@ class Submissions extends CI_Controller
 		$this->load->library('phpexcel');
 
 		// Set document properties
-		$this->phpexcel->getProperties()->setCreator('Sharif Judge')
-			->setLastModifiedBy('Sharif Judge')
-			->setTitle('Sharif Judge Users')
-			->setSubject('Sharif Judge Users')
-			->setDescription('List of Sharif Judge users ('.$now.')');
+		$this->phpexcel->getProperties()->setCreator('MySui Online Judge')
+			->setLastModifiedBy('MySui Online Judge')
+			->setTitle('MySui Online Judge Users')
+			->setSubject('MySui Online Judge Users')
+			->setDescription('List of MySui Online Judge users ('.$now.')');
 
 		// Name of the file sent to browser
 		$output_filename = 'judge_'.$view.'_submissions';

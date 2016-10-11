@@ -1,6 +1,6 @@
 <?php
 /**
- * Sharif Judge
+ * MySui Online Judge
  *
  * A free and open source online judge for programming assignments
  *

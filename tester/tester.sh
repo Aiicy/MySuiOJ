@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #    In the name of ALLAH
-#    Sharif Judge
+#    MySui Online Judge
 #    Copyright (C) 2014  Mohammad Javad Naderi <mjnaderi@gmail.com>
 #
 #    This program is free software: you can redistribute it and/or modify

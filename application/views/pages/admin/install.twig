@@ -1,5 +1,5 @@
 {#
- # Sharif Judge
+ # MySui Online Judge
  # file: install.twig
  # author: Mohammad Javad Naderi <mjnaderi@gmail.com>
  #         CountStarlight <countstarlight@outlook.com>
@@ -9,7 +9,7 @@
 
 {% if installed %}
 	<div id="install_success">
-		<h2>Sharif Judge Installed</h2>
+		<h2>MySui Online Judge Installed</h2>
 		{% if not key_changed %}
 			<p class="shj_error">
 				<code>application/config/config.php</code> is not writable by PHP.
@@ -25,7 +25,7 @@
 			</p>
 			<br>
 		{% endif %}
-		<p class="shj_ok">Sharif Judge installed! Now you can <a href="{{ site_url('login') }}">login</a>.</p>
+		<p class="shj_ok">MySui Online Judge installed! Now you can <a href="{{ site_url('login') }}">login</a>.</p>
 	</div>
 
 {% else %}
