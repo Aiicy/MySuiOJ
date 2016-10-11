@@ -1,6 +1,6 @@
 <?php
 /**
- * Sharif Judge online judge
+ * MySui Online Judge
  * @file Moss.php
  * @author Mohammad Javad Naderi <mjnaderi@gmail.com>
  */

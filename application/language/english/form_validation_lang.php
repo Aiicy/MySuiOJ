@@ -1,6 +1,6 @@
 <?php
 /**
- * Sharif Judge online judge
+ * MySui Online Judge
  * @file form_validation_lang.php
  * @author Mohammad Javad Naderi <mjnaderi@gmail.com>
  */

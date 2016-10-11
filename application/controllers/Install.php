@@ -1,6 +1,6 @@
 <?php
 /**
- * Sharif Judge online judge
+ * MySui Online Judge
  * @file Install.php
  * @author Mohammad Javad Naderi <mjnaderi@gmail.com>
  */
@@ -45,7 +45,7 @@ class Install extends CI_Controller
 
 			// Use InnoDB engine for MySql database
 			if ($this->db->dbdriver === 'mysql' || $this->db->dbdriver === 'mysqli')
-				$this->db->query('SET storage_engine=InnoDB;');
+			//	$this->db->query('SET storage_engine=InnoDB;');
 
 			// Creating Tables:
 			// sessions, submissions, assignments, notifications, problems, queue, scoreboard, settings, users
