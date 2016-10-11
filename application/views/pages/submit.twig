@@ -40,7 +40,7 @@
 	{{ form_open_multipart('submit') }}
 	<p class="input_p">
 		<label for="problems" class="tiny">问题：</label>
-		<select id="problems" name ="problem" class="sharif_input">
+		<select id="problems" name ="problem" class="mysui_input">
 			<option value="0" selected="selected">-- 选择问题 --</option>
 			{% for problem in problems %}
 				<option dir="auto" value="{{ problem.id }}">{{ problem.name }}</option>
@@ -50,14 +50,14 @@
 	</p>
 	<p class="input_p">
 		<label for="languages" class="tiny">语言：</label>
-		<select id="languages" name="language" class="sharif_input">
+		<select id="languages" name="language" class="mysui_input">
 			<option value="0" selected="selected">-- 选择语言 --</option>
 		</select>
 		{{ form_error('language','<div class="shj_error">','</div>') }}
 	</p>
 	<p class="input_p">
 		<label for="file" class="tiny">文件：</label>
-		<input type="file" id="file" class="sharif_input medium" name="userfile" />
+		<input type="file" id="file" class="mysui_input medium" name="userfile" />
 		{% if upload_state == 'error' %}
 		<div class="shj_error">Error uploading file.</div>
 		{% elseif upload_state == 'ok' %}
@@ -65,7 +65,7 @@
 		{% endif %}
 	</p>
 	<p class="input_p">
-		<input type="submit" value="Submit" class="sharif_input"/>
+		<input type="submit" value="Submit" class="mysui_input"/>
 	</p>
 	</form>
 {% endif %}

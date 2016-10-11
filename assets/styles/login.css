@@ -85,7 +85,7 @@ div.login2 a {
 	line-height: 27px;
 }
 
-input.sharif_input {
+input.mysui_input {
 	background-color: #fefefe;
 	width: 100%;
 	line-height: 1;
@@ -102,7 +102,7 @@ input.sharif_input {
 	-webkit-box-shadow: rgba(0,0,0,0.04) 0 0 0 1px inset;
 }
 
-input.sharif_input:focus {
+input.mysui_input:focus {
 	outline: 0;
 	border-color: rgba(82, 168, 236, 0.6);
 	box-shadow: rgba(82, 168, 236, 0.6) 0 0 3px;
@@ -120,7 +120,7 @@ input.sharif_input:focus {
 	font-size: 12px;
 }
 
-input#sharif_submit {
+input#mysui_submit {
 	border: 0;
 	height: 30px;
 	float: right;
@@ -148,7 +148,7 @@ input#sharif_submit {
 	filter: progid: DXImageTransform.Microsoft.gradient(startColorstr='#599bb3', endColorstr='#408c99',GradientType=0);
 }
 
-input#sharif_submit:hover {
+input#mysui_submit:hover {
 	background-color: #408c99;
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #408c99), color-stop(1, #599bb3));
 	background: -moz-linear-gradient(top, #408c99 5%, #599bb3 100%);
@@ -159,7 +159,7 @@ input#sharif_submit:hover {
 	filter: progid: DXImageTransform.Microsoft.gradient(startColorstr='#408c99', endColorstr='#599bb3',GradientType=0);
 }
 
-input#sharif_submit:active {
+input#mysui_submit:active {
 	top: 1px;
 	position: relative;
 }

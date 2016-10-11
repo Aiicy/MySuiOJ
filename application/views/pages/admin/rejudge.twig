@@ -24,7 +24,7 @@
 {% for problem in problems %}
 	{{ form_open('rejudge') }}
 		<input type="hidden" name="problem_id" value="{{ problem.id }}"/>
-		<input type="submit" class="sharif_input" value="Rejudge Problem {{ problem.id }} ({{ problem.name }})"/>
+		<input type="submit" class="mysui_input" value="Rejudge Problem {{ problem.id }} ({{ problem.name }})"/>
 	</form>
 {% endfor %}
 

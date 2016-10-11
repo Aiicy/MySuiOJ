@@ -56,10 +56,10 @@
 	<li>If you want to send passwords by email, do not add too many users at one time. This may result in mail delivery fail.</li>
 </ul>
 <p class="input_p">
-	<input type="checkbox" name="send_mail" id="send_mail" /> Send usernames and passwords by email (Waits <input type="text" name="delay" id="delay" class="sharif_input tiny" value="2"/> second(s) before sending each email, so please be patient).
+	<input type="checkbox" name="send_mail" id="send_mail" /> Send usernames and passwords by email (Waits <input type="text" name="delay" id="delay" class="mysui_input tiny" value="2"/> second(s) before sending each email, so please be patient).
 </p>
 <p class="input_p">
-<textarea name="new_users" id="new_users" rows="20" cols="80" class="sharif_input">
+<textarea name="new_users" id="new_users" rows="20" cols="80" class="mysui_input">
 # Lines starting with a # sign are comments.
 # Each line (except comments) represents a user.
 # The syntax of each line is:
@@ -70,6 +70,6 @@
 # You can use RANDOM[n] for password to generate random n-digit password.
 </textarea>
 </p>
-<input type="submit" class="sharif_input" id="add_users_button" value="Add Users"/>
+<input type="submit" class="mysui_input" id="add_users_button" value="Add Users"/>
 <span id="loading" style="display: none;"><img src="{{ base_url('assets/images/loading.gif') }}" /> Adding users... Please wait</span>
 {% endblock %}  {# main_content #}

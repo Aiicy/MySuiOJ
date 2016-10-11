@@ -152,7 +152,7 @@ class Users extends CI_Controller
 			->setDescription('List of MySui Online Judge users ('.$now.')');
 
 		// Name of the file sent to browser
-		$output_filename = 'sharifjudge_users';
+		$output_filename = 'mysuijudge_users';
 
 		// Set active sheet
 		$this->phpexcel->setActiveSheetIndex(0);

@@ -22,15 +22,15 @@
 <script>
 	shj.num_of_problems={{ problems|length }};
 	shj.row='<tr><td>PID</td>\
-	<td><input type="text" name="name[]" class="sharif_input short" value="Problem "/></td>\
-	<td><input type="text" name="score[]" class="sharif_input tiny2" value="100"/></td>\
-	<td><input type="text" name="c_time_limit[]" class="sharif_input tiny2" value="500"/></td>\
-	<td><input type="text" name="python_time_limit[]" class="sharif_input tiny2" value="1500"/></td>\
-	<td><input type="text" name="java_time_limit[]" class="sharif_input tiny2" value="2000"/></td>\
-	<td><input type="text" name="memory_limit[]" class="sharif_input tiny" value="50000"/></td>\
-	<td><input type="text" name="languages[]" class="sharif_input short2" value="C,C++,Python 2,Python 3,Java"/></td>\
-	<td><input type="text" name="diff_cmd[]" class="sharif_input tiny" value="diff"/></td>\
-	<td><input type="text" name="diff_arg[]" class="sharif_input tiny" value="-bB"/></td>\
+	<td><input type="text" name="name[]" class="mysui_input short" value="Problem "/></td>\
+	<td><input type="text" name="score[]" class="mysui_input tiny2" value="100"/></td>\
+	<td><input type="text" name="c_time_limit[]" class="mysui_input tiny2" value="500"/></td>\
+	<td><input type="text" name="python_time_limit[]" class="mysui_input tiny2" value="1500"/></td>\
+	<td><input type="text" name="java_time_limit[]" class="mysui_input tiny2" value="2000"/></td>\
+	<td><input type="text" name="memory_limit[]" class="mysui_input tiny" value="50000"/></td>\
+	<td><input type="text" name="languages[]" class="mysui_input short2" value="C,C++,Python 2,Python 3,Java"/></td>\
+	<td><input type="text" name="diff_cmd[]" class="mysui_input tiny" value="diff"/></td>\
+	<td><input type="text" name="diff_arg[]" class="mysui_input tiny" value="-bB"/></td>\
 	<td><input type="checkbox" name="is_upload_only[]" class="check" value="PID"/><td><i class="fa fa-times-circle fa-lg color1 delete_problem pointer"></i></td></td>\
 </tr>';
 	$(document).ready(function(){
@@ -89,17 +89,17 @@
 	<input type="hidden" name="number_of_problems" id="nop" value="{{ edit ? edit_assignment.problems : problems|length }}"/>
 	<p class="input_p">
 		<label for="form_a_name">Assignment Name</label>
-		<input id="form_a_name" type="text" name="assignment_name" class="sharif_input medium" value="{{ edit ? edit_assignment.name : set_value('assignment_name') }}"/>
+		<input id="form_a_name" type="text" name="assignment_name" class="mysui_input medium" value="{{ edit ? edit_assignment.name : set_value('assignment_name') }}"/>
 		{{ form_error('assignment_name', '<div class="shj_error">', '</div>') }}
 	</p>
 	<p class="input_p">
 		<label for="start_time">Start Time</label>
-		<input id="start_time" type="text" name="start_time" class="sharif_input medium" value="{{ edit ? edit_assignment.start_time|date('m/d/Y H:i:s') : set_value('start_time') }}" />
+		<input id="start_time" type="text" name="start_time" class="mysui_input medium" value="{{ edit ? edit_assignment.start_time|date('m/d/Y H:i:s') : set_value('start_time') }}" />
 		{{ form_error('start_time', '<div class="shj_error">', '</div>') }}
 	</p>
 	<p class="input_p">
 		<label for="finish_time">Finish Time</label>
-		<input id="finish_time" type="text" name="finish_time" class="sharif_input medium" value="{{ edit ? edit_assignment.finish_time|date('m/d/Y H:i:s') : set_value('finish_time') }}" />
+		<input id="finish_time" type="text" name="finish_time" class="mysui_input medium" value="{{ edit ? edit_assignment.finish_time|date('m/d/Y H:i:s') : set_value('finish_time') }}" />
 		{{ form_error('finish_time', '<div class="shj_error">', '</div>') }}
 	</p>
 	<p class="input_p clear">
@@ -107,7 +107,7 @@
 			Extra Time (minutes)<br>
 			<span class="form_comment">Extra time for late submissions.</span>
 		</label>
-		<input id="form_extra_time" type="text" name="extra_time" id="extra_time" class="sharif_input medium" value="{{ edit ? edit_assignment.extra_time|extra_time_formatter : set_value('extra_time') }}" />
+		<input id="form_extra_time" type="text" name="extra_time" id="extra_time" class="mysui_input medium" value="{{ edit ? edit_assignment.extra_time|extra_time_formatter : set_value('extra_time') }}" />
 		{{ form_error('extra_time', '<div class="shj_error">', '</div>') }}
 	</p>
 	<p class="input_p clear">
@@ -115,7 +115,7 @@
 			<span class="form_comment">Enter username of participants here (comma separated).
 				Only these users are able to submit. You can use keyword "ALL".</span>
 		</label>
-		<textarea id="form_participants" name="participants" rows="5" class="sharif_input medium">{{ edit ? edit_assignment.participants : set_value('participants', 'ALL') }}</textarea>
+		<textarea id="form_participants" name="participants" rows="5" class="mysui_input medium">{{ edit ? edit_assignment.participants : set_value('participants', 'ALL') }}</textarea>
 	</p>
 	<p class="input_p clear">
 		<label for="form_tests_desc">Tests and Descriptions (zip file)<br>
@@ -123,7 +123,7 @@
 				<a href="https://github.com/mjnaderi/Sharif-Judge/blob/docs/v1.4/tests_structure.md" target="_blank">Use this structure</a>
 			</span>
 		</label>
-		<input id="form_tests_desc" type="file" name="tests_desc" class="sharif_input medium"/>
+		<input id="form_tests_desc" type="file" name="tests_desc" class="mysui_input medium"/>
 	</p>
 	<p class="input_p clear">
 		<label for="form_pdf">PDF File<br>
@@ -131,7 +131,7 @@
 				PDF File of Assignment
 			</span>
 		</label>
-		<input id="form_pdf" type="file" name="pdf" class="sharif_input medium"/>
+		<input id="form_pdf" type="file" name="pdf" class="mysui_input medium"/>
 	</p>
 </div>
 <div class="panel_right">
@@ -156,7 +156,7 @@
 	<p class="input_p">
 		<label for="form_late_rule">Coefficient rule (<a target="_blank" href="https://github.com/mjnaderi/Sharif-Judge/blob/docs/v1.4/add_assignment.md#coefficient-rule">?</a>)</label><br>
 		<span class="form_comment medium clear" style="display: block;">PHP script without &lt;?php ?&gt; tags</span>
-		<textarea id="form_late_rule" name="late_rule" rows="20" class="sharif_input add_text">{{ edit ? edit_assignment.late_rule : set_value('late_rule', default_late_rule) }}</textarea>
+		<textarea id="form_late_rule" name="late_rule" rows="20" class="mysui_input add_text">{{ edit ? edit_assignment.late_rule : set_value('late_rule', default_late_rule) }}</textarea>
 		{{ form_error('late_rule', '<div class="shj_error">', '</div>') }}
 	</p>
 </div>
@@ -183,15 +183,15 @@
 	{% for problem in problems %}
 		<tr>
 			<td>{{ problem.id }}</td>
-			<td><input type="text" name="name[]" class="sharif_input short" value="{{ problem.name }}"/></td>
-			<td><input type="text" name="score[]" class="sharif_input tiny2" value="{{ problem.score }}"/></td>
-			<td><input type="text" name="c_time_limit[]" class="sharif_input tiny2" value="{{ problem.c_time_limit }}"/></td>
-			<td><input type="text" name="python_time_limit[]" class="sharif_input tiny2" value="{{ problem.python_time_limit }}"/></td>
-			<td><input type="text" name="java_time_limit[]" class="sharif_input tiny2" value="{{ problem.java_time_limit }}"/></td>
-			<td><input type="text" name="memory_limit[]" class="sharif_input tiny" value="{{ problem.memory_limit }}"/></td>
-			<td><input type="text" name="languages[]" class="sharif_input short2" value="{{ problem.allowed_languages }}"/></td>
-			<td><input type="text" name="diff_cmd[]" class="sharif_input tiny" value="{{ problem.diff_cmd }}"/></td>
-			<td><input type="text" name="diff_arg[]" class="sharif_input tiny" value="{{ problem.diff_arg }}"/></td>
+			<td><input type="text" name="name[]" class="mysui_input short" value="{{ problem.name }}"/></td>
+			<td><input type="text" name="score[]" class="mysui_input tiny2" value="{{ problem.score }}"/></td>
+			<td><input type="text" name="c_time_limit[]" class="mysui_input tiny2" value="{{ problem.c_time_limit }}"/></td>
+			<td><input type="text" name="python_time_limit[]" class="mysui_input tiny2" value="{{ problem.python_time_limit }}"/></td>
+			<td><input type="text" name="java_time_limit[]" class="mysui_input tiny2" value="{{ problem.java_time_limit }}"/></td>
+			<td><input type="text" name="memory_limit[]" class="mysui_input tiny" value="{{ problem.memory_limit }}"/></td>
+			<td><input type="text" name="languages[]" class="mysui_input short2" value="{{ problem.allowed_languages }}"/></td>
+			<td><input type="text" name="diff_cmd[]" class="mysui_input tiny" value="{{ problem.diff_cmd }}"/></td>
+			<td><input type="text" name="diff_arg[]" class="mysui_input tiny" value="{{ problem.diff_arg }}"/></td>
 			<td><input type="checkbox" name="is_upload_only[]" class="check" value="{{ problem.id }}" {{ problem.is_upload_only ? 'checked' }}/></td>
 			<td><i class="fa fa-times-circle fa-lg color1 delete_problem pointer"></i></td>
 		</tr>
@@ -209,7 +209,7 @@
 {{ form_error('diff_cmd[]', '<div class="shj_error">', '</div>') }}
 {{ form_error('diff_arg[]', '<div class="shj_error">', '</div>') }}
 <p class="input_p">
-	<input type="submit" value="{{ edit ? 'Edit' : 'Add' }} Assignment" class="sharif_input"/>
+	<input type="submit" value="{{ edit ? 'Edit' : 'Add' }} Assignment" class="mysui_input"/>
 </p>
 </form>
 {% endblock %}  {# main_content #}

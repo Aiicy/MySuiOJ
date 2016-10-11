@@ -24,34 +24,34 @@
 	<label for="form_username" class="short2">用户名：<br>
 		<span class="form_comment">你不能修改用户名。</span>
 	</label>
-	<input id="form_username" type="text" name="username" class="sharif_input medium" value="{{ edit_username }}"  disabled/>
+	<input id="form_username" type="text" name="username" class="mysui_input medium" value="{{ edit_username }}"  disabled/>
 </p>
 <p class="input_p clear">
 	<label for="form_name" class="short2">姓名：</label>
-	<input id="form_name" type="text" name="display_name" class="sharif_input medium" value="{{ display_name }}"/>
+	<input id="form_name" type="text" name="display_name" class="mysui_input medium" value="{{ display_name }}"/>
 	{{ form_error('display_name', '<div class="shj_error">', '</div>') }}
 </p>
 <p class="input_p clear">
 	<label for="form_email" class="short2">电子邮箱：</label>
-	<input id="form_email" type="text" name="email" class="sharif_input medium" value="{{ email }}"/>
+	<input id="form_email" type="text" name="email" class="mysui_input medium" value="{{ email }}"/>
 	{{ form_error('email', '<div class="shj_error">', '</div>') }}
 </p>
 <p class="input_p clear">
 	<label for="form_password" class="short2">密码：<br>
 		<span class="form_comment">如果你不想修改密码，留空这里。</span>
 	</label>
-	<input id="form_password" type="password" name="password" class="sharif_input medium"/>
+	<input id="form_password" type="password" name="password" class="mysui_input medium"/>
 	{{ form_error('password', '<br><span class="shj_error">', '</span>') }}
 </p>
 <p class="input_p clear">
 	<label for="form_password_2" class="short2">再次输入密码：</label>
-	<input id="form_password_2" type="password" name="password_again" class="sharif_input medium"/>
+	<input id="form_password_2" type="password" name="password_again" class="mysui_input medium"/>
 	{{ form_error('password_again', '<div class="shj_error">', '</div>') }}
 </p>
 {% if user.level == 3 %}
 <p class="input_p clear">
 	<label for="form_role" class="short2">用户组：</label>
-	<select id="form_role" name="role" class="sharif_input">
+	<select id="form_role" name="role" class="mysui_input">
 		<option value="admin" {{ role=='admin' ? 'selected="selected"' }} >管理员</option>
 		<option value="head_instructor" {{ role=='head_instructor' ? 'selected="selected"' }} >班主任</option>
 		<option value="instructor" {{ role=='instructor' ? 'selected="selected"' }} >老师</option>
@@ -61,7 +61,7 @@
 </p>
 {% endif %}
 <p class="input_p">
-	<input type="submit" value="Save" class="sharif_input"/>
+	<input type="submit" value="Save" class="mysui_input"/>
 </p>
 </form>
 {% endblock %}  {# main_content #}

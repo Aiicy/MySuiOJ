@@ -17,7 +17,7 @@
 			<div class="login1">
 				<p>
 					<label for="form_email">邮箱</label><br/>
-					<input id="form_email" type="email" name="email" class="sharif_input" value="{{ set_value('email') }}"/>
+					<input id="form_email" type="email" name="email" class="mysui_input" value="{{ set_value('email') }}"/>
 					{{ form_error('email', '<div class="shj_error">', '</div>') }}
 				</p>
 				{% if sent %}
@@ -27,7 +27,7 @@
 			<div class="login2">
 				<p style="margin:0;">
 					<a href="{{ site_url('login') }}">登录</a>
-					<input type="submit" value="Reset Password" id="sharif_submit"/>
+					<input type="submit" value="Reset Password" id="mysui_submit"/>
 				</p>
 			</div>
 		</div>

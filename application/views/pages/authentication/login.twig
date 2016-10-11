@@ -17,12 +17,12 @@
 			<div class="login1">
 				<p>
 					<label for="form_username">用户名</label><br/>
-					<input id="form_username" type="text" name="username" required="required" pattern="[0-9a-z]{3,20}" title="用户名为3到20个小写英文字母" class="sharif_input" value="{{ set_value('username') }}" autofocus="autofocus"/>
+					<input id="form_username" type="text" name="username" required="required" pattern="[0-9a-z]{3,20}" title="用户名为3到20个小写英文字母" class="mysui_input" value="{{ set_value('username') }}" autofocus="autofocus"/>
 					{{ form_error('username', '<div class="shj_error">', '</div>') }}
 				</p>
 				<p>
 					<label for="form_password">密码</label><br/>
-					<input id="form_password" type="password" name="password" required="required" pattern=".{6,200}" title="密码长度至少为6个字母" class="sharif_input"/>
+					<input id="form_password" type="password" name="password" required="required" pattern=".{6,200}" title="密码长度至少为6个字母" class="mysui_input"/>
 					{{ form_error('password', '<div class="shj_error">', '</div>') }}
 				</p>
 				{% if error %}
@@ -35,7 +35,7 @@
 					<a href="{{ site_url('register') }}">注册</a> |
 					{% endif %}
 					<a href="{{ site_url('login/lost') }}">找回密码</a>
-					<input type="submit" value="Login" id="sharif_submit"/>
+					<input type="submit" value="Login" id="mysui_submit"/>
 				</p>
 			</div>
 		</div>

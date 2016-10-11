@@ -67,7 +67,7 @@ $(document).ready(function(){
 			<p style="text-align: center;">Nothing to show...</p>
 		{% endif %}
 
-		<table class="sharif_table">
+		<table class="mysui_table">
 			<thead>
 			<tr>
 				<th rowspan="2">#</th>
@@ -96,7 +96,7 @@ $(document).ready(function(){
 		<input type="hidden" name="problem" value="{{ problem.id }}"/>
 
 		<p class="input_p">
-			<select id="languages" name="language" class="sharif_input full-width">
+			<select id="languages" name="language" class="mysui_input full-width">
 				<option value="0" selected="selected">-- Select Language --</option>
 				{% for l in problem.allowed_languages %}
 					<option value="{{ l }}">{{ l }}</option>
@@ -104,10 +104,10 @@ $(document).ready(function(){
 			</select>
 		</p>
 		<p class="input_p">
-			<input type="file" id="file" class="sharif_input full-width" name="userfile"/>
+			<input type="file" id="file" class="mysui_input full-width" name="userfile"/>
 		</p>
 		<p class="input_p">
-			<input type="submit" value="Submit" class="sharif_input"/>
+			<input type="submit" value="Submit" class="mysui_input"/>
 		</p>
 		</form>
 	</div>

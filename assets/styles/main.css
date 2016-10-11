@@ -585,7 +585,7 @@ div#main_container div#main_content {
 
 /***********************************************/
 
-.sharif_input {
+.mysui_input {
 	outline: none;
 	padding: 5px;
 	background-color: white;
@@ -596,18 +596,18 @@ div#main_container div#main_content {
 	box-shadow: rgba(0, 0, 0, 0.1) 0 0 2px 1px;
 }
 
-.sharif_input:hover {
+.mysui_input:hover {
 	border-color: #8d8d8d;
 }
 
-.sharif_input:focus {
+.mysui_input:focus {
 	border-color: rgba(82, 168, 236, 0.6);
 	box-shadow: rgba(82, 168, 236, 0.6) 0 0 5px;
 	-moz-box-shadow: rgba(82, 168, 236, 0.6) 0 0 5px;
 	-webkit-box-shadow: rgba(82, 168, 236, 0.6) 0 0 5px;
 }
 
-input.sharif_input:disabled {
+input.mysui_input:disabled {
 	color: #aaa;
 }
 
@@ -684,7 +684,7 @@ p.input_p textarea {
 	z-index: -50;
 }
 
-select.sharif_time {
+select.mysui_time {
 	width: 300px;
 	font-size: 16px;
 }
@@ -738,7 +738,7 @@ select.sharif_time {
 
 /********************************************/
 
-.sharif_table {
+.mysui_table {
 	*border-collapse: collapse; /* IE7 and lower */
 	border-spacing: 0;
 	width: 100%;
@@ -751,26 +751,26 @@ select.sharif_time {
 	box-shadow: 0 1px 1px #ccc;
 }
 
-.sharif_table tr.hl {
+.mysui_table tr.hl {
 	background-color: #E0E0E0;
 }
 
-.sharif_table tr {
+.mysui_table tr {
 	background-color: #fcfcfc;
 }
 
-.sharif_table tr:hover {
+.mysui_table tr:hover {
 	background-color: #f0f0f0;
 }
 
-.sharif_table td, .sharif_table th {
+.mysui_table td, .mysui_table th {
 	border-left: 1px solid #AFAFAF;
 	border-top: 1px solid #AFAFAF;
 	padding: 3px 5px;
 	text-align: center;
 }
 
-.sharif_table td {
+.mysui_table td {
 	height: 42px;
 }
 
@@ -778,7 +778,7 @@ select.sharif_time {
 	padding: 2px;
 }
 
-.sharif_table th {
+.mysui_table th {
 	background-color: #dce9f9;
 	background-image: -webkit-gradient(linear, left top, left bottom, from(#ebf3fc), to(#dce9f9));
 	background-image: -webkit-linear-gradient(top, #ebf3fc, #dce9f9);
@@ -793,41 +793,41 @@ select.sharif_time {
 	text-shadow: 0 1px 0 rgba(255, 255, 255, .5);
 }
 
-.sharif_table td:first-child, .sharif_table th:first-child {
+.mysui_table td:first-child, .mysui_table th:first-child {
 	border-left: none;
 }
 
-.sharif_table th:first-child {
+.mysui_table th:first-child {
 	-moz-border-radius: 6px 0 0 0;
 	-webkit-border-radius: 6px 0 0 0;
 	border-radius: 6px 0 0 0;
 }
 
-.sharif_table th:last-child {
+.mysui_table th:last-child {
 	-moz-border-radius: 0 6px 0 0;
 	-webkit-border-radius: 0 6px 0 0;
 	border-radius: 0 6px 0 0;
 }
 
-.sharif_table th:only-child {
+.mysui_table th:only-child {
 	-moz-border-radius: 6px 6px 0 0;
 	-webkit-border-radius: 6px 6px 0 0;
 	border-radius: 6px 6px 0 0;
 }
 
-.sharif_table tr:last-child td:first-child {
+.mysui_table tr:last-child td:first-child {
 	-moz-border-radius: 0 0 0 6px;
 	-webkit-border-radius: 0 0 0 6px;
 	border-radius: 0 0 0 6px;
 }
 
-.sharif_table tr:last-child td:last-child {
+.mysui_table tr:last-child td:last-child {
 	-moz-border-radius: 0 0 6px 0;
 	-webkit-border-radius: 0 0 6px 0;
 	border-radius: 0 0 6px 0;
 }
 
-.sharif_table th.score {
+.mysui_table th.score {
 	border-radius: 0;
 	border-top: 1px solid #AFAFAF;
 	border-left: 1px solid #AFAFAF;
