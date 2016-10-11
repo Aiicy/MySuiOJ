@@ -1,7 +1,7 @@
 /**
  * MySui Online Judge
  * @file shj_submissions.js
- * @author Mohammad Javad Naderi <mjnaderi@gmail.com>
+ * @author MySuiOJ Team <MySuiOJ@gmail.com>
  *
  *     Javascript codes for "All Submissions" and "Final Submissions" pages
  */

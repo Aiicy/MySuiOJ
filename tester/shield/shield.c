@@ -3,7 +3,7 @@
  * Shield for C
  *
  * Author:
- *  Mohammad Javad Naderi <mjnaderi@gmail.com>
+ *  MySuiOJ Team <MySuiOJ@gmail.com>
  *
  */
 

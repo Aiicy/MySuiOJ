@@ -2,7 +2,7 @@
 /**
  * MySui Online Judge
  * @file MY_Form_validation.php
- * @author Mohammad Javad Naderi <mjnaderi@gmail.com>
+ * @author MySuiOJ Team <MySuiOJ@gmail.com>
  */
 defined('BASEPATH') OR exit('No direct script access allowed');
 

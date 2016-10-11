@@ -2,7 +2,7 @@
 #
 # Portable PHP password hashing framework.
 #
-# Version 0.3 / Sharif-Judge.
+# Version 0.3 / MySuiOJ.
 #
 # Written by Solar Designer <solar at openwall.com> in 2004-2006 and placed in
 # the public domain.  Revised in subsequent years, still public domain.
