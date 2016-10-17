@@ -5,7 +5,7 @@
  * Free to use under the MIT license.
  * http://www.opensource.org/licenses/mit-license.php
  *
- * This code has been changed by MySuiOJ Team <MySuiOJ@gmail.com> for MySui Online Judge
+ * This code has been changed by MySuiOJ Team <mysuioj@gmail.com> for MySui Online Judge
  */
 
 (function ($) {

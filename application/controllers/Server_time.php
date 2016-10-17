@@ -2,7 +2,7 @@
 /**
  * MySui Online Judge
  * @file Server_time.php
- * @author MySuiOJ Team <MySuiOJ@gmail.com>
+ * @author MySuiOJ Team <mysuioj@gmail.com>
  */
 defined('BASEPATH') OR exit('No direct script access allowed');
 

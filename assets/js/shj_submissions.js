@@ -1,7 +1,7 @@
 /**
  * MySui Online Judge
  * @file shj_submissions.js
- * @author MySuiOJ Team <MySuiOJ@gmail.com>
+ * @author MySuiOJ Team <mysuioj@gmail.com>
  *
  *     Javascript codes for "All Submissions" and "Final Submissions" pages
  */

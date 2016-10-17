@@ -21,7 +21,7 @@
 # its children--as long as a process doesn't detach ownership from parent (or
 # doesn't change process group; use -w).
 
-# Some lines are added by MySuiOJ Team <MySuiOJ@gmail.com> 
+# Some lines are added by MySuiOJ Team <mysuioj@gmail.com> 
 # (indicated by "# added by MySuiOJ") to enable using EasySandbox 
 # in MySui Online Judge (https://github.com/MySuiOJ/MySuiOJ)
 # July, 29, 2013

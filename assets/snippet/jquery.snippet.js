@@ -8,7 +8,7 @@
  *
  * Date: Wed Jan 19, 2011
  *
- * This file has been changed by MySuiOJ Team <MySuiOJ@gmail.com>
+ * This file has been changed by MySuiOJ Team <mysuioj@gmail.com>
  *     - removed zeroclipboard
  *     - removed unnecessary languages
  *     - added select all

@@ -1,7 +1,7 @@
 /**
  * MySui Online Judge
  * @file shj_functions.js
- * @author MySuiOJ Team <MySuiOJ@gmail.com>
+ * @author MySuiOJ Team <mysuioj@gmail.com>
  */
 
 // These words are used in countdown timer
