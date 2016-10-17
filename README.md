@@ -1,5 +1,6 @@
 # MySui Online Judge
 
+![](http://p1.bpimg.com/4851/2ccddefb5f901956.png)
 [MySui Online Judge](https://github.com/mysuioj/mysuioj) 是一个开源的在线评测 C, C++, Java 和
 Python 程序的系统,基于CodeIgniter框架开发。
 
@@ -11,7 +12,6 @@ Python代码的测试目前还没有使用沙箱，仅使用一种低权限的�
 
 关于Online Judge完整的使用文档在 https://github.com/mysuioj/mysuioj/wiki
 
-![](http://p1.bpimg.com/4851/2ccddefb5f901956.png)
 ## 功能
   * 多种用户权限 (管理员, 班主任, 老师, 学生)
   * 沙箱 _(暂不支持python)_
