@@ -1,7 +1,7 @@
 # MySui Online Judge
 
 [MySui Online Judge](https://github.com/mysuioj/mysuioj) 是一个开源的在线评测 C, C++, Java 和
-Python 程序的系统,基于Sharif Judge开发，使更适用于中国环境。
+Python 程序的系统,基于CodeIgniter框架开发。
 
 前端网页及交互页面由PHP语言开发，后端主要采用BASH。
 
@@ -40,7 +40,7 @@ Python代码的测试目前还没有使用沙箱，仅使用一种低权限的�
 
 ## 安装
 
-  1. 通过clone或zip形式下载最新的代码 [code page](https://github.com/mysuioj/mysuioj) ，把clone或解压缩所得的文件放入网页文件夹里，例如apache2默认的文件夹是/var/www/html。
+  1. 下载需要版本的代码 [code page](https://github.com/MySuiOJ/MySuiOJ/releases) ，把解压缩所得的文件放入网页文件夹里，例如apache2默认的文件夹是/var/www/html。
   2. **[可选]** 移动文件夹 `system` 和 `application` 到你的个人目录下， 并把所在目录的完整路径写在　`index.php`　文件里 （`$system_path`　和　`$application_folder` 这两个参数）。
   3. 专门为Online Judge创建一个MySql或是PostgreSql的数据库。不要安装任何用C/C++, Java或Python语言编写的数据库连接软件。
   4. 在`application/config/database.php`文件里设置数据库连接选项。
