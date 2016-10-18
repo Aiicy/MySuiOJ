@@ -523,6 +523,7 @@ div#shj_collapse span {
 /*********************************************/
 
 div#main_container {
+	background-image: url(../images/default_bg.png);
 	z-index: 0;
 	color: #595959;
 	position: absolute;
