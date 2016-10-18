@@ -126,7 +126,7 @@ class Problems extends CI_Controller
 			show_404();
 
 		$this->form_validation->set_rules('text', 'text' ,''); /* todo: xss clean */
-		if ($this->form_validation->run())
+		if ($this->form_validation->run() || $_POST)/**/
 		{
 			$this->assignment_model->save_problem_description($assignment_id, $problem_id, $this->input->post('text'), $ext);
 			redirect('problems/'.$assignment_id.'/'.$problem_id);
