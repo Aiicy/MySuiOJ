@@ -48,7 +48,7 @@ Python代码的测试目前还没有使用沙箱，仅使用一种低权限的�
   5. **[重要]**使文件夹 `application/cache/Twig` php可写，而不是只有owner。
   6. 在浏览器里打开Online Judge的主页，开始安装。
   7. 使用上一步设置的管理员账户登陆。
-  8. **[重要]** 移动文件夹 `tester` 和 `assignments` 到你的个人目录下，然后把它们的完整路径写在 `设置` 页面里. **这两个文件夹必须使得PHP可写而不是只有owner.** 提交的文件将被放置在 `assignments` 文件夹里，所以应该放在不是公开目录里。
+  8. **[重要]** 移动文件夹 `tester` 和 `assignments` 到你的个人目录下，然后把它们的完整路径写在 `设置` 页面里. **这两个文件夹必须使得PHP可写而不是只有owner.** 提交的文件将被放置在 `assignments` 文件夹里，所以应该放在非公开目录里。
   9. **[重要]** [MySui Online Judge安全相关](https://github.com/mysuioj/mysuioj/wiki)
 
 ## 安装之后
