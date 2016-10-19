@@ -6,14 +6,14 @@
 {% set selected = 'notifications' %}
 {% extends 'templates/base.twig' %}
 {% block icon %}fa-bell{% endblock %}
-{% block title %}通知{% endblock %}
-{% block head_title %}通知{% endblock %}
+{% block title %}{{ lang('Notifications') }}{% endblock %}
+{% block head_title %}{{ lang('Notifications') }}{% endblock %}
 
 
 
 {% block title_menu %}
 	{% if user.level >= 2 %}
-	<span class="title_menu_item"><a href="{{ site_url('notifications/add') }}"><i class="fa fa-plus color10"></i> New</a></span>
+	<span class="title_menu_item"><a href="{{ site_url('notifications/add') }}"><i class="fa fa-plus color10"></i> {{ lang('New') }}</a></span>
 	{% endif %}
 {% endblock %}
 
@@ -21,7 +21,7 @@
 
 {% block main_content %}
 {% if notifications|length == 0 %}
-<p style="text-align: center;">Nothing yet...</p>
+<p style="text-align: center;">{{ lang('Nothing yet...') }}</p>
 {% endif %}
 {% for notification in notifications %}
 	<div class="notif" id="number{{ notification.id }}" data-id="{{ notification.id }}">
@@ -30,8 +30,8 @@
 			<div class="notif_meta">
 				{{ notification.time }}
 				{% if user.level >= 2 %}
-					<span class="anchor edt_n">Edit</span>
-					<span class="anchor del_n">Delete</span>
+					<span class="anchor edt_n">{{ lang('Edit') }}</span>
+					<span class="anchor del_n">{{ lang('Delete') }}</span>
 				{% endif %}
 			</div>
 		</div>

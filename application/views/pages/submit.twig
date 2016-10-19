@@ -6,8 +6,8 @@
 {% set selected = 'submit' %}
 {% extends 'templates/base.twig' %}
 {% block icon %}fa-location-arrow{% endblock %}
-{% block title %}代码提交{% endblock %}
-{% block head_title %}代码提交{% endblock %}
+{% block title %}{{ lang('Submit') }}{% endblock %}
+{% block head_title %}{{ lang('Submit') }}{% endblock %}
 
 
 
@@ -19,7 +19,7 @@
 		$("select#problems").change(function(){
 			var v = $(this).val();
 			$('select#languages').empty();
-			$('<option value="0" selected="selected">-- 选择语言 --</option>').appendTo('select#languages');
+			$('<option value="0" selected="selected">-- {{ lang('Select Language') }} --</option>').appendTo('select#languages');
 			if (v==0)
 				return;
 			for (var i=0;i<msoj.p[v].length;i++)
@@ -35,13 +35,13 @@
 {% if error != 'none' %}
 <p>{{ error }}</p>
 {% else %}
-	<p>所选任务： <span dir="auto">{{ user.selected_assignment.name }}</span></p>
-	<p>完成度： {{ coefficient }}%</p>
+	<p>{{ lang('Selected assignment') }}： <span dir="auto">{{ user.selected_assignment.name }}</span></p>
+	<p>{{ lang('Coefficient') }}： {{ coefficient }}%</p>
 	{{ form_open_multipart('submit') }}
 	<p class="input_p">
-		<label for="problems" class="tiny">问题：</label>
+		<label for="problems" class="tiny">{{ lang('Problem') }}：</label>
 		<select id="problems" name ="problem" class="mysui_input">
-			<option value="0" selected="selected">-- 选择问题 --</option>
+			<option value="0" selected="selected">-- {{ lang('Select Problem') }} --</option>
 			{% for problem in problems %}
 				<option dir="auto" value="{{ problem.id }}">{{ problem.name }}</option>
 			{% endfor %}
@@ -49,23 +49,23 @@
 		{{ form_error('problem','<div class="msoj_error">','</div>') }}
 	</p>
 	<p class="input_p">
-		<label for="languages" class="tiny">语言：</label>
+		<label for="languages" class="tiny">{{ lang('Language') }}：</label>
 		<select id="languages" name="language" class="mysui_input">
-			<option value="0" selected="selected">-- 选择语言 --</option>
+			<option value="0" selected="selected">-- {{ lang('Select Language') }} --</option>
 		</select>
 		{{ form_error('language','<div class="msoj_error">','</div>') }}
 	</p>
 	<p class="input_p">
-		<label for="file" class="tiny">文件：</label>
+		<label for="file" class="tiny">{{ lang('File') }}：</label>
 		<input type="file" id="file" class="mysui_input medium" name="userfile" />
 		{% if upload_state == 'error' %}
-		<div class="msoj_error">Error uploading file.</div>
+		<div class="msoj_error">{{ lang('Error uploading file') }}</div>
 		{% elseif upload_state == 'ok' %}
-		<div class="msoj_ok">File uploaded successfully. See the result in 'All Submissions'.</div>
+		<div class="msoj_ok">{{ lang('File uploaded') }}</div>
 		{% endif %}
 	</p>
 	<p class="input_p">
-		<input type="submit" value="Submit" class="mysui_input"/>
+		<input type="submit" value="{{ lang('Submit') }}" class="mysui_input"/>
 	</p>
 	</form>
 {% endif %}

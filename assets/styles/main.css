@@ -709,6 +709,10 @@ select.mysui_time {
 	padding: 5px;
 }
 
+.all_assignments a {
+	padding: 0px!important;
+}
+
 .assignment_block {
 	height: 40px;
 	cursor: pointer;

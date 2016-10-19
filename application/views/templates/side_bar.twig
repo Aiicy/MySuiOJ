@@ -46,7 +46,7 @@
 		<li class="color-submit{{ selected=='submit' ? ' selected' }}">
 			<a href="{{ site_url('submit') }}">
 				<i class="fa fa-location-arrow fa-lg"></i>
-				<span class="sidebar_text">{{ lang('Submit') }}</span>
+				<span class="sidebar_text">{{ lang('Submit Codes') }}</span>
 			</a>
 		</li>
 		<li class="color-final_submissions{{ selected=='final_submissions' ? ' selected' }}">
@@ -70,11 +70,11 @@
 	</ul>
 	<div id="sidebar_bottom">
 		<p>
-			<a href="https://github.com/MySuiOJ/MySuiOJ" target="_blank">&copy; MySui Team {{ SHJ_VERSION }}</a>
+			<a href="https://github.com/MySuiOJ/MySuiOJ" target="_blank">&copy; MySui Team {{ MSOJ_VERSION }}</a>
 			<a href="https://github.com/MySuiOJ/MySuiOJ/wiki" target="_blank">{{ lang('Docs') }}</a>
 		</p>
 		<p class="timer"></p>
-		<div id="shj_collapse" class="pointer">
+		<div id="msoj_collapse" class="pointer">
 			<i id="collapse" class="fa fa-caret-square-o-left fa-lg"></i><span class="sidebar_text">{{ lang('Collapse Menu') }}</span>
 		</div>
 	</div>

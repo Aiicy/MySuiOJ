@@ -12,8 +12,8 @@ $lang['Users']		= '用户';
 $lang['Notifications']		= '通知';
 $lang['Assignments']		= '任务';
 $lang['Problems']		= '问题';
-$lang['Submit']		= '代码提交';
-$lang['Final Submissions']		= '最近的提交';
+$lang['Submit Codes']		= '代码提交';
+$lang['Final Submissions']		= '最近提交';
 $lang['All Submissions']		= '所有提交';
 $lang['Scoreboard']		= '积分板';
 $lang['Docs']		= 'Docs';
@@ -40,7 +40,7 @@ $lang['Cannot change username']		= '你不能修改用户名。';
 $lang['Name']		= '姓名';
 $lang['Email']		= '电子邮箱';
 $lang['Password']		= '密码';
-$lang['Not change password']		= '如果你不想修改密码，留空这里。';
+$lang['Not change password']		= '如果不想修改密码，留空这里。';
 $lang['Password, Again']		= '再次输入密码';
 $lang['User Role']		= '用户组';
 $lang['admin']		= '管理员';
@@ -48,6 +48,77 @@ $lang['head_instructor']		= '班主任';
 $lang['instructor']		= '老师';
 $lang['student']		= '学生';
 $lang['Save']		= '保存';
+//assignments
+$lang['Add']		= '添加';
+$lang['Nothing to show...']		= '没有任务...';
+$lang['Select']		= '选择';
+$lang['Submissions']		= '提交';
+$lang['Coefficient']		= '完成度';
+$lang['Start Time']		= '开启时间';
+$lang['Finish Time']		= '截止时间';
+$lang['Status']		= '状态';
+$lang['PDF']		= 'PDF';
+$lang['Actions']		= '操作';
+$lang['Download Tests and Descriptions']		= '下载题目和描述文件';
+$lang['Download by user']		= '下载最后提交代码 (by user)';
+$lang['Download by problem']		= '下载最后提交代码 (by problem)';
+$lang['Detect Similar Codes']		= '删除相似代码';
+//notifications
+$lang['New']		= '新建';
+//problems
+$lang['Edit Markdown']		= '编辑 Markdown';
+$lang['Edit HTML']		= '编辑 HTML';
+$lang['Edit Plain HTML']		= '编辑 Plain HTML';
+$lang['Problem']		= '问题';
+$lang['Score']		= '评分';
+$lang['Upload Only']		= '上传';
+$lang['Select Language']		= '选择语言';
+$lang['Submit']		= '提交';
+//scoreboard
+$lang['No assignment selected']		= '没有选中的任务。';
+$lang['Scoreboard disabled']		= '积分板已关闭。';
+$lang['Scoreboard of']		= '积分板:';
+//scoreboard_table
+$lang['Total']		= '总分';
+//submit
+$lang['Select Problem']		= '选择问题';
+$lang['Selected assignment']		= '所选任务';
+$lang['Language']		= '语言';
+$lang['File']		= '文件';
+$lang['Error uploading file']		= '文件上传失败。';
+$lang['File uploaded']		= '文件上传成功。点击侧边栏所有提交以查看结果。';
+//submissions
+$lang['Excel']		= 'Excel';
+$lang['Remove Username']		= '清除用户过滤';
+$lang['Remove Problem']		= '清除问题过滤';
+$lang['All Submissions of']		= '所有提交:';
+$lang['Final Submissions of']		= '最近提交:';
+$lang['Cannot Change Submissions']		= '该任务已终止，禁止提交代码！';
+$lang['Final']		= '结果';
+$lang['Submit Time']		= '提交时间';
+$lang['Code']		= '代码';
+$lang['Log']		= '备注';
+$lang['Delay']		= '超时';
+$lang['Final Score']		= '最终评分';
+$lang['No Delay']		= '没有超时';
+$lang['Uploaded']		= '已上传';
+$lang['Download']		= '下载';
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

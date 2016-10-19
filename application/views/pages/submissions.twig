@@ -6,8 +6,8 @@
 {% set selected=view~'_submissions' %}
 {% extends 'templates/base.twig' %}
 {% block icon %}{{ view == 'all' ? 'fa-bars' : 'fa-map-marker' }}{% endblock %}
-{% block title %}{{ view|title }} Submissions{% endblock %}
-{% block head_title %}{{ view|title }} Submissions{% endblock %}
+{% block title %}{{ view == 'all' ? lang('All Submissions') :  lang('Final Submissions') }}{% endblock %}
+{% block head_title %}{{ view == 'all' ? lang('All Submissions') :  lang('Final Submissions') }}{% endblock %}
 
 
 
@@ -25,18 +25,18 @@
 
 {% block title_menu %}
 	<span class="title_menu_item">
-		<a href="{{ excel_link }}"><i class="fa fa-download color2"></i> Excel</a>
+		<a href="{{ excel_link }}"><i class="fa fa-download color2"></i> {{ lang('Excel') }}</a>
 	</span>
 	{% if filter_user %}
 	<span class="title_menu_item">
 		<a href="{{ site_url('submissions/'~view~(filter_problem ? '/problem/'~filter_problem)) }}">
-		<i class="fa fa-filter color1"></i> Remove Username Filter</a>
+		<i class="fa fa-filter color1"></i> {{ lang('Remove Username Filter') }}</a>
 	</span>
 	{% endif %}
 	{% if filter_problem %}
 	<span class="title_menu_item">
 		<a href="{{ site_url('submissions/'~view~(filter_user?'/user/'~filter_user)) }}">
-		<i class="fa fa-filter color4"></i> Remove Problem Filter</a>
+		<i class="fa fa-filter color4"></i> {{ lang('Remove Problem Filter') }}</a>
 	</span>
 	{% endif %}
 {% endblock %} {# title_menu #}
@@ -46,15 +46,15 @@
 
 {% block main_content %}
 
-<p>{{ view|title }} Submissions of <span dir="auto">{{ user.selected_assignment.name }}</span></p>
+<p>{{ view == 'all' ? lang('All Submissions of') :  lang('Final Submissions of') }} <span dir="auto">{{ user.selected_assignment.name }}</span></p>
 {%  if view == 'all' %}
-<p><i class="fa fa-warning color3"></i> You cannot change your final submissions after assignment finishes.</p>
+<p><i class="fa fa-warning color3"></i> {{ lang('Cannot Change Submissions') }}</p>
 {% endif %}
 <table class="mysui_table">
 	<thead>
 		<tr>
 		{% if view == 'all' %}
-			<th width="1%" rowspan="2">Final</th>
+			<th width="1%" rowspan="2">{{ lang('Final') }}</th>
 		{% endif %}
 		{% if user.level > 0 %}
 				{% if view == 'all' %}
@@ -63,36 +63,36 @@
 				<th width="2%" rowspan="2">#</th>
 				<th width="3%" rowspan="2">ID</th>
 				{% endif %}
-				<th width="6%" rowspan="2">Username</th>
-				<th width="14%" rowspan="2">Name</th>
-				<th width="4%" rowspan="2">Problem</th>
-				<th width="14%" rowspan="2">Submit Time</th>
-				<th colspan="3">Score</th>
-				<th width="1%" rowspan="2">Language</th>
-				<th width="6%" rowspan="2">Status</th>
-				<th width="6%" rowspan="2">Code</th>
-				<th width="6%" rowspan="2">Log</th>
+				<th width="6%" rowspan="2">{{ lang('Username') }}</th>
+				<th width="14%" rowspan="2">{{ lang('Name') }}</th>
+				<th width="4%" rowspan="2">{{ lang('Problem') }}</th>
+				<th width="14%" rowspan="2">{{ lang('Submit Time') }}</th>
+				<th colspan="3">{{ lang('Score') }}</th>
+				<th width="1%" rowspan="2">{{ lang('Language') }}</th>
+				<th width="6%" rowspan="2">{{ lang('Status') }}</th>
+				<th width="6%" rowspan="2">{{ lang('Code') }}</th>
+				<th width="6%" rowspan="2">{{ lang('Log') }}</th>
 				{% if user.level >= 2 %}
-				<th width="1%" rowspan="2">Actions</th>
+				<th width="1%" rowspan="2">{{ lang('Actions') }}</th>
 				{% endif %}
 			</tr>
 			<tr>
-				<th width="5%" class="score">Score</th>
-				<th width="5%" class="score">Delay<br>%</th>
-				<th width="5%" class="score">Final Score</th>
+				<th width="5%" class="score">{{ lang('Score') }}</th>
+				<th width="5%" class="score">{{ lang('Delay') }}<br>%</th>
+				<th width="5%" class="score">{{ lang('Final Score') }}</th>
 			</tr>
 		{% else %}
-				<th width="10%" rowspan="2">Problem</th>
-				<th width="30%" rowspan="2">Submit Time</th>
-				<th width="7%" colspan="3">Score</th>
-				<th width="1%" rowspan="2">Language</th>
-				<th width="30%" rowspan="2">Status</th>
-				<th width="15%" rowspan="2">Code</th>
+				<th width="10%" rowspan="2">{{ lang('Problem') }}</th>
+				<th width="30%" rowspan="2">{{ lang('Submit Time') }}</th>
+				<th width="7%" colspan="3">{{ lang('Score') }}</th>
+				<th width="1%" rowspan="2">{{ lang('Language') }}</th>
+				<th width="30%" rowspan="2">{{ lang('Status') }}</th>
+				<th width="15%" rowspan="2">{{ lang('Code') }}</th>
 			</tr>
 			<tr>
-				<th width="7%" class="score">Score</th>
-				<th width="7%" class="score">Delay<br>%</th>
-				<th width="7%" class="score">Final Score</th>
+				<th width="7%" class="score">{{ lang('Score') }}</th>
+				<th width="7%" class="score">{{ lang('Delay') }}<br>%</th>
+				<th width="7%" class="score">{{ lang('Final Score') }}</th>
 			</tr>
 		{% endif %}
 	</thead>
@@ -128,7 +128,7 @@
 			<td>
 				<span class="tiny_text" {{ submission.delay > 0 ? 'style="color:red;"' }}'>
 				{% if submission.delay <= 0 %}
-					No Delay
+					{{ lang('No Delay') }}
 				{% else %}
 					<span title="HH:MM">{{ time_hhmm(submission.delay) }}</span>
 				{% endif %}
@@ -139,7 +139,7 @@
 			<td>{{ submission.language }}</td>
 			<td class="status">
 				{% if submission.status == 'Uploaded' %}
-					Uploaded
+					{{ lang('Uploaded') }}
 				{% else %}
 					{% if submission.status|lower == 'pending' %}
 						{% set submission_class = 'btn' %}
@@ -159,9 +159,9 @@
 			</td>
 			<td>
 				{% if submission.file_type == 'zip' or submission.file_type == 'pdf' %}
-					<div class="btn msoj-orange" data-type="download">Download</div>
+					<div class="btn msoj-orange" data-type="download">{{ lang('Download') }}</div>
 				{% else %}
-					<div class="btn msoj-orange" data-type="code" >Code</div>
+					<div class="btn msoj-orange" data-type="code" >{{ lang('Code') }}</div>
 				{% endif %}
 			</td>
 			{% if user.level > 0 %}
@@ -169,7 +169,7 @@
 				{% if submission.status == 'Uploaded' %}
 					---
 				{% else %}
-					<div class="btn" data-type="log" >Log</div>
+					<div class="btn" data-type="log" >{{ lang('Log') }}</div>
 				{% endif %}
 			</td>
 			{% endif %}

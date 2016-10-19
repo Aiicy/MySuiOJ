@@ -6,18 +6,18 @@
 {% set selected = 'scoreboard' %}
 {% extends 'templates/base.twig' %}
 {% block icon %}fa-star{% endblock %}
-{% block title %}积分板{% endblock %}
-{% block head_title %}积分板{% endblock %}
+{% block title %}{{ lang('Scoreboard') }}{% endblock %}
+{% block head_title %}{{ lang('Scoreboard') }}{% endblock %}
 
 
 
 {% block main_content %}
 {% if user.selected_assignment.id == 0 %}
-<p>No assignment is selected.</p>
+<p>{{ lang('No assignment selected') }}</p>
 {% elseif not user.selected_assignment.scoreboard %}
-<p>Scoreboard is disabled.</p>
+<p>{{ lang('Scoreboard disabled') }}</p>
 {% else %}
-	<p>积分板： <span dir="auto">{{ user.selected_assignment.name }}</span></p>
+	<p>{{ lang('Scoreboard of') }}： <span dir="auto">{{ user.selected_assignment.name }}</span></p>
 	{{ scoreboard|raw }}
 {% endif %}
 {% endblock %} {# main_content #}

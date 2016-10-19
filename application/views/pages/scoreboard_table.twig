@@ -9,8 +9,8 @@
 <thead>
 	<tr>
 		<th>#</th>
-		<th>Username</th>
-		<th>Name</th>
+		<th>{{ lang('Username') }}</th>
+		<th>{{ lang('Name') }}</th>
 		{% for problem in problems %}
 			<th>
 				<a dir="auto" href="{{ site_url("problems/#{assignment_id}/#{problem.id}") }}">{{ problem.name }}</a><br>
@@ -18,7 +18,7 @@
 			</th>
 		{% endfor %}
 		<th>
-			Total<br>
+			{{ lang('Total') }}<br>
 			<span class="tiny_text_b">{{ total_score }}</span>
 		</th>
 	</tr>
