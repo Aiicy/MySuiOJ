@@ -2,7 +2,7 @@
 /**
  * MySui Online Judge
  * @file Problems.php
- * @author MySuiOJ Team <mysuioj@gmail.com>
+ * @author MySui Team <mysuioj@gmail.com>
  */
 defined('BASEPATH') OR exit('No direct script access allowed');
 
@@ -72,8 +72,8 @@ class Problems extends CI_Controller
 
 		if ( $assignment['id'] == 0
 			OR ( $this->user->level == 0 && ! $assignment['open'] )
-			OR shj_now() < strtotime($assignment['start_time'])
-			OR shj_now() > strtotime($assignment['finish_time'])+$assignment['extra_time'] // deadline = finish_time + extra_time
+			OR msoj_now() < strtotime($assignment['start_time'])
+			OR msoj_now() > strtotime($assignment['finish_time'])+$assignment['extra_time'] // deadline = finish_time + extra_time
 			OR ! $this->assignment_model->is_participant($assignment['participants'], $this->user->username)
 		)
 			$data['can_submit'] = FALSE;

@@ -1,7 +1,7 @@
 {#
  # MySui Online Judge
  # file: queue.twig
- # author: MySuiOJ Team <mysuioj@gmail.com>
+ # author: MySui Team <mysuioj@gmail.com>
  #}
 {% set selected = '' %}
 {% extends 'templates/base.twig' %}
@@ -14,11 +14,11 @@
 {% block other_assets %}
 <script>
 	$(document).ready(function(){
-		$(".shj_act").click(function(){
+		$(".msoj_act").click(function(){
 			var action=$(this).attr('id');
 			$.post(
 					'{{ site_url('queue') }}/'+action,
-					{shj_csrf_token: shj.csrf_token},
+					{msoj_csrf_token: msoj.csrf_token},
 					function(data){
 						if (data=='success')
 							location.reload();
@@ -41,9 +41,9 @@
 	| Total submissions in queue: {{ queue|length }}
 </p>
 <p>
-	<a href="#" class="shj_act" id="pause"><i class="fa fa-pause"></i> Pause</a> |
-	<a href="#" class="shj_act" id="resume"><i class="fa fa-play"></i> Resume</a> |
-	<a href="#" class="shj_act" id="empty_queue"><i class="fa fa-times-circle"></i> Empty Queue</a>
+	<a href="#" class="msoj_act" id="pause"><i class="fa fa-pause"></i> Pause</a> |
+	<a href="#" class="msoj_act" id="resume"><i class="fa fa-play"></i> Resume</a> |
+	<a href="#" class="msoj_act" id="empty_queue"><i class="fa fa-times-circle"></i> Empty Queue</a>
 </p>
 <table class="mysui_table">
 	<thead>

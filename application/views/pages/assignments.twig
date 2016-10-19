@@ -1,7 +1,7 @@
 {#
  # MySui Online Judge
  # file: assignments.twig
- # author: MySuiOJ Team <mysuioj@gmail.com>
+ # author: MySui Team <mysuioj@gmail.com>
  #}
 {% set selected = 'assignments' %}
 {% extends 'templates/base.twig' %}
@@ -20,7 +20,7 @@
 
 
 {% block main_content %}
-{% set msgclasses = {'success': 'shj_g', 'notice': 'shj_o', 'error': 'shj_r'} %}
+{% set msgclasses = {'success': 'msoj_g', 'notice': 'msoj_o', 'error': 'msoj_r'} %}
 {% for message in messages %}
 	<p class="{{ msgclasses[message.type] }}">{{ message.text }}</p>
 {% endfor %}

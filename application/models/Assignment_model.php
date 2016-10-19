@@ -2,7 +2,7 @@
 /**
  * MySui Online Judge
  * @file Assignment_model.php
- * @author MySuiOJ Team <mysuioj@gmail.com>
+ * @author MySui Team <mysuioj@gmail.com>
  */
 defined('BASEPATH') OR exit('No direct script access allowed');
 
@@ -355,7 +355,7 @@ class Assignment_model extends CI_Model
 	 */
 	public function set_moss_time($assignment_id)
 	{
-		$now = shj_now_str();
+		$now = msoj_now_str();
 		$this->db->where('id', $assignment_id)->update('assignments', array('moss_update'=>$now));
 	}
 

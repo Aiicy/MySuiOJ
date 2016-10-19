@@ -1,7 +1,7 @@
 {#
  # MySui Online Judge
  # file: submit.twig
- # author: MySuiOJ Team <mysuioj@gmail.com>
+ # author: MySui Team <mysuioj@gmail.com>
  #}
 {% set selected = 'submit' %}
 {% extends 'templates/base.twig' %}
@@ -13,7 +13,7 @@
 
 {% block other_assets %}
 <script>
-	shj.p={};
+	msoj.p={};
 	{{ problems_js|raw }}
 	$(document).ready(function(){
 		$("select#problems").change(function(){
@@ -22,8 +22,8 @@
 			$('<option value="0" selected="selected">-- 选择语言 --</option>').appendTo('select#languages');
 			if (v==0)
 				return;
-			for (var i=0;i<shj.p[v].length;i++)
-				$('<option value="'+shj.p[v][i]+'">'+shj.p[v][i]+'</option>').appendTo('select#languages');
+			for (var i=0;i<msoj.p[v].length;i++)
+				$('<option value="'+msoj.p[v][i]+'">'+msoj.p[v][i]+'</option>').appendTo('select#languages');
 		});
 	});
 </script>
@@ -46,22 +46,22 @@
 				<option dir="auto" value="{{ problem.id }}">{{ problem.name }}</option>
 			{% endfor %}
 		</select>
-		{{ form_error('problem','<div class="shj_error">','</div>') }}
+		{{ form_error('problem','<div class="msoj_error">','</div>') }}
 	</p>
 	<p class="input_p">
 		<label for="languages" class="tiny">语言：</label>
 		<select id="languages" name="language" class="mysui_input">
 			<option value="0" selected="selected">-- 选择语言 --</option>
 		</select>
-		{{ form_error('language','<div class="shj_error">','</div>') }}
+		{{ form_error('language','<div class="msoj_error">','</div>') }}
 	</p>
 	<p class="input_p">
 		<label for="file" class="tiny">文件：</label>
 		<input type="file" id="file" class="mysui_input medium" name="userfile" />
 		{% if upload_state == 'error' %}
-		<div class="shj_error">Error uploading file.</div>
+		<div class="msoj_error">Error uploading file.</div>
 		{% elseif upload_state == 'ok' %}
-		<div class="shj_ok">File uploaded successfully. See the result in 'All Submissions'.</div>
+		<div class="msoj_ok">File uploaded successfully. See the result in 'All Submissions'.</div>
 		{% endif %}
 	</p>
 	<p class="input_p">

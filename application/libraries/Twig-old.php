@@ -126,13 +126,13 @@ class Twig
 	 */
 	public function ci_function_init()
 	{
-		$this->twig->addGlobal('SHJ_VERSION', SHJ_VERSION);
+		$this->twig->addGlobal('MSOJ_VERSION', MSOJ_VERSION);
 
 		/* Functions */
 		$this->twig->addFunction('base_url', new Twig_Function_Function('base_url', array('is_safe' => array('html'))));
 		$this->twig->addFunction('site_url', new Twig_Function_Function('site_url', array('is_safe' => array('html'))));
 		$this->twig->addFunction('anchor', new Twig_Function_Function('anchor'));
-		$this->twig->addFunction('shj_now_str', new Twig_Function_Function('shj_now_str', array('is_safe' => array('html'))));
+		$this->twig->addFunction('msoj_now_str', new Twig_Function_Function('msoj_now_str', array('is_safe' => array('html'))));
 		$this->twig->addFunction('rtrim', new Twig_Function_Function('rtrim'));
 		$this->twig->addFunction('floor', new Twig_Function_Function('floor'));
 		$this->twig->addFunction('ceil', new Twig_Function_Function('ceil'));

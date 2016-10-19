@@ -2,7 +2,7 @@
 /**
  * MySui Online Judge
  * @file Users.php
- * @author MySuiOJ Team <mysuioj@gmail.com>
+ * @author MySui Team <mysuioj@gmail.com>
  */
 defined('BASEPATH') OR exit('No direct script access allowed');
 
@@ -139,7 +139,7 @@ class Users extends CI_Controller
 	public function list_excel()
 	{
 
-		$now = shj_now_str(); // current time
+		$now = msoj_now_str(); // current time
 
 		// Load PHPExcel library
 		$this->load->library('phpexcel');

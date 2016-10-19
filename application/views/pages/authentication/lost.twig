@@ -1,7 +1,7 @@
 {#
  # MySui Online Judge
  # file: lost.twig
- # author: MySuiOJ Team <mysuioj@gmail.com>
+ # author: MySui Team <mysuioj@gmail.com>
  #}
 {% set title = 'Lost Password' %}
 {% include 'templates/simple_header.twig' %}
@@ -18,10 +18,10 @@
 				<p>
 					<label for="form_email">邮箱</label><br/>
 					<input id="form_email" type="email" name="email" class="mysui_input" value="{{ set_value('email') }}"/>
-					{{ form_error('email', '<div class="shj_error">', '</div>') }}
+					{{ form_error('email', '<div class="msoj_error">', '</div>') }}
 				</p>
 				{% if sent %}
-					<div class="shj_ok">We sent you an email containing a link to reset your password.</div>
+					<div class="msoj_ok">We sent you an email containing a link to reset your password.</div>
 				{% endif %}
 			</div>
 			<div class="login2">

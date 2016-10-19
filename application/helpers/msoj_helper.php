@@ -1,43 +1,43 @@
 <?php
 /**
  * MySui Online Judge
- * @file shj_helper.php
- * @author MySuiOJ Team <mysuioj@gmail.com>
+ * @file msoj_helper.php
+ * @author MySui Team <mysuioj@gmail.com>
  */
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 
-if ( ! function_exists('shj_now'))
+if ( ! function_exists('msoj_now'))
 {
 	/**
 	 * Returns server time (uses time zone in settings table)
 	 */
-	function shj_now()
+	function msoj_now()
 	{
-		if ( ! defined('SHJ_NOW') )
+		if ( ! defined('MSOJ_NOW') )
 		{
 			$CI =& get_instance();
 			$CI->load->model('settings_model');
 			$now = new DateTime('now', new DateTimeZone($CI->settings_model->get_setting('timezone')));
 			sscanf($now->format('j-n-Y G:i:s'), '%d-%d-%d %d:%d:%d', $day, $month, $year, $hour, $minute, $second);
-			define('SHJ_NOW', mktime($hour, $minute, $second, $month, $day, $year));
+			define('MSOJ_NOW', mktime($hour, $minute, $second, $month, $day, $year));
 		}
-		return SHJ_NOW;
+		return MSOJ_NOW;
 	}
 }
 
 
 
-if ( ! function_exists('shj_now_str'))
+if ( ! function_exists('msoj_now_str'))
 {
 	/**
 	 * Returns server time (uses time zone in settings table)
 	 */
-	function shj_now_str()
+	function msoj_now_str()
 	{
-		if ( ! defined('SHJ_NOW_STR') )
-			define('SHJ_NOW_STR', date("Y-m-d H:i:s", shj_now()));
-		return SHJ_NOW_STR;
+		if ( ! defined('MSOJ_NOW_STR') )
+			define('MSOJ_NOW_STR', date("Y-m-d H:i:s", msoj_now()));
+		return MSOJ_NOW_STR;
 	}
 }
 
@@ -115,16 +115,16 @@ if ( ! function_exists('process_the_queue'))
 	function process_the_queue()
 	{
 		shell_exec(
-			'export SHJ_BASE_URL='.escapeshellarg(base_url()).'; '.
+			'export MSOJ_BASE_URL='.escapeshellarg(base_url()).'; '.
 			'php '.escapeshellarg(FCPATH.'index.php')." queueprocess run >/dev/null 2>/dev/null &"
 		);
 	}
 }
 
 
-if ( ! function_exists('shj_random_password'))
+if ( ! function_exists('msoj_random_password'))
 {
-	function shj_random_password($len = 6)
+	function msoj_random_password($len = 6)
 	{
 		$pool = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ|!@#$%^&*()_-+=\\/[]{}\'":;?<>.,~';
 		$password = '';
@@ -136,14 +136,14 @@ if ( ! function_exists('shj_random_password'))
 
 
 
-if ( ! function_exists('shj_basename'))
+if ( ! function_exists('msoj_basename'))
 {
-	function shj_basename($path)
+	function msoj_basename($path)
 	{
 		return preg_replace('$^.*[\\\\/]$', '', $path);
 	}
 }
 
 
-/* End of file shj_helper.php */
-/* Location: ./application/helpers/shj_helper.php */
+/* End of file msoj_helper.php */
+/* Location: ./application/helpers/msoj_helper.php */

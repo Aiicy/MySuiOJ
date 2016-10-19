@@ -1,7 +1,7 @@
 {#
  # MySui Online Judge
  # file: delete_assignment.twig
- # author: MySuiOJ Team <mysuioj@gmail.com>
+ # author: MySui Team <mysuioj@gmail.com>
  #}
 {% set selected = 'assignments' %}
 {% extends 'templates/base.twig' %}
@@ -22,8 +22,8 @@
 {{ form_open('assignments/delete/'~id) }}
 <input type="hidden" name="delete" value="delete"/>
 <p class="input_p">
-	<input type="submit" class="btn shj-red" value="Delete this assignment"/>
-	<a href="{{ site_url('assignments') }}" class="btn shj-blue">Do not delete</a>
+	<input type="submit" class="btn msoj-red" value="Delete this assignment"/>
+	<a href="{{ site_url('assignments') }}" class="btn msoj-blue">Do not delete</a>
 </p>
 </form>
 {% endblock %}  {# main_content #}

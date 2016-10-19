@@ -1,7 +1,7 @@
 {#
  # MySui Online Judge
  # file: add_assignment.twig
- # author: MySuiOJ Team <mysuioj@gmail.com>
+ # author: MySui Team <mysuioj@gmail.com>
  #}
 {% set selected = 'assignments' %}
 {% extends 'templates/base.twig' %}
@@ -20,8 +20,8 @@
 </script>
 <script type="text/javascript" src="{{ base_url('assets/js/jquery-ui-timepicker-addon.js') }}"></script>
 <script>
-	shj.num_of_problems={{ problems|length }};
-	shj.row='<tr><td>PID</td>\
+	msoj.num_of_problems={{ problems|length }};
+	msoj.row='<tr><td>PID</td>\
 	<td><input type="text" name="name[]" class="mysui_input short" value="Problem "/></td>\
 	<td><input type="text" name="score[]" class="mysui_input tiny2" value="100"/></td>\
 	<td><input type="text" name="c_time_limit[]" class="mysui_input tiny2" value="500"/></td>\
@@ -35,12 +35,12 @@
 </tr>';
 	$(document).ready(function(){
 		$("#add").click(function(){
-			$('#problems_table>tbody').append(shj.row.replace(/PID/g, (shj.num_of_problems+1)));
-			shj.num_of_problems++;
-			$('#nop').attr('value', shj.num_of_problems);
+			$('#problems_table>tbody').append(msoj.row.replace(/PID/g, (msoj.num_of_problems+1)));
+			msoj.num_of_problems++;
+			$('#nop').attr('value', msoj.num_of_problems);
 		});
 		$(document).on('click', '.delete_problem', function(){
-			if (shj.num_of_problems==1) return;
+			if (msoj.num_of_problems==1) return;
 			var row = $(this).parents('tr');
 			row.remove();
 			var i = 0;
@@ -49,8 +49,8 @@
 				$(this).children(':first').html(i);
 				$(this).find('[type="checkbox"]').attr('value',i);
 			});
-			shj.num_of_problems--;
-			$('#nop').attr('value',shj.num_of_problems);
+			msoj.num_of_problems--;
+			$('#nop').attr('value',msoj.num_of_problems);
 		});
 		$('#start_time').datetimepicker({
 			timeFormat: 'HH:mm:ss'
@@ -73,7 +73,7 @@
 
 
 {% block main_content %}
-{% set msgclasses = {'success': 'shj_g', 'notice': 'shj_o', 'error': 'shj_r'} %}
+{% set msgclasses = {'success': 'msoj_g', 'notice': 'msoj_o', 'error': 'msoj_r'} %}
 {% for message in messages %}
 	<p class="{{ msgclasses[message.type] }}">{{ message.text }}</p>
 {% endfor %}
@@ -90,17 +90,17 @@
 	<p class="input_p">
 		<label for="form_a_name">Assignment Name</label>
 		<input id="form_a_name" type="text" name="assignment_name" class="mysui_input medium" value="{{ edit ? edit_assignment.name : set_value('assignment_name') }}"/>
-		{{ form_error('assignment_name', '<div class="shj_error">', '</div>') }}
+		{{ form_error('assignment_name', '<div class="msoj_error">', '</div>') }}
 	</p>
 	<p class="input_p">
 		<label for="start_time">Start Time</label>
 		<input id="start_time" type="text" name="start_time" class="mysui_input medium" value="{{ edit ? edit_assignment.start_time|date('m/d/Y H:i:s') : set_value('start_time') }}" />
-		{{ form_error('start_time', '<div class="shj_error">', '</div>') }}
+		{{ form_error('start_time', '<div class="msoj_error">', '</div>') }}
 	</p>
 	<p class="input_p">
 		<label for="finish_time">Finish Time</label>
 		<input id="finish_time" type="text" name="finish_time" class="mysui_input medium" value="{{ edit ? edit_assignment.finish_time|date('m/d/Y H:i:s') : set_value('finish_time') }}" />
-		{{ form_error('finish_time', '<div class="shj_error">', '</div>') }}
+		{{ form_error('finish_time', '<div class="msoj_error">', '</div>') }}
 	</p>
 	<p class="input_p clear">
 		<label for="form_extra_time">
@@ -108,7 +108,7 @@
 			<span class="form_comment">Extra time for late submissions.</span>
 		</label>
 		<input id="form_extra_time" type="text" name="extra_time" id="extra_time" class="mysui_input medium" value="{{ edit ? edit_assignment.extra_time|extra_time_formatter : set_value('extra_time') }}" />
-		{{ form_error('extra_time', '<div class="shj_error">', '</div>') }}
+		{{ form_error('extra_time', '<div class="msoj_error">', '</div>') }}
 	</p>
 	<p class="input_p clear">
 		<label for="form_participants">Participants<br>
@@ -139,25 +139,25 @@
 		<input id="form_a_open" type="checkbox" name="open" value="1" {{ edit ? (edit_assignment.open ? 'checked') : set_checkbox('open', '1')|raw }} />
 		<label for="form_a_open" class="default">Open</label>
 		<span class="form_comment space-left">Open or close this assignment</span>
-		{{ form_error('open', '<div class="shj_error">', '</div>') }}
+		{{ form_error('open', '<div class="msoj_error">', '</div>') }}
 	</p>
 	<p class="input_p">
 		<input id="form_a_scoreboard" type="checkbox" name="scoreboard" value="1" {{ edit ? (edit_assignment.scoreboard ? 'checked') : set_checkbox('scoreboard', '1')|raw }} />
 		<label for="form_a_scoreboard" class="default">Scoreboard</label>
 		<span class="form_comment space-left">Check this to enable scoreboard</span>
-		{{ form_error('scoreboard', '<div class="shj_error">', '</div>') }}
+		{{ form_error('scoreboard', '<div class="msoj_error">', '</div>') }}
 	</p>
 	<p class="input_p">
 		<input id="form_a_javaexceptions" type="checkbox" name="javaexceptions" value="1" {{ edit ? (edit_assignment.javaexceptions ? 'checked') : set_checkbox('javaexceptions', '1')|raw }} />
 		<label for="form_a_javaexceptions" class="default">Java Exceptions</label>
 		<span class="form_comment space-left">Check this to show Java exceptions to users</span>
-		{{ form_error('javaexceptions', '<div class="shj_error">', '</div>') }}
+		{{ form_error('javaexceptions', '<div class="msoj_error">', '</div>') }}
 	</p>
 	<p class="input_p">
 		<label for="form_late_rule">Coefficient rule (<a target="_blank" href="https://github.com/MySuiOJ/MySuiOJ/blob/docs/v1.4/add_assignment.md#coefficient-rule">?</a>)</label><br>
 		<span class="form_comment medium clear" style="display: block;">PHP script without &lt;?php ?&gt; tags</span>
 		<textarea id="form_late_rule" name="late_rule" rows="20" class="mysui_input add_text">{{ edit ? edit_assignment.late_rule : set_value('late_rule', default_late_rule, FALSE) }}</textarea>
-		{{ form_error('late_rule', '<div class="shj_error">', '</div>') }}
+		{{ form_error('late_rule', '<div class="msoj_error">', '</div>') }}
 	</p>
 </div>
 <p class="input_p" id="add_problems">Problems <i class="fa fa-plus-circle fa-lg color11 pointer" id="add"></i>
@@ -199,15 +199,15 @@
 	</tbody>
 </table>
 </p>
-{{ form_error('name[]', '<div class="shj_error">', '</div>') }}
-{{ form_error('score[]', '<div class="shj_error">', '</div>') }}
-{{ form_error('c_time_limit[]', '<div class="shj_error">', '</div>') }}
-{{ form_error('python_time_limit[]', '<div class="shj_error">', '</div>') }}
-{{ form_error('java_time_limit[]', '<div class="shj_error">', '</div>') }}
-{{ form_error('memory_limit[]', '<div class="shj_error">', '</div>') }}
-{{ form_error('languages[]', '<div class="shj_error">', '</div>') }}
-{{ form_error('diff_cmd[]', '<div class="shj_error">', '</div>') }}
-{{ form_error('diff_arg[]', '<div class="shj_error">', '</div>') }}
+{{ form_error('name[]', '<div class="msoj_error">', '</div>') }}
+{{ form_error('score[]', '<div class="msoj_error">', '</div>') }}
+{{ form_error('c_time_limit[]', '<div class="msoj_error">', '</div>') }}
+{{ form_error('python_time_limit[]', '<div class="msoj_error">', '</div>') }}
+{{ form_error('java_time_limit[]', '<div class="msoj_error">', '</div>') }}
+{{ form_error('memory_limit[]', '<div class="msoj_error">', '</div>') }}
+{{ form_error('languages[]', '<div class="msoj_error">', '</div>') }}
+{{ form_error('diff_cmd[]', '<div class="msoj_error">', '</div>') }}
+{{ form_error('diff_arg[]', '<div class="msoj_error">', '</div>') }}
 <p class="input_p">
 	<input type="submit" value="{{ edit ? 'Edit' : 'Add' }} Assignment" class="mysui_input"/>
 </p>

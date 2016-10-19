@@ -3,7 +3,7 @@
  * Shield for C++
  *
  * Author:
- *  MySuiOJ Team <mysuioj@gmail.com>
+ *  MySui Team <mysuioj@gmail.com>
  *
  */
 

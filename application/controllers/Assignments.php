@@ -2,7 +2,7 @@
 /**
  * MySui Online Judge
  * @file Assignments.php
- * @author MySuiOJ Team <mysuioj@gmail.com>
+ * @author MySui Team <mysuioj@gmail.com>
  */
 defined('BASEPATH') OR exit('No direct script access allowed');
 
@@ -42,7 +42,7 @@ class Assignments extends CI_Controller
 		foreach ($data['all_assignments'] as &$item)
 		{
 			$extra_time = $item['extra_time'];
-			$delay = shj_now()-strtotime($item['finish_time']);;
+			$delay = msoj_now()-strtotime($item['finish_time']);;
 			ob_start();
 			if ( eval($item['late_rule']) === FALSE )
 				$coefficient = "error";
@@ -110,7 +110,7 @@ class Assignments extends CI_Controller
 
 		// Download the file to browser
 		$this->load->helper('download')->helper('file');
-		$filename = shj_basename($pdf_files[0]);
+		$filename = msoj_basename($pdf_files[0]);
 		force_download($filename, file_get_contents($pdf_files[0]), TRUE);
 	}
 
@@ -156,7 +156,7 @@ class Assignments extends CI_Controller
 			if ($pdf_files)
 			{
 				$path = $pdf_files[0];
-				$this->zip->add_data("p{$i}/".shj_basename($path), file_get_contents($path));
+				$this->zip->add_data("p{$i}/".msoj_basename($path), file_get_contents($path));
 			}
 
 			$path = "$root_path/p{$i}/desc.html";
@@ -172,10 +172,10 @@ class Assignments extends CI_Controller
 		if ($pdf_files)
 		{
 			$path = $pdf_files[0];
-			$this->zip->add_data(shj_basename($path), file_get_contents($path));
+			$this->zip->add_data(msoj_basename($path), file_get_contents($path));
 		}
 
-		$this->zip->download("assignment{$assignment_id}_tests_desc_".date('Y-m-d_H-i', shj_now()).'.zip');
+		$this->zip->download("assignment{$assignment_id}_tests_desc_".date('Y-m-d_H-i', msoj_now()).'.zip');
 	}
 
 
@@ -215,7 +215,7 @@ class Assignments extends CI_Controller
 				$this->zip->add_data("problem_{$item['problem']}/{$item['username']}.".filetype_to_extension($item['file_type']), $file);
 		}
 
-		$this->zip->download("assignment{$assignment_id}_submissions_{$type}_".date('Y-m-d_H-i',shj_now()).'.zip');
+		$this->zip->download("assignment{$assignment_id}_submissions_{$type}_".date('Y-m-d_H-i',msoj_now()).'.zip');
 	}
 
 
@@ -484,7 +484,7 @@ class Assignments extends CI_Controller
 		if ($zip_uploaded) // if zip file is uploaded
 		{
 			// Create a temp directory
-			$tmp_dir_name = "shj_tmp_directory";
+			$tmp_dir_name = "msoj_tmp_directory";
 			$tmp_dir = "$assignments_root/$tmp_dir_name";
 			shell_exec("rm -rf $tmp_dir; mkdir $tmp_dir;");
 

@@ -2,7 +2,7 @@
 
 #    In the name of ALLAH
 #    MySui Online Judge
-#    Copyright (C) 2014  MySuiOJ Team <mysuioj@gmail.com>
+#    Copyright (C) 2014  MySui Team <mysuioj@gmail.com>
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU General Public License as published by
@@ -129,7 +129,7 @@ fi
 
 
 LOG="$PROBLEMPATH/$UN/log"; echo "" >>$LOG
-function shj_log
+function msoj_log
 {
 	if $LOG_ON; then
 		echo -e "$@" >>$LOG 
@@ -137,11 +137,11 @@ function shj_log
 }
 
 
-function shj_finish
+function msoj_finish
 {
 	# Get Current Time (in milliseconds)
 	END=$(($(date +%s%N)/1000000));
-	shj_log "\nTotal Execution Time: $((END-START)) ms"
+	msoj_log "\nTotal Execution Time: $((END-START)) ms"
 	echo $@
 	exit 0
 }
@@ -150,21 +150,21 @@ function shj_finish
 
 #################### Initialization #####################
 
-shj_log "Starting tester..."
+msoj_log "Starting tester..."
 
 # detecting existence of perl
 PERL_EXISTS=true
 hash perl 2>/dev/null || PERL_EXISTS=false
 if ! $PERL_EXISTS; then
-	shj_log "Warning: perl not found. We continue without perl..."
+	msoj_log "Warning: perl not found. We continue without perl..."
 fi
 
 TST="$(ls $PROBLEMPATH/in | wc -l)"  # Number of Test Cases
 
 JAIL=jail-$RANDOM
 if ! mkdir $JAIL; then
-	shj_log "Error: Folder 'tester' is not writable! Exiting..."
-	shj_finish "Judge Error"
+	msoj_log "Error: Folder 'tester' is not writable! Exiting..."
+	msoj_finish "Judge Error"
 fi
 cd $JAIL
 cp ../timeout ./timeout
@@ -173,19 +173,19 @@ chmod +x timeout
 cp ../runcode.sh ./runcode.sh
 chmod +x runcode.sh
 
-shj_log "$(date)"
-shj_log "Language: $EXT"
-shj_log "Time Limit: $TIMELIMIT s"
-shj_log "Memory Limit: $MEMLIMIT kB"
-shj_log "Output size limit: $OUTLIMIT bytes"
+msoj_log "$(date)"
+msoj_log "Language: $EXT"
+msoj_log "Time Limit: $TIMELIMIT s"
+msoj_log "Memory Limit: $MEMLIMIT kB"
+msoj_log "Output size limit: $OUTLIMIT bytes"
 if [[ $EXT = "c" || $EXT = "cpp" ]]; then
-	shj_log "EasySandbox: $SANDBOX_ON"
-	shj_log "C/C++ Shield: $C_SHIELD_ON"
+	msoj_log "EasySandbox: $SANDBOX_ON"
+	msoj_log "C/C++ Shield: $C_SHIELD_ON"
 elif [[ $EXT = "py2" || $EXT = "py3" ]]; then
-	shj_log "Python Shield: $PY_SHIELD_ON"
+	msoj_log "Python Shield: $PY_SHIELD_ON"
 elif [[ $EXT = "java" ]]; then
-	shj_log "JAVA_POLICY: \"$JAVA_POLICY\""
-	shj_log "DISPLAY_JAVA_EXCEPTION_ON: $DISPLAY_JAVA_EXCEPTION_ON"
+	msoj_log "JAVA_POLICY: \"$JAVA_POLICY\""
+	msoj_log "DISPLAY_JAVA_EXCEPTION_ON: $DISPLAY_JAVA_EXCEPTION_ON"
 fi
 
 
@@ -199,23 +199,23 @@ COMPILE_BEGIN_TIME=$(($(date +%s%N)/1000000));
 if [ "$EXT" = "java" ]; then
 	cp ../java.policy java.policy
 	cp $PROBLEMPATH/$UN/$FILENAME.java $MAINFILENAME.java
-	shj_log "Compiling as Java"
+	msoj_log "Compiling as Java"
 	javac $MAINFILENAME.java >/dev/null 2>cerr
 	EXITCODE=$?
 	COMPILE_END_TIME=$(($(date +%s%N)/1000000));
-	shj_log "Compiled. Exit Code=$EXITCODE  Execution Time: $((COMPILE_END_TIME-COMPILE_BEGIN_TIME)) ms"
+	msoj_log "Compiled. Exit Code=$EXITCODE  Execution Time: $((COMPILE_END_TIME-COMPILE_BEGIN_TIME)) ms"
 	if [ $EXITCODE -ne 0 ]; then
-		shj_log "Compile Error"
-		shj_log "$(cat cerr|head -10)"
-		echo '<span class="shj_b">Compile Error</span>' >$PROBLEMPATH/$UN/result.html
-		echo '<span class="shj_r">' >> $PROBLEMPATH/$UN/result.html
+		msoj_log "Compile Error"
+		msoj_log "$(cat cerr|head -10)"
+		echo '<span class="msoj_b">Compile Error</span>' >$PROBLEMPATH/$UN/result.html
+		echo '<span class="msoj_r">' >> $PROBLEMPATH/$UN/result.html
 		#filepath="$(echo "${JAIL}/${FILENAME}.${EXT}" | sed 's/\//\\\//g')" #replacing / with \/
 		(cat cerr | head -10 | sed 's/&/\&amp;/g' | sed 's/</\&lt;/g' | sed 's/>/\&gt;/g' | sed 's/"/\&quot;/g') >> $PROBLEMPATH/$UN/result.html
 		#(cat $JAIL/cerr) >> $PROBLEMPATH/$UN/result.html
 		echo "</span>" >> $PROBLEMPATH/$UN/result.html
 		cd ..
 		rm -r $JAIL >/dev/null 2>/dev/null
-		shj_finish "Compilation Error"
+		msoj_finish "Compilation Error"
 	fi
 fi
 
@@ -227,24 +227,24 @@ fi
 
 if [ "$EXT" = "py2" ]; then
 	cp $PROBLEMPATH/$UN/$FILENAME.py $FILENAME.py
-	shj_log "Checking Python Syntax"
+	msoj_log "Checking Python Syntax"
 	python2 -O -m py_compile $FILENAME.py >/dev/null 2>cerr
 	EXITCODE=$?
 	COMPILE_END_TIME=$(($(date +%s%N)/1000000));
-	shj_log "Syntax checked. Exit Code=$EXITCODE  Execution Time: $((COMPILE_END_TIME-COMPILE_BEGIN_TIME)) ms"
+	msoj_log "Syntax checked. Exit Code=$EXITCODE  Execution Time: $((COMPILE_END_TIME-COMPILE_BEGIN_TIME)) ms"
 	if [ $EXITCODE -ne 0 ]; then
-		shj_log "Syntax Error"
-		shj_log "$(cat cerr | head -10)"
-		echo '<span class="shj_b">Syntax Error</span>' >$PROBLEMPATH/$UN/result.html
-		echo '<span class="shj_r">' >> $PROBLEMPATH/$UN/result.html
+		msoj_log "Syntax Error"
+		msoj_log "$(cat cerr | head -10)"
+		echo '<span class="msoj_b">Syntax Error</span>' >$PROBLEMPATH/$UN/result.html
+		echo '<span class="msoj_r">' >> $PROBLEMPATH/$UN/result.html
 		(cat cerr | head -10 | sed 's/&/\&amp;/g' | sed 's/</\&lt;/g' | sed 's/>/\&gt;/g' | sed 's/"/\&quot;/g') >> $PROBLEMPATH/$UN/result.html
 		echo "</span>" >> $PROBLEMPATH/$UN/result.html
 		cd ..
 		rm -r $JAIL >/dev/null 2>/dev/null
-		shj_finish "Syntax Error"
+		msoj_finish "Syntax Error"
 	fi
 	if $PY_SHIELD_ON; then
-		shj_log "Enabling Shield For Python 2"
+		msoj_log "Enabling Shield For Python 2"
 		# adding shield to beginning of code:
 		cat ../shield/shield_py2.py | cat - $FILENAME.py > thetemp && mv thetemp $FILENAME.py
 	fi
@@ -258,24 +258,24 @@ fi
 
 if [ "$EXT" = "py3" ]; then
 	cp $PROBLEMPATH/$UN/$FILENAME.py $FILENAME.py
-	shj_log "Checking Python Syntax"
+	msoj_log "Checking Python Syntax"
 	python3 -O -m py_compile $FILENAME.py >/dev/null 2>cerr
 	EXITCODE=$?
 	COMPILE_END_TIME=$(($(date +%s%N)/1000000));
-	shj_log "Syntax checked. Exit Code=$EXITCODE  Execution Time: $((COMPILE_END_TIME-COMPILE_BEGIN_TIME)) ms"
+	msoj_log "Syntax checked. Exit Code=$EXITCODE  Execution Time: $((COMPILE_END_TIME-COMPILE_BEGIN_TIME)) ms"
 	if [ $EXITCODE -ne 0 ]; then
-		shj_log "Syntax Error"
-		shj_log "$(cat cerr | head -10)"
-		echo '<span class="shj_b">Syntax Error</span>' >$PROBLEMPATH/$UN/result.html
-		echo '<span class="shj_r">' >> $PROBLEMPATH/$UN/result.html
+		msoj_log "Syntax Error"
+		msoj_log "$(cat cerr | head -10)"
+		echo '<span class="msoj_b">Syntax Error</span>' >$PROBLEMPATH/$UN/result.html
+		echo '<span class="msoj_r">' >> $PROBLEMPATH/$UN/result.html
 		(cat cerr | head -10 | sed 's/&/\&amp;/g' | sed 's/</\&lt;/g' | sed 's/>/\&gt;/g' | sed 's/"/\&quot;/g') >> $PROBLEMPATH/$UN/result.html
 		echo "</span>" >> $PROBLEMPATH/$UN/result.html
 		cd ..
 		rm -r $JAIL >/dev/null 2>/dev/null
-		shj_finish "Syntax Error"
+		msoj_finish "Syntax Error"
 	fi
 	if $PY_SHIELD_ON; then
-		shj_log "Enabling Shield For Python 3"
+		msoj_log "Enabling Shield For Python 3"
 		# adding shield to beginning of code:
 		cat ../shield/shield_py3.py | cat - $FILENAME.py > thetemp && mv thetemp $FILENAME.py
 	fi
@@ -294,18 +294,18 @@ if [ "$EXT" = "c" ] || [ "$EXT" = "cpp" ]; then
 	fi
 	EXEFILE="s_$(echo $FILENAME | sed 's/[^a-zA-Z0-9]//g')" # Name of executable file
 	cp $PROBLEMPATH/$UN/$FILENAME.$EXT code.c
-	shj_log "Compiling as $EXT"
+	msoj_log "Compiling as $EXT"
 	if $SANDBOX_ON; then
-		shj_log "Enabling EasySandbox"
+		msoj_log "Enabling EasySandbox"
 		if cp ../easysandbox/EasySandbox.so EasySandbox.so; then
 			chmod +x EasySandbox.so
 		else
-			shj_log 'EasySandbox is not built. Disabling EasySandbox...'
+			msoj_log 'EasySandbox is not built. Disabling EasySandbox...'
 			SANDBOX_ON=false
 		fi
 	fi
 	if $C_SHIELD_ON; then
-		shj_log "Enabling Shield For C/C++"
+		msoj_log "Enabling Shield For C/C++"
 		# if code contains any 'undef', raise compile error:
 		if tr -d ' \t\n\r\f' < code.c | grep -q '#undef'; then
 			echo 'code.c:#undef is not allowed' >cerr
@@ -324,12 +324,12 @@ if [ "$EXT" = "c" ] || [ "$EXT" = "cpp" ]; then
 		EXITCODE=$?
 	fi
 	COMPILE_END_TIME=$(($(date +%s%N)/1000000));
-	shj_log "Compiled. Exit Code=$EXITCODE  Execution Time: $((COMPILE_END_TIME-COMPILE_BEGIN_TIME)) ms"
+	msoj_log "Compiled. Exit Code=$EXITCODE  Execution Time: $((COMPILE_END_TIME-COMPILE_BEGIN_TIME)) ms"
 	if [ $EXITCODE -ne 0 ]; then
-		shj_log "Compile Error"
-		shj_log "$(cat cerr | head -10)"
-		echo '<span class="shj_b">Compile Error<br>Error Messages: (line numbers are not correct)</span>' >$PROBLEMPATH/$UN/result.html
-		echo '<span class="shj_r">' >> $PROBLEMPATH/$UN/result.html
+		msoj_log "Compile Error"
+		msoj_log "$(cat cerr | head -10)"
+		echo '<span class="msoj_b">Compile Error<br>Error Messages: (line numbers are not correct)</span>' >$PROBLEMPATH/$UN/result.html
+		echo '<span class="msoj_r">' >> $PROBLEMPATH/$UN/result.html
 		SHIELD_ACT=false
 		if $C_SHIELD_ON; then
 			while read line; do
@@ -362,7 +362,7 @@ if [ "$EXT" = "c" ] || [ "$EXT" = "cpp" ]; then
 		echo "</span>" >> $PROBLEMPATH/$UN/result.html
 		cd ..
 		rm -r $JAIL >/dev/null 2>/dev/null
-		shj_finish "Compilation Error"
+		msoj_finish "Compilation Error"
 	fi
 fi
 
@@ -372,40 +372,40 @@ fi
 ################################################ TESTING ###############################################
 ########################################################################################################
 
-shj_log "\nTesting..."
-shj_log "$TST test cases found"
+msoj_log "\nTesting..."
+msoj_log "$TST test cases found"
 
 echo "" >$PROBLEMPATH/$UN/result.html
 
 
 if [ -f "$PROBLEMPATH/tester.cpp" ] && [ ! -f "$PROBLEMPATH/tester.executable" ]; then
-	shj_log "Tester file found. Compiling tester..."
+	msoj_log "Tester file found. Compiling tester..."
 	TST_COMPILE_BEGIN_TIME=$(($(date +%s%N)/1000000));
 	g++ $PROBLEMPATH/tester.cpp -lm -O2 -o $PROBLEMPATH/tester.executable
 	EC=$?
 	TST_COMPILE_END_TIME=$(($(date +%s%N)/1000000));
 	if [ $EC -ne 0 ]; then
-		shj_log "Compiling tester failed."
+		msoj_log "Compiling tester failed."
 		cd ..
 		rm -r $JAIL >/dev/null 2>/dev/null
-		shj_finish "Invalid Tester Code"
+		msoj_finish "Invalid Tester Code"
 	else
-		shj_log "Tester compiled. Execution Time: $((TST_COMPILE_END_TIME-TST_COMPILE_BEGIN_TIME)) ms"
+		msoj_log "Tester compiled. Execution Time: $((TST_COMPILE_END_TIME-TST_COMPILE_BEGIN_TIME)) ms"
 	fi
 fi
 
 if [ -f "$PROBLEMPATH/tester.executable" ]; then
-	shj_log "Copying tester executable to current directory"
-	cp $PROBLEMPATH/tester.executable shj_tester
-	chmod +x shj_tester
+	msoj_log "Copying tester executable to current directory"
+	cp $PROBLEMPATH/tester.executable msoj_tester
+	chmod +x msoj_tester
 fi
 
 
 PASSEDTESTS=0
 
 for((i=1;i<=TST;i++)); do
-	shj_log "\n=== TEST $i ==="
-	echo "<span class=\"shj_b\">Test $i</span>" >>$PROBLEMPATH/$UN/result.html
+	msoj_log "\n=== TEST $i ==="
+	echo "<span class=\"msoj_b\">Test $i</span>" >>$PROBLEMPATH/$UN/result.html
 	
 	touch err
 	
@@ -417,19 +417,19 @@ for((i=1;i<=TST;i++)); do
 		fi
 		EXITCODE=$?
 		if grep -iq -m 1 "Too small initial heap" out || grep -q -m 1 "java.lang.OutOfMemoryError" err; then
-			shj_log "Memory Limit Exceeded"
-			echo "<span class=\"shj_o\">Memory Limit Exceeded</span>" >>$PROBLEMPATH/$UN/result.html
+			msoj_log "Memory Limit Exceeded"
+			echo "<span class=\"msoj_o\">Memory Limit Exceeded</span>" >>$PROBLEMPATH/$UN/result.html
 			continue
 		fi
 		if grep -q -m 1 "Exception in" err; then # show Exception
 			javaexceptionname=`grep -m 1 "Exception in" err | grep -m 1 -oE 'java\.[a-zA-Z\.]*' | head -1 | head -c 80`
 			javaexceptionplace=`grep -m 1 "$MAINFILENAME.java" err | head -1 | head -c 80`
-			shj_log "Exception: $javaexceptionname\nMaybe at:$javaexceptionplace"
+			msoj_log "Exception: $javaexceptionname\nMaybe at:$javaexceptionplace"
 			# if DISPLAY_JAVA_EXCEPTION_ON is true and the exception is in the trusted list, we show the exception name
 			if $DISPLAY_JAVA_EXCEPTION_ON && grep -q -m 1 "^$javaexceptionname\$" ../java_exceptions_list; then
-				echo "<span class=\"shj_o\">Runtime Error ($javaexceptionname)</span>" >>$PROBLEMPATH/$UN/result.html
+				echo "<span class=\"msoj_o\">Runtime Error ($javaexceptionname)</span>" >>$PROBLEMPATH/$UN/result.html
 			else
-				echo "<span class=\"shj_o\">Runtime Error</span>" >>$PROBLEMPATH/$UN/result.html
+				echo "<span class=\"msoj_o\">Runtime Error</span>" >>$PROBLEMPATH/$UN/result.html
 			fi
 			continue
 		fi
@@ -472,61 +472,61 @@ for((i=1;i<=TST;i++)); do
 		EXITCODE=$?
 
 	else
-		shj_log "File Format Not Supported"
+		msoj_log "File Format Not Supported"
 		cd ..
 		rm -r $JAIL >/dev/null 2>/dev/null
-		shj_finish "File Format Not Supported"
+		msoj_finish "File Format Not Supported"
 	fi
 
-	shj_log "Exit Code = $EXITCODE"
+	msoj_log "Exit Code = $EXITCODE"
 
 	if ! grep -q "FINISHED" err; then
-		if grep -q "SHJ_TIME" err; then
-			t=`grep "SHJ_TIME" err|cut -d" " -f3`
-			shj_log "Time Limit Exceeded ($t s)"
-			echo "<span class=\"shj_o\">Time Limit Exceeded</span>" >>$PROBLEMPATH/$UN/result.html
+		if grep -q "MSOJ_TIME" err; then
+			t=`grep "MSOJ_TIME" err|cut -d" " -f3`
+			msoj_log "Time Limit Exceeded ($t s)"
+			echo "<span class=\"msoj_o\">Time Limit Exceeded</span>" >>$PROBLEMPATH/$UN/result.html
 			continue
-		elif grep -q "SHJ_MEM" err; then
-			shj_log "Memory Limit Exceeded"
-			echo "<span class=\"shj_o\">Memory Limit Exceeded</span>" >>$PROBLEMPATH/$UN/result.html
+		elif grep -q "MSOJ_MEM" err; then
+			msoj_log "Memory Limit Exceeded"
+			echo "<span class=\"msoj_o\">Memory Limit Exceeded</span>" >>$PROBLEMPATH/$UN/result.html
 			continue
-		elif grep -q "SHJ_HANGUP" err; then
-			shj_log "Hang Up"
-			echo "<span class=\"shj_o\">Process hanged up</span>" >>$PROBLEMPATH/$UN/result.html
+		elif grep -q "MSOJ_HANGUP" err; then
+			msoj_log "Hang Up"
+			echo "<span class=\"msoj_o\">Process hanged up</span>" >>$PROBLEMPATH/$UN/result.html
 			continue
-		elif grep -q "SHJ_SIGNAL" err; then
-			shj_log "Killed by a signal"
-			echo "<span class=\"shj_o\">Killed by a signal</span>" >>$PROBLEMPATH/$UN/result.html
+		elif grep -q "MSOJ_SIGNAL" err; then
+			msoj_log "Killed by a signal"
+			echo "<span class=\"msoj_o\">Killed by a signal</span>" >>$PROBLEMPATH/$UN/result.html
 			continue
-		elif grep -q "SHJ_OUTSIZE" err; then
-			shj_log "Output Size Limit Exceeded"
-			echo "<span class=\"shj_o\">Output Size Limit Exceeded</span>" >>$PROBLEMPATH/$UN/result.html
+		elif grep -q "MSOJ_OUTSIZE" err; then
+			msoj_log "Output Size Limit Exceeded"
+			echo "<span class=\"msoj_o\">Output Size Limit Exceeded</span>" >>$PROBLEMPATH/$UN/result.html
 			continue
 		fi
 	else
 		t=`grep "FINISHED" err|cut -d" " -f3`
-		shj_log "Time: $t s"
+		msoj_log "Time: $t s"
 	fi
 	
 	if [ $EXITCODE -eq 137 ]; then
-		#shj_log "Time Limit Exceeded (Exit code=$EXITCODE)"
+		#msoj_log "Time Limit Exceeded (Exit code=$EXITCODE)"
 		#echo "<span style='color: orange;'>Time Limit Exceeded</span>" >>$PROBLEMPATH/$UN/result.html
-		shj_log "Killed"
-		echo "<span class=\"shj_o\">Killed</span>" >>$PROBLEMPATH/$UN/result.html
+		msoj_log "Killed"
+		echo "<span class=\"msoj_o\">Killed</span>" >>$PROBLEMPATH/$UN/result.html
 		continue
 	fi
 
 
 	if [ $EXITCODE -ne 0 ]; then
-		shj_log "Runtime Error"
-		echo "<span class=\"shj_o\">Runtime Error</span>" >>$PROBLEMPATH/$UN/result.html
+		msoj_log "Runtime Error"
+		echo "<span class=\"msoj_o\">Runtime Error</span>" >>$PROBLEMPATH/$UN/result.html
 		continue
 	fi
 	
 	# checking correctness of output
 	ACCEPTED=false
-	if [ -f shj_tester ]; then
-		./shj_tester $PROBLEMPATH/in/input$i.txt $PROBLEMPATH/out/output$i.txt out
+	if [ -f msoj_tester ]; then
+		./msoj_tester $PROBLEMPATH/in/input$i.txt $PROBLEMPATH/out/output$i.txt out
 		EC=$?
 		if [ $EC -eq 0 ]; then
 			ACCEPTED=true
@@ -552,12 +552,12 @@ for((i=1;i<=TST;i++)); do
 	fi
 
 	if $ACCEPTED; then
-		shj_log "ACCEPTED"
-		echo "<span class=\"shj_g\">ACCEPT</span>" >>$PROBLEMPATH/$UN/result.html
+		msoj_log "ACCEPTED"
+		echo "<span class=\"msoj_g\">ACCEPT</span>" >>$PROBLEMPATH/$UN/result.html
 		((PASSEDTESTS=PASSEDTESTS+1))
 	else
-		shj_log "WRONG"
-		echo "<span class=\"shj_r\">WRONG</span>" >>$PROBLEMPATH/$UN/result.html
+		msoj_log "WRONG"
+		echo "<span class=\"msoj_r\">WRONG</span>" >>$PROBLEMPATH/$UN/result.html
 	fi
 done
 
@@ -568,7 +568,7 @@ done
 # show place of exception. So I commented following lines:
 	## Print last java exception (if enabled)
 	#if $DISPLAY_JAVA_EXCEPTION_ON && [ "$javaexceptionname" != "" ]; then
-	#	echo -e "\n<span class=\"shj_b\">Last Java Exception:</span>" >>$PROBLEMPATH/$UN/result.html
+	#	echo -e "\n<span class=\"msoj_b\">Last Java Exception:</span>" >>$PROBLEMPATH/$UN/result.html
 	#	echo -e "$javaexceptionname\n$javaexceptionplace" >>$PROBLEMPATH/$UN/result.html
 	#fi
 
@@ -578,6 +578,6 @@ cd ..
 rm -r $JAIL >/dev/null 2>/dev/null # removing files
 
 ((SCORE=PASSEDTESTS*10000/TST)) # give score from 10,000
-shj_log "\nScore from 10000: $SCORE"
+msoj_log "\nScore from 10000: $SCORE"
 
-shj_finish $SCORE
+msoj_finish $SCORE

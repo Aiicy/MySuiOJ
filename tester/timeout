@@ -21,8 +21,8 @@
 # its children--as long as a process doesn't detach ownership from parent (or
 # doesn't change process group; use -w).
 
-# Some lines are added by MySuiOJ Team <mysuioj@gmail.com> 
-# (indicated by "# added by MySuiOJ") to enable using EasySandbox 
+# Some lines are added by MySui Team <mysuioj@gmail.com> 
+# (indicated by "# added by MySui Team") to enable using EasySandbox 
 # in MySui Online Judge (https://github.com/MySuiOJ/MySuiOJ)
 # July, 29, 2013
 # Enable EasySandbox:  "--sandbox"
@@ -44,15 +44,15 @@ my $hanguplimit = undef;
 my $kill_stale = '';
 my $ticklimit = undef;
 my $memlimit = undef;
-my $sandbox = undef; # added by MySuiOJ
-my $outlimit = undef; # size limit of output file // added by MySuiOJ
+my $sandbox = undef; # added by MySui Team
+my $outlimit = undef; # size limit of output file // added by MySui Team
 my $strpat = undef;
 # Output for statistic buckets (STDERR if unspecified)
 my $output = undef;
 my $reference = undef;
 my $watchfor = 'tree';
 # Requests per seccond
-my $frequency = 20; # changed by MySuiOJ from 10 to 20
+my $frequency = 20; # changed by MySui Team from 10 to 20
 # if we debug
 my $debug = '';
 # Whether we do not do this term-kill stuff, and just kill processes at once
@@ -63,15 +63,15 @@ my $info_on_success = 1;
 my $confess = '';
 
 GetOptions(
-	'timelimit|t=f'=>\$timelimit, # changed by MySuiOJ (original: 'timelimit|t=i'=>\$timelimit,). Now we can use real values for timelimit
+	'timelimit|t=f'=>\$timelimit, # changed by MySui Team (original: 'timelimit|t=i'=>\$timelimit,). Now we can use real values for timelimit
 	'hanguplimit|h=i'=>\$hanguplimit,
 	'detect-hangup!'=>\$kill_stale,
 	'detect-hangups!'=>\$kill_stale,
 	# allow-hangups is kept for backward compatibility.
 	'allow-hangups!'=>\$kill_stale,
 	'memlimit|m=i'=>\$memlimit,
-	'sandbox!'=>\$sandbox, # added by MySuiOJ
-	'outlimit|l=i'=>\$outlimit, # added by MySuiOJ
+	'sandbox!'=>\$sandbox, # added by MySui Team
+	'outlimit|l=i'=>\$outlimit, # added by MySui Team
 	'frequency|x=i'=>\$frequency,
 	'pattern|p=s'=>\$strpat,
 	'output|o=s'=>\$output,
@@ -92,7 +92,7 @@ my $uflush_time = 100_000;
 
 # String to identify thes script's prints in the output
 #my $id_str = $ENV{'TIMEOUT_IDSTR'} || '';
-my $id_str = 'SHJ_'; #changed by MySuiOJ
+my $id_str = 'MSOJ_'; #changed by MySui Team
 
 use strict;
 
@@ -107,13 +107,13 @@ unless ($blackbox_pid){
 		setpgrp 0,0;
 	}
 	local $" = " ";
-	if ($sandbox) {                           # added by MySuiOJ
-		$ENV{'LD_PRELOAD'}="./EasySandbox.so";   # added by MySuiOJ
-	}                                            # added by MySuiOJ
+	if ($sandbox) {                           # added by MySui Team
+		$ENV{'LD_PRELOAD'}="./EasySandbox.so";   # added by MySui Team
+	}                                            # added by MySui Team
 	exec @ARGV or die "Couldn't exec @ARGV: $!";
-	if ($sandbox) {                           # added by MySuiOJ
-		$ENV{'LD_PRELOAD'}="";                   # added by MySuiOJ
-	}                                            # added by MySuiOJ
+	if ($sandbox) {                           # added by MySui Team
+		$ENV{'LD_PRELOAD'}="";                   # added by MySui Team
+	}                                            # added by MySui Team
 }
 # Make sure we kill forked child on exit
 sub when_die{
@@ -138,7 +138,7 @@ my $timeinfo = { total => 0, finished => 0, current => {} };
 # For this -- update_memory
 my $meminfo = 0;
 my $fulltime = 0;
-# added by MySuiOJ:
+# added by MySui Team:
 my $sizeinfo = 0;
 my $size_err_info = 0;
 # We store the "maximum" used memory (the process may free it and we won't get the proper timestamp at the end).
@@ -169,8 +169,8 @@ while ($status eq 'wait'){
 			$timeinfo = update_time($blackbox_pid,$timeinfo);
 			$meminfo = update_memory($blackbox_pid,$meminfo);
 			$maxmem = $meminfo if $meminfo > $maxmem;
-			$sizeinfo = -s 'out'; # size of output file // added by MySuiOJ
-			$size_err_info = -s 'err'; # size of err file // added by MySuiOJ
+			$sizeinfo = -s 'out'; # size of output file // added by MySui Team
+			$size_err_info = -s 'err'; # size of err file // added by MySui Team
 			update_info_by_ucmd($blackbox_pid,$uinfo);
 			die "Assume waitpid return 0\n";
 		};
@@ -504,7 +504,7 @@ sub limits_exceeded
 		return 'HANGUP';
 	}elsif (defined $memlimit && $meminfo > $memlimit){
 		return 'MEM';
-	}elsif (defined $outlimit && ($sizeinfo > $outlimit || $size_err_info > $outlimit) ){ # added by MySuiOJ
+	}elsif (defined $outlimit && ($sizeinfo > $outlimit || $size_err_info > $outlimit) ){ # added by MySui Team
 		return 'OUTSIZE';
 	}
 	return undef;

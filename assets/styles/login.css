@@ -111,12 +111,12 @@ input.mysui_input:focus {
 	-webkit-box-shadow: rgba(82, 168, 236, 0.6) 0 0 3px;
 }
 
-.shj_error {
+.msoj_error {
 	color: red;
 	font-size: 12px;
 }
 
-.shj_ok {
+.msoj_ok {
 	color: green;
 	font-size: 12px;
 }

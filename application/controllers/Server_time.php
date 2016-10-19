@@ -2,7 +2,7 @@
 /**
  * MySui Online Judge
  * @file Server_time.php
- * @author MySuiOJ Team <mysuioj@gmail.com>
+ * @author MySui Team <mysuioj@gmail.com>
  */
 defined('BASEPATH') OR exit('No direct script access allowed');
 
@@ -27,6 +27,6 @@ class Server_time extends CI_Controller
 	 */
 	public function index()
 	{
-		echo shj_now_str();
+		echo msoj_now_str();
 	}
 }

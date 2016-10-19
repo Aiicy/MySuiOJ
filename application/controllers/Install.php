@@ -2,7 +2,7 @@
 /**
  * MySui Online Judge
  * @file Install.php
- * @author MySuiOJ Team <mysuioj@gmail.com>
+ * @author MySui Team <mysuioj@gmail.com>
  */
 defined('BASEPATH') OR exit('No direct script access allowed');
 
@@ -183,11 +183,11 @@ class Install extends CI_Controller
 
 			// create table 'settings'
 			$fields = array(
-				'shj_key'        => array('type' => 'VARCHAR', 'constraint' => 50),
-				'shj_value'      => array('type' => 'TEXT', 'TEXT'),
+				'msoj_key'        => array('type' => 'VARCHAR', 'constraint' => 50),
+				'msoj_value'      => array('type' => 'TEXT', 'TEXT'),
 			);
 			$this->dbforge->add_field($fields);
-			$this->dbforge->add_key('shj_key');
+			$this->dbforge->add_key('msoj_key');
 			if ( ! $this->dbforge->create_table('settings', TRUE))
 				show_error("Error creating database table ".$this->db->dbprefix('settings'));
 
@@ -195,31 +195,31 @@ class Install extends CI_Controller
 
 			// insert default settings to table 'settings'
 			$result = $this->db->insert_batch('settings', array(
-				array('shj_key' => 'timezone',               'shj_value' => 'Asia/Tehran'),
-				array('shj_key' => 'tester_path',            'shj_value' => '/home/shj/tester'),
-				array('shj_key' => 'assignments_root',       'shj_value' => '/home/shj/assignments'),
-				array('shj_key' => 'file_size_limit',        'shj_value' => '50'),
-				array('shj_key' => 'output_size_limit',      'shj_value' => '1024'),
-				array('shj_key' => 'queue_is_working',       'shj_value' => '0'),
-				array('shj_key' => 'default_late_rule',      'shj_value' => "/* \n * Put coefficient (from 100) in variable \$coefficient.\n * You can use variables \$extra_time and \$delay.\n * \$extra_time is the total extra time given to users\n * (in seconds) and \$delay is number of seconds passed\n * from finish time (can be negative).\n *  In this example, \$extra_time is 172800 (2 days):\n */\n\nif (\$delay<=0)\n  // no delay\n  \$coefficient = 100;\n\nelseif (\$delay<=3600)\n  // delay less than 1 hour\n  \$coefficient = ceil(100-((30*\$delay)/3600));\n\nelseif (\$delay<=86400)\n  // delay more than 1 hour and less than 1 day\n  \$coefficient = 70;\n\nelseif ((\$delay-86400)<=3600)\n  // delay less than 1 hour in second day\n  \$coefficient = ceil(70-((20*(\$delay-86400))/3600));\n\nelseif ((\$delay-86400)<=86400)\n  // delay more than 1 hour in second day\n  \$coefficient = 50;\n\nelseif (\$delay > \$extra_time)\n  // too late\n  \$coefficient = 0;"),
-				array('shj_key' => 'enable_easysandbox',     'shj_value' => '1'),
-				array('shj_key' => 'enable_c_shield',        'shj_value' => '1'),
-				array('shj_key' => 'enable_cpp_shield',      'shj_value' => '1'),
-				array('shj_key' => 'enable_py2_shield',      'shj_value' => '1'),
-				array('shj_key' => 'enable_py3_shield',      'shj_value' => '1'),
-				array('shj_key' => 'enable_java_policy',     'shj_value' => '1'),
-				array('shj_key' => 'enable_log',             'shj_value' => '1'),
-				array('shj_key' => 'submit_penalty',         'shj_value' => '300'),
-				array('shj_key' => 'enable_registration',    'shj_value' => '0'),
-				array('shj_key' => 'registration_code',      'shj_value' => '0'),
-				array('shj_key' => 'mail_from',              'shj_value' => 'shj@example.com'),
-				array('shj_key' => 'mail_from_name',         'shj_value' => 'MySui Online Judge'),
-				array('shj_key' => 'reset_password_mail',    'shj_value' => "<p>\nSomeone requested a password reset for your MySui Online Judge account at {SITE_URL}.\n</p>\n<p>\nTo change your password, visit this link:\n</p>\n<p>\n<a href=\"{RESET_LINK}\">Reset Password</a>\n</p>\n<p>\nThe link is valid for {VALID_TIME}. If you don't want to change your password, just ignore this email.\n</p>"),
-				array('shj_key' => 'add_user_mail',          'shj_value' => "<p>\nHello! You are registered in MySui Online Judge at {SITE_URL} as {ROLE}.\n</p>\n<p>\nYour username: {USERNAME}\n</p>\n<p>\nYour password: {PASSWORD}\n</p>\n<p>\nYou can log in at <a href=\"{LOGIN_URL}\">{LOGIN_URL}</a>\n</p>"),
-				array('shj_key' => 'moss_userid',            'shj_value' => ''),
-				array('shj_key' => 'results_per_page_all',   'shj_value' => '40'),
-				array('shj_key' => 'results_per_page_final', 'shj_value' => '80'),
-				array('shj_key' => 'week_start',             'shj_value' => '0'),
+				array('msoj_key' => 'timezone',               'msoj_value' => 'Asia/Tehran'),
+				array('msoj_key' => 'tester_path',            'msoj_value' => '/home/msoj/tester'),
+				array('msoj_key' => 'assignments_root',       'msoj_value' => '/home/msoj/assignments'),
+				array('msoj_key' => 'file_size_limit',        'msoj_value' => '50'),
+				array('msoj_key' => 'output_size_limit',      'msoj_value' => '1024'),
+				array('msoj_key' => 'queue_is_working',       'msoj_value' => '0'),
+				array('msoj_key' => 'default_late_rule',      'msoj_value' => "/* \n * Put coefficient (from 100) in variable \$coefficient.\n * You can use variables \$extra_time and \$delay.\n * \$extra_time is the total extra time given to users\n * (in seconds) and \$delay is number of seconds passed\n * from finish time (can be negative).\n *  In this example, \$extra_time is 172800 (2 days):\n */\n\nif (\$delay<=0)\n  // no delay\n  \$coefficient = 100;\n\nelseif (\$delay<=3600)\n  // delay less than 1 hour\n  \$coefficient = ceil(100-((30*\$delay)/3600));\n\nelseif (\$delay<=86400)\n  // delay more than 1 hour and less than 1 day\n  \$coefficient = 70;\n\nelseif ((\$delay-86400)<=3600)\n  // delay less than 1 hour in second day\n  \$coefficient = ceil(70-((20*(\$delay-86400))/3600));\n\nelseif ((\$delay-86400)<=86400)\n  // delay more than 1 hour in second day\n  \$coefficient = 50;\n\nelseif (\$delay > \$extra_time)\n  // too late\n  \$coefficient = 0;"),
+				array('msoj_key' => 'enable_easysandbox',     'msoj_value' => '1'),
+				array('msoj_key' => 'enable_c_shield',        'msoj_value' => '1'),
+				array('msoj_key' => 'enable_cpp_shield',      'msoj_value' => '1'),
+				array('msoj_key' => 'enable_py2_shield',      'msoj_value' => '1'),
+				array('msoj_key' => 'enable_py3_shield',      'msoj_value' => '1'),
+				array('msoj_key' => 'enable_java_policy',     'msoj_value' => '1'),
+				array('msoj_key' => 'enable_log',             'msoj_value' => '1'),
+				array('msoj_key' => 'submit_penalty',         'msoj_value' => '300'),
+				array('msoj_key' => 'enable_registration',    'msoj_value' => '0'),
+				array('msoj_key' => 'registration_code',      'msoj_value' => '0'),
+				array('msoj_key' => 'mail_from',              'msoj_value' => 'msoj@example.com'),
+				array('msoj_key' => 'mail_from_name',         'msoj_value' => 'MySui Online Judge'),
+				array('msoj_key' => 'reset_password_mail',    'msoj_value' => "<p>\nSomeone requested a password reset for your MySui Online Judge account at {SITE_URL}.\n</p>\n<p>\nTo change your password, visit this link:\n</p>\n<p>\n<a href=\"{RESET_LINK}\">Reset Password</a>\n</p>\n<p>\nThe link is valid for {VALID_TIME}. If you don't want to change your password, just ignore this email.\n</p>"),
+				array('msoj_key' => 'add_user_mail',          'msoj_value' => "<p>\nHello! You are registered in MySui Online Judge at {SITE_URL} as {ROLE}.\n</p>\n<p>\nYour username: {USERNAME}\n</p>\n<p>\nYour password: {PASSWORD}\n</p>\n<p>\nYou can log in at <a href=\"{LOGIN_URL}\">{LOGIN_URL}</a>\n</p>"),
+				array('msoj_key' => 'moss_userid',            'msoj_value' => ''),
+				array('msoj_key' => 'results_per_page_all',   'msoj_value' => '40'),
+				array('msoj_key' => 'results_per_page_final', 'msoj_value' => '80'),
+				array('msoj_key' => 'week_start',             'msoj_value' => '0'),
 			));
 			if ( ! $result)
 				show_error("Error adding data to table ".$this->db->dbprefix('settings'));

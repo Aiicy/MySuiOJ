@@ -2,7 +2,7 @@
 /**
  * MySui Online Judge
  * @file User_model.php
- * @author MySuiOJ Team <mysuioj@gmail.com>
+ * @author MySui Team <mysuioj@gmail.com>
  */
 defined('BASEPATH') OR exit('No direct script access allowed');
 
@@ -183,7 +183,7 @@ class User_model extends CI_Model
 				$len = trim(substr($parts[2], 6), '[]');
 				if (is_numeric($len)){
 					$this->load->helper('string');
-					$parts[2] = shj_random_password($len);
+					$parts[2] = msoj_random_password($len);
 				}
 			}
 
@@ -446,7 +446,7 @@ class User_model extends CI_Model
 		$passchange_key = random_string('alnum', 50);
 
 		// save the key in users table:
-		$now = shj_now();
+		$now = msoj_now();
 		$this->db->where('email', $email)->update('users', array('passchange_key'=>$passchange_key, 'passchange_time'=>date('Y-m-d H:i:s', $now)));
 
 		// send the email:
@@ -499,7 +499,7 @@ class User_model extends CI_Model
 		if ($query->num_rows() != 1)
 			return 'Invalid password reset link.';
 		$time = strtotime($query->row()->passchange_time);
-		$now = shj_now();
+		$now = msoj_now();
 		if ($now-$time > 3600 OR $now-$time < 0) // reset link is valid for 1 hour
 			return 'The link is expired.';
 		return TRUE;
@@ -576,7 +576,7 @@ class User_model extends CI_Model
 	 */
 	public function update_login_time($username)
 	{
-		$now = shj_now_str();
+		$now = msoj_now_str();
 
 		$first_login = $this->db->select('first_login_time')->get_where('users', array('username'=>$username))->row()->first_login_time;
 		if ($first_login === NULL)

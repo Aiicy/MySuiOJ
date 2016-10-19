@@ -1,7 +1,7 @@
 {#
  # MySui Online Judge
  # file: users.twig
- # author: MySuiOJ Team <mysuioj@gmail.com>
+ # author: MySui Team <mysuioj@gmail.com>
  #}
 {% set selected = 'users' %}
 {% extends 'templates/base.twig' %}
@@ -21,10 +21,10 @@
 
 {% block main_content %}
 {% if deleted_user %}
-	<p class="shj_ok">User deleted successfully.</p>
+	<p class="msoj_ok">User deleted successfully.</p>
 {% endif %}
 {% if deleted_submissions %}
-	<p class="shj_ok">Submissions of selected user deleted successfully.</p>
+	<p class="msoj_ok">Submissions of selected user deleted successfully.</p>
 {% endif %}
 <div style="height:15px"></div>
 <table class="mysui_table">

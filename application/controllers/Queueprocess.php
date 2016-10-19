@@ -2,7 +2,7 @@
 /**
  * MySui Online Judge
  * @file Queueprocess.php
- * @author MySuiOJ Team <mysuioj@gmail.com>
+ * @author MySui Team <mysuioj@gmail.com>
  */
 defined('BASEPATH') OR exit('No direct script access allowed');
 
@@ -36,8 +36,8 @@ class Queueprocess extends CI_Controller
 
 		// Set correct base_url
 		// Because we are in cli mode, base_url is not available, and we get
-		// it from an environment variable that we have set in shj_helper.php
-		$this->config->set_item('base_url', getenv('SHJ_BASE_URL'));
+		// it from an environment variable that we have set in msoj_helper.php
+		$this->config->set_item('base_url', getenv('MSOJ_BASE_URL'));
 
 		$queue_item = $this->queue_model->get_first_item();
 		if ($queue_item === NULL) {

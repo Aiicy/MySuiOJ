@@ -2,7 +2,7 @@
 /**
  * MySui Online Judge
  * @file Submit.php
- * @author MySuiOJ Team <mysuioj@gmail.com>
+ * @author MySui Team <mysuioj@gmail.com>
  */
 defined('BASEPATH') OR exit('No direct script access allowed');
 
@@ -32,7 +32,7 @@ class Submit extends CI_Controller
 		$this->problems = $this->assignment_model->all_problems($this->user->selected_assignment['id']);
 
 		$extra_time = $this->user->selected_assignment['extra_time'];
-		$delay = shj_now()-strtotime($this->user->selected_assignment['finish_time']);;
+		$delay = msoj_now()-strtotime($this->user->selected_assignment['finish_time']);;
 		ob_start();
 		if ( eval($this->user->selected_assignment['late_rule']) === FALSE )
 			$coefficient = "error";
@@ -127,16 +127,16 @@ class Submit extends CI_Controller
 				$items = $items."'".trim($language)."',";
 			}
 			$items = substr($items,0,strlen($items)-1);
-			$this->data['problems_js'] .= "shj.p[{$problem['id']}]=[{$items}]; ";
+			$this->data['problems_js'] .= "msoj.p[{$problem['id']}]=[{$items}]; ";
 		}
 		if ($this->user->selected_assignment['id'] == 0)
 			$this->data['error']='Please select an assignment first.';
 		elseif ($this->user->level == 0 && ! $this->user->selected_assignment['open'])
 			// if assignment is closed, non-student users (admin, instructors) still can submit
 			$this->data['error'] = 'Selected assignment is closed.';
-		elseif (shj_now() < strtotime($this->user->selected_assignment['start_time']))
+		elseif (msoj_now() < strtotime($this->user->selected_assignment['start_time']))
 			$this->data['error'] = 'Selected assignment has not started.';
-		elseif (shj_now() > strtotime($this->user->selected_assignment['finish_time'])+$this->user->selected_assignment['extra_time']) // deadline = finish_time + extra_time
+		elseif (msoj_now() > strtotime($this->user->selected_assignment['finish_time'])+$this->user->selected_assignment['extra_time']) // deadline = finish_time + extra_time
 			$this->data['error'] = 'Selected assignment has finished.';
 		elseif ( ! $this->assignment_model->is_participant($this->user->selected_assignment['participants'],$this->user->username) )
 			$this->data['error'] = 'You are not registered for submitting.';
@@ -156,7 +156,7 @@ class Submit extends CI_Controller
 	 */
 	private function _upload()
 	{
-		$now = shj_now();
+		$now = msoj_now();
 		foreach($this->problems as $item)
 			if ($item['id'] == $this->input->post('problem'))
 			{
@@ -217,7 +217,7 @@ class Submit extends CI_Controller
 				'file_type' => $this->filetype,
 				'coefficient' => $this->coefficient,
 				'pre_score' => 0,
-				'time' => shj_now_str(),
+				'time' => msoj_now_str(),
 			);
 			if ($this->problem['is_upload_only'] == 0)
 			{

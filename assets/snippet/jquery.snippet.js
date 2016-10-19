@@ -8,7 +8,7 @@
  *
  * Date: Wed Jan 19, 2011
  *
- * This file has been changed by MySuiOJ Team <mysuioj@gmail.com>
+ * This file has been changed by MySui Team <mysuioj@gmail.com>
  *     - removed zeroclipboard
  *     - removed unnecessary languages
  *     - added select all
@@ -183,7 +183,7 @@
 						return false;
 					});
 
-					// click event for select all (feature added by MySuiOJ)
+					// click event for select all (feature added by MySui Team)
 					o.parent().find("a.snippet-select").click(function(){
 						$('pre.sh_sourceCode:visible').selectText();
 						return false;

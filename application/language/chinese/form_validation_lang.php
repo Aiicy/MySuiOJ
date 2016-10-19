@@ -2,7 +2,7 @@
 /**
  * online judge
  * @file form_validation_lang.php
- * @author MySuiOJ Team <mysuioj@gmail.com>
+ * @author MySui Team <mysuioj@gmail.com>
  */
 defined('BASEPATH') OR exit('No direct script access allowed');
 

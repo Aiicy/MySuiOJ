@@ -1,10 +1,10 @@
 {#
  # MySui Online Judge
  # file: add_user_result.twig
- # author: MySuiOJ Team <mysuioj@gmail.com>
+ # author: MySui Team <mysuioj@gmail.com>
  #}
 {% if ok %}
-<p class="shj_ok">These users added successfully:</p>
+<p class="msoj_ok">These users added successfully:</p>
 <ol>
 	{% for item in ok %}
 	<li>Usename: {{ item[0] }} Email: {{ item[1] }} Password: <code>{{ item[2] }}</code> Role: {{ item[3] }}</li>
@@ -12,7 +12,7 @@
 </ol>
 {% endif %}
 {% if error %}
-<p class="shj_error">Error adding these users:</p>
+<p class="msoj_error">Error adding these users:</p>
 <ol>
 	{% for item in error %}
 	<li>Usename: {{ item[0] }} Email: {{ item[1] }} Password: <code>{{ item[2] }}</code> Role: {{ item[3] }} ({{ item[4] }})</li>

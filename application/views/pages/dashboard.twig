@@ -1,7 +1,7 @@
 {#
  # MySui Online Judge
  # file: dashboard.twig
- # author: MySuiOJ Team <mysuioj@gmail.com>
+ # author: MySui Team <mysuioj@gmail.com>
  #}
 {% set selected = 'dashboard' %}
 {% extends 'templates/base.twig' %}
@@ -52,7 +52,7 @@ $(document).ready(function () {
 					"{{ site_url('dashboard/widget_positions') }}",
 					{
 						positions: positions,
-						shj_csrf_token: shj.csrf_token
+						msoj_csrf_token: msoj.csrf_token
 					}
 				);
 			}
@@ -67,14 +67,14 @@ $(document).ready(function () {
 
 {% block main_content %}
 {% for error in errors %}
-	<p class="shj_error">{{ error|raw }}</p>
+	<p class="msoj_error">{{ error|raw }}</p>
 {% endfor %}
 <div style="height: 15px;"></div>
 <div class="gridster">
 	<?php $i = 0; ?>
 	<ul>
 		<li data-row="{{ wp[0] ? wp[0]['r'] : '1' }}" data-col="{{ wp[0] ? wp[0]['c'] : '1' }}" data-sizex="{{ wp[0] ? wp[0]['x'] : '1' }}" data-sizey="{{ wp[0] ? wp[0]['y'] : '1' }}">
-			<div class="shj_widget">
+			<div class="msoj_widget">
 				<div class="widget_title"><i class="fa fa-calendar-o fa-lg color10"></i> 日历</div>
 				<div class="widget_scrollable scroll-wrapper">
 					<div class="scroll-content">
@@ -86,7 +86,7 @@ $(document).ready(function () {
 
 		<li data-row="{{ wp[1] ? wp[1]['r'] : '1' }}" data-col="{{ wp[1] ? wp[1]['c'] : '2' }}"
 		    data-sizex="{{ wp[1] ? wp[1]['x'] : '1' }}" data-sizey="{{ wp[1] ? wp[1]['y'] : '1' }}">
-			<div class="shj_widget">
+			<div class="msoj_widget">
 				<div class="widget_title"><i class="fa fa-bell-o fa-lg color2"></i>
 					最新的通知
 					{% if user.level >= 2 %}

@@ -1,7 +1,7 @@
 {#
  # MySui Online Judge
  # file: rejudge.twig
- # author: MySuiOJ Team <mysuioj@gmail.com>
+ # author: MySui Team <mysuioj@gmail.com>
  #}
 {% set selected = 'assignments' %}
 {% extends 'templates/base.twig' %}
@@ -29,6 +29,6 @@
 {% endfor %}
 
 {% for message in msg %}
-	<p class="shj_ok">{{ message }}</p>
+	<p class="msoj_ok">{{ message }}</p>
 {% endfor %}
 {% endblock %}  {# main_content #}

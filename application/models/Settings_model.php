@@ -2,7 +2,7 @@
 /**
  * MySui Online Judge
  * @file Settings_model.php
- * @author MySuiOJ Team <mysuioj@gmail.com>
+ * @author MySui Team <mysuioj@gmail.com>
  */
 defined('BASEPATH') OR exit('No direct script access allowed');
 
@@ -25,7 +25,7 @@ class Settings_model extends CI_Model
 
 	public function get_setting($key)
 	{
-		return $this->db->select('shj_value')->get_where('settings', array('shj_key'=>$key))->row()->shj_value;
+		return $this->db->select('msoj_value')->get_where('settings', array('msoj_key'=>$key))->row()->msoj_value;
 	}
 
 
@@ -34,7 +34,7 @@ class Settings_model extends CI_Model
 
 	public function set_setting($key, $value)
 	{
-		$this->db->where('shj_key', $key)->update('settings', array('shj_value'=>$value));
+		$this->db->where('msoj_key', $key)->update('settings', array('msoj_value'=>$value));
 	}
 
 
@@ -47,7 +47,7 @@ class Settings_model extends CI_Model
 		$settings = array();
 		foreach($result as $item)
 		{
-			$settings[$item['shj_key']] = $item['shj_value'];
+			$settings[$item['msoj_key']] = $item['msoj_value'];
 		}
 		return $settings;
 	}

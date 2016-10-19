@@ -2,7 +2,7 @@
 /**
  * MySui Online Judge
  * @file Submissions.php
- * @author MySuiOJ Team <mysuioj@gmail.com>
+ * @author MySui Team <mysuioj@gmail.com>
  */
 defined('BASEPATH') OR exit('No direct script access allowed');
 
@@ -53,7 +53,7 @@ class Submissions extends CI_Controller
 		if ( ! in_array($view, array('all', 'final')))
 			exit;
 
-		$now = shj_now_str(); // current time
+		$now = msoj_now_str(); // current time
 
 		// Load PHPExcel library
 		$this->load->library('phpexcel');
@@ -266,12 +266,12 @@ class Submissions extends CI_Controller
 			'total_rows' => $this->submit_model->count_final_submissions($this->user->selected_assignment['id'], $this->user->level, $this->user->username, $this->filter_user, $this->filter_problem),
 			'per_page' => $this->settings_model->get_setting('results_per_page_final'),
 			'num_links' => 5,
-			'full_ul_class' => 'shj_pagination',
+			'full_ul_class' => 'msoj_pagination',
 			'cur_li_class' => 'current_page'
 		);
 		if ($config['per_page'] == 0)
 			$config['per_page'] = $config['total_rows'];
-		$this->load->library('shj_pagination', $config);
+		$this->load->library('msoj_pagination', $config);
 
 		$submissions = $this->submit_model->get_final_submissions($this->user->selected_assignment['id'], $this->user->level, $this->user->username, $this->page_number, $this->filter_user, $this->filter_problem);
 
@@ -299,7 +299,7 @@ class Submissions extends CI_Controller
 			'excel_link' => site_url('submissions/final_excel'.($this->filter_user?'/user/'.$this->filter_user:'').($this->filter_problem?'/problem/'.$this->filter_problem:'')),
 			'filter_user' => $this->filter_user,
 			'filter_problem' => $this->filter_problem,
-			'pagination' => $this->shj_pagination->create_links(),
+			'pagination' => $this->msoj_pagination->create_links(),
 			'page_number' => $this->page_number,
 			'per_page' => $config['per_page'],
 		);
@@ -330,12 +330,12 @@ class Submissions extends CI_Controller
 			'total_rows' => $this->submit_model->count_all_submissions($this->user->selected_assignment['id'], $this->user->level, $this->user->username, $this->filter_user, $this->filter_problem),
 			'per_page' => $this->settings_model->get_setting('results_per_page_all'),
 			'num_links' => 5,
-			'full_ul_class' => 'shj_pagination',
+			'full_ul_class' => 'msoj_pagination',
 			'cur_li_class' => 'current_page'
 		);
 		if ($config['per_page']==0)
 			$config['per_page'] = $config['total_rows'];
-		$this->load->library('shj_pagination', $config);
+		$this->load->library('msoj_pagination', $config);
 
 		$submissions = $this->submit_model->get_all_submissions($this->user->selected_assignment['id'], $this->user->level, $this->user->username, $this->page_number, $this->filter_user, $this->filter_problem);
 
@@ -362,7 +362,7 @@ class Submissions extends CI_Controller
 			'excel_link' => site_url('submissions/all_excel'.($this->filter_user?'/user/'.$this->filter_user:'').($this->filter_problem?'/problem/'.$this->filter_problem:'')),
 			'filter_user' => $this->filter_user,
 			'filter_problem' => $this->filter_problem,
-			'pagination' => $this->shj_pagination->create_links(),
+			'pagination' => $this->msoj_pagination->create_links(),
 		);
 
 		$this->twig->display('pages/submissions.twig', $data);
@@ -386,7 +386,7 @@ class Submissions extends CI_Controller
 
 		// Students cannot change their final submission after finish_time + extra_time
 		if ($this->user->level === 0)
-			if ( shj_now() > strtotime($this->user->selected_assignment['finish_time'])+$this->user->selected_assignment['extra_time'])
+			if ( msoj_now() > strtotime($this->user->selected_assignment['finish_time'])+$this->user->selected_assignment['extra_time'])
 			{
 				$json_result = array(
 					'done' => 0,

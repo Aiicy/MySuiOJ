@@ -2,7 +2,7 @@
 /**
  * MySui Online Judge
  * @file Notifications_model.php
- * @author MySuiOJ Team <mysuioj@gmail.com>
+ * @author MySui Team <mysuioj@gmail.com>
  */
 defined('BASEPATH') OR exit('No direct script access allowed');
 
@@ -62,7 +62,7 @@ class Notifications_model extends CI_Model
 	 */
 	public function add_notification($title, $text)
 	{
-		$now = shj_now_str();
+		$now = msoj_now_str();
 		$this->db->insert('notifications',
 			array(
 				'title' => $title,

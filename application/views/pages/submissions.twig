@@ -1,7 +1,7 @@
 {#
  # MySui Online Judge
  # file: submissions.twig
- # author: MySuiOJ Team <mysuioj@gmail.com>
+ # author: MySui Team <mysuioj@gmail.com>
  #}
 {% set selected=view~'_submissions' %}
 {% extends 'templates/base.twig' %}
@@ -18,7 +18,7 @@
 
 	<link rel='stylesheet' type='text/css' href='{{ base_url("assets/reveal/reveal.css") }}'/>
 	<script type='text/javascript' src="{{ base_url("assets/reveal/jquery.reveal.js") }}"></script>
-	<script type='text/javascript' src="{{ base_url("assets/js/shj_submissions.js") }}"></script>
+	<script type='text/javascript' src="{{ base_url("assets/js/msoj_submissions.js") }}"></script>
 {% endblock %}
 
 
@@ -144,9 +144,9 @@
 					{% if submission.status|lower == 'pending' %}
 						{% set submission_class = 'btn' %}
 					{% elseif submission.status|lower == 'score' %}
-						{% set submission_class = (submission.fullmark ? 'btn shj-green' : 'btn shj-red') %}
+						{% set submission_class = (submission.fullmark ? 'btn msoj-green' : 'btn msoj-red') %}
 					{% else %}
-						{% set submission_class = 'btn shj-blue' %}
+						{% set submission_class = 'btn msoj-blue' %}
 					{% endif %}
 					<div class="{{ submission_class }}" data-type="result" >
 						{% if submission.status == 'SCORE' %}
@@ -159,9 +159,9 @@
 			</td>
 			<td>
 				{% if submission.file_type == 'zip' or submission.file_type == 'pdf' %}
-					<div class="btn shj-orange" data-type="download">Download</div>
+					<div class="btn msoj-orange" data-type="download">Download</div>
 				{% else %}
-					<div class="btn shj-orange" data-type="code" >Code</div>
+					<div class="btn msoj-orange" data-type="code" >Code</div>
 				{% endif %}
 			</td>
 			{% if user.level > 0 %}
@@ -175,7 +175,7 @@
 			{% endif %}
 			{% if user.level >= 2 %}
 				<td>
-					<div class="shj_rejudge pointer"><i class="fa fa-refresh fa-lg color10"></i></div>
+					<div class="msoj_rejudge pointer"><i class="fa fa-refresh fa-lg color10"></i></div>
 				</td>
 			{% endif %}
 		</tr>
@@ -191,7 +191,7 @@
 
 
 {% block body_end %}
-<div id="shj_modal" class="reveal-modal xlarge">
+<div id="msoj_modal" class="reveal-modal xlarge">
 	<div class="modal_inside">
 		<div style="text-align: center;">Loading<br><img src="{{ base_url('assets/images/loading.gif') }}"/></div>
 	</div>

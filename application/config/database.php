@@ -82,7 +82,7 @@ $db['default'] = array(
 	'username' => 'root',           // database username
 	'password' => '',           // database password
 	'database' => 'mysuioj',           // database name
-	'dbprefix' => 'shj_',       // table prefix
+	'dbprefix' => 'msoj_',       // table prefix
 	/**********************************************/
 
 	'pconnect' => TRUE,

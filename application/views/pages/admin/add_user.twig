@@ -1,7 +1,7 @@
 {#
  # MySui Online Judge
  # file: add_user.twig
- # author: MySuiOJ Team <mysuioj@gmail.com>
+ # author: MySui Team <mysuioj@gmail.com>
  #}
 {% set selected = 'users' %}
 {% extends 'templates/base.twig' %}
@@ -34,7 +34,7 @@
 				send_mail: ($("#send_mail").is(":checked")?1:0),
 				delay: $("#delay").val(),
 				new_users:$("#new_users").val(),
-				shj_csrf_token: shj.csrf_token
+				msoj_csrf_token: msoj.csrf_token
 			},
 					function(data) {
 						$("#main_content").html(data);
