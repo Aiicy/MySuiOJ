@@ -3,6 +3,8 @@
  * online judge
  * @file msoj_default_lang.php
  * @author MySuiOJ Team <mysuioj@gmail.com>
+ *         airicy <airicy@outlook.com>
+ *         CountStarlight <countstarlight@outlook.com>
  */
 defined('BASEPATH') OR exit('No direct script access allowed');
 /*sider_bar*/
@@ -103,45 +105,52 @@ $lang['Final Score']		= 'Final Score';
 $lang['No Delay']		= 'No Delay';
 $lang['Uploaded']		= 'Uploaded';
 $lang['Download']		= 'Download';
-
-
-
-//login
+//authentication/login
 $lang['Login']		= 'login';
 $lang['Username field']		= 'The Username field must be between 3 and 20 characters in length, and contain only digits and lowercase letters';
 $lang['Password field']		= 'The Password field must be at least 6 characters in length';
 $lang['Incorrect']		= 'Incorrect username or password.';
 $lang['Register']		= 'Register';
 $lang['Reset Password']		= 'Reset Password';
-//lost
+//authentication/lost
 $lang['Lost Password']		= 'Lost Password';
 $lang['Sent Email']		= 'We sent you an email containing a link to reset your password.';
-//register
+//authentication/register
 $lang['Registration Code']		= 'Registration Code';
 $lang['Registered successfully']		= 'Registered successfully!';
-//reset_password
+//authentication/reset_password
 $lang['New Password']		= 'New Password';
 $lang['New Password, Again']		= 'New Password, Again';
 $lang['Login new password']		= 'Login with your new password!';
 $lang['Password Confirmation']		= 'The Password Confirmation field must be at least 6 characters in length';
 $lang['Set Password']		= 'Set Password';
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+//admin/settings
+$lang['Settings']		= 'Settings';
+$lang['Settings ups']		= 'Settings updated successfully.';
+$lang['Settings upe']		= 'Error updating settings.';
+$lang['Tpath ncorrect']		= '"Tester path" is not correct.';
+$lang['list of timezones']		= 'list of timezones';
+$lang['Week Start Day']		= 'Week Start Day';
+$lang['Sunday']		= 'Sunday';
+$lang['Monday']		= 'Monday';
+$lang['Tuesday']		= 'Tuesday';
+$lang['Wednesday']		= 'Wednesday';
+$lang['Thursday']		= 'Thursday';
+$lang['Friday']		= 'Friday';
+$lang['Saturday']		= 'Saturday';
+$lang['Full Path to']		= 'Full Path to ';
+$lang['Path of']		= '';
+$lang['Upload Size Limit']		= 'Upload Size Limit (kB)';
+$lang['Output Size Limit']		= 'Output Size Limit (kB)';
+$lang['Results Per Page']		= 'Results Per Page';
+$lang['In All Submit']		= 'In "All Submissions"';
+$lang['Enter 0 forl']		= 'Enter 0 for no limit';
+$lang['In Final Submit']		= 'In "Final Submissions"';
+$lang['Registration']		= 'Registration';
+$lang['Open Regist']		= 'Open Public Registration.';
+$lang['Registration Code']		= 'Registration Code';
+$lang['Set Registration Code']		= 'If you want to enable registration (above option), It is better to give a registration code';
+$lang['Enter 0 tod']		= 'Enter 0 to disable';
 
 
 
