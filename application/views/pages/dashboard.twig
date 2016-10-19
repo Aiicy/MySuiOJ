@@ -1,13 +1,13 @@
 {#
  # MySui Online Judge
  # file: dashboard.twig
- # author: MySui Team <mysuioj@gmail.com>
+ # author: MySuiOJ Team <mysuioj@gmail.com>
  #}
 {% set selected = 'dashboard' %}
 {% extends 'templates/base.twig' %}
 {% block icon %}fa-dashboard{% endblock %}
-{% block title %}仪表盘{% endblock %}
-{% block head_title %}仪表盘{% endblock %}
+{% block title %}{{ lang('Dashboard') }}{% endblock %}
+{% block head_title %}{{ lang('Dashboard') }}{% endblock %}
 
 
 
@@ -52,7 +52,7 @@ $(document).ready(function () {
 					"{{ site_url('dashboard/widget_positions') }}",
 					{
 						positions: positions,
-						msoj_csrf_token: msoj.csrf_token
+						shj_csrf_token: shj.csrf_token
 					}
 				);
 			}
@@ -67,15 +67,15 @@ $(document).ready(function () {
 
 {% block main_content %}
 {% for error in errors %}
-	<p class="msoj_error">{{ error|raw }}</p>
+	<p class="shj_error">{{ error|raw }}</p>
 {% endfor %}
 <div style="height: 15px;"></div>
 <div class="gridster">
 	<?php $i = 0; ?>
 	<ul>
 		<li data-row="{{ wp[0] ? wp[0]['r'] : '1' }}" data-col="{{ wp[0] ? wp[0]['c'] : '1' }}" data-sizex="{{ wp[0] ? wp[0]['x'] : '1' }}" data-sizey="{{ wp[0] ? wp[0]['y'] : '1' }}">
-			<div class="msoj_widget">
-				<div class="widget_title"><i class="fa fa-calendar-o fa-lg color10"></i> 日历</div>
+			<div class="shj_widget">
+				<div class="widget_title"><i class="fa fa-calendar-o fa-lg color10"></i> {{ lang('Calendar') }}</div>
 				<div class="widget_scrollable scroll-wrapper">
 					<div class="scroll-content">
 						<div class="widget_contents_container" id='calendar'></div>
@@ -86,9 +86,9 @@ $(document).ready(function () {
 
 		<li data-row="{{ wp[1] ? wp[1]['r'] : '1' }}" data-col="{{ wp[1] ? wp[1]['c'] : '2' }}"
 		    data-sizex="{{ wp[1] ? wp[1]['x'] : '1' }}" data-sizey="{{ wp[1] ? wp[1]['y'] : '1' }}">
-			<div class="msoj_widget">
+			<div class="shj_widget">
 				<div class="widget_title"><i class="fa fa-bell-o fa-lg color2"></i>
-					最新的通知
+					{{ lang('Latest Notifications') }}
 					{% if user.level >= 2 %}
 						<a title="New Notification" href="{{ site_url('notifications/add') }}" class="pull-right">
 							<i class="fa fa-plus color11"></i>
@@ -99,7 +99,7 @@ $(document).ready(function () {
 					<div class="scroll-content">
 						<div class="widget_contents_container">
 							{% if notifications|length == 0 %}
-								<p style="text-align: center;">Nothing yet...</p>
+								<p style="text-align: center;">{{ lang('Nothing yet...') }}</p>
 							{% endif %}
 							{% for notification in notifications %}
 								<div class="notif" id="number{{ notification.id }}" data-id="{{ notification.id }}">
@@ -108,8 +108,8 @@ $(document).ready(function () {
 										<span class="notif_meta" dir="ltr">
 										{{ notification.time }}
 											{% if user.level >= 2 %}
-												<span class="anchor edt_n">Edit</span>
-												<span class="anchor del_n">Delete</span>
+												<span class="anchor edt_n">{{ lang('Edit') }}</span>
+												<span class="anchor del_n">{{ lang('Delete') }}</span>
 											{% endif %}
 										</span>
 									</div>

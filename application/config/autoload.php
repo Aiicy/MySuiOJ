@@ -92,7 +92,7 @@ $autoload['drivers'] = array('session');/**/
 |	$autoload['helper'] = array('url', 'file');
 */
 /*$autoload['helper'] = array();/**/
-$autoload['helper'] = array('url','form','msoj');/**/
+$autoload['helper'] = array('url','form','msoj','language');/**/
 
 /*
 | -------------------------------------------------------------------
@@ -122,7 +122,7 @@ $autoload['config']   = array();/**/
 | "codeigniter_lang.php" would be referenced as array('codeigniter');
 |
 */
-$autoload['language'] = array();
+$autoload['language'] = array('msoj_default');
 
 /*
 | -------------------------------------------------------------------

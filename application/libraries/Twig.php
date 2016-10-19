@@ -215,6 +215,7 @@ class Twig {
 		$this->twig->addFunction('form_error', new Twig_Function_Function('form_error', array('is_safe' => array('html'))));
 		$this->twig->addFunction('set_value', new Twig_Function_Function('set_value'));
 		$this->twig->addFunction('set_checkbox', new Twig_Function_Function('set_checkbox'));
+		$this->twig->addFunction('lang', new Twig_Function_Function('lang'));/*多语言/**/
 		/*$this->twig->addFunction('form_hidden', new Twig_Function_Function('form_hidden'));
 		$this->twig->addFunction('form_input', new Twig_Function_Function('form_input'));
 		$this->twig->addFunction('form_password', new Twig_Function_Function('form_password'));
