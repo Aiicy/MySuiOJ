@@ -2,7 +2,7 @@
 /**
  * online judge
  * @file msoj_default_lang.php
- * @author MySuiOJ Team <mysuioj@gmail.com>
+ * @author MySui Team <mysuioj@gmail.com>
  *         airicy <airicy@outlook.com>
  *         CountStarlight <countstarlight@outlook.com>
  */
