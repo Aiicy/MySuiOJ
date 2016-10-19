@@ -3,7 +3,7 @@
  # file: lost.twig
  # author: MySui Team <mysuioj@gmail.com>
  #}
-{% set title = 'Lost Password' %}
+{% set title = lang('Lost Password') %}
 {% include 'templates/simple_header.twig' %}
 
 {{ form_open('login/lost') }}
@@ -16,18 +16,18 @@
 		<div class="login_form">
 			<div class="login1">
 				<p>
-					<label for="form_email">邮箱</label><br/>
+					<label for="form_email">{{ lang('Email') }}</label><br/>
 					<input id="form_email" type="email" name="email" class="mysui_input" value="{{ set_value('email') }}"/>
 					{{ form_error('email', '<div class="msoj_error">', '</div>') }}
 				</p>
 				{% if sent %}
-					<div class="msoj_ok">We sent you an email containing a link to reset your password.</div>
+					<div class="msoj_ok">{{ lang('Sent Email') }}</div>
 				{% endif %}
 			</div>
 			<div class="login2">
 				<p style="margin:0;">
-					<a href="{{ site_url('login') }}">登录</a>
-					<input type="submit" value="Reset Password" id="mysui_submit"/>
+					<a href="{{ site_url('login') }}">{{ lang('Login') }}</a>
+					<input type="submit" value="{{ lang('Reset Password') }}" id="mysui_submit"/>
 				</p>
 			</div>
 		</div>

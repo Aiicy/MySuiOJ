@@ -3,7 +3,7 @@
  # file: register_success.twig
  # author: MySui Team <mysuioj@gmail.com>
  #}
-{% set title = 'Register' %}
+{% set title = lang('Register') %}
 {% include 'templates/simple_header.twig' %}
 
 <div class="box success">
@@ -13,12 +13,12 @@
 	<div class="login_form">
 		<div class="login1">
 			<p style="width:100%;">
-				注册成功！
+				{{ lang('Registered successfully') }}
 			</p>
 		</div>
 		<div class="login2">
 			<p style="margin:0;">
-				<a href="{{ site_url('login') }}">Login</a>
+				<a href="{{ site_url('login') }}">{{ lang('Login') }}</a>
 			</p>
 		</div>
 	</div>

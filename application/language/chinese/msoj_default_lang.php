@@ -41,7 +41,7 @@ $lang['Name']		= '姓名';
 $lang['Email']		= '电子邮箱';
 $lang['Password']		= '密码';
 $lang['Not change password']		= '如果不想修改密码，留空这里。';
-$lang['Password, Again']		= '再次输入密码';
+$lang['Password, Again']		= '确认密码';
 $lang['User Role']		= '用户组';
 $lang['admin']		= '管理员';
 $lang['head_instructor']		= '班主任';
@@ -103,6 +103,38 @@ $lang['Final Score']		= '最终评分';
 $lang['No Delay']		= '没有超时';
 $lang['Uploaded']		= '已上传';
 $lang['Download']		= '下载';
+
+
+
+//login
+$lang['Login']		= '登录';
+$lang['Username field']		= '用户名为3到20个小写英文字母和数字';
+$lang['Password field']		= '密码长度至少为6个字符';
+$lang['Incorrect']		= '用户名或密码错误';
+$lang['Register']		= '注册';
+$lang['Reset Password']		= '重置密码';
+//lost
+$lang['Lost Password']		= '找回密码';
+$lang['Sent Email']		= '我们给你发送了一封包含密码重置链接的电子邮件。';
+//register
+$lang['Registration Code']		= '注册码';
+$lang['Registered successfully']		= '注册成功！';
+//reset_password
+$lang['New Password']		= '新密码';
+$lang['New Password, Again']		= '确认新密码';
+$lang['Login new password']		= '使用新密码登录吧!';
+$lang['Password Confirmation']		= '密码长度至少为6个字符';
+$lang['Set Password']		= '设置密码';
+
+
+
+
+
+
+
+
+
+
 
 
 

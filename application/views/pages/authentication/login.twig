@@ -3,7 +3,7 @@
  # file: login.twig
  # author: MySui Team <mysuioj@gmail.com>
  #}
-{% set title = 'Login' %}
+{% set title = lang('Login') %}
 {% include 'templates/simple_header.twig' %}
 
 {{ form_open() }}
@@ -16,26 +16,26 @@
 		<div class="login_form">
 			<div class="login1">
 				<p>
-					<label for="form_username">用户名</label><br/>
-					<input id="form_username" type="text" name="username" required="required" pattern="[0-9a-z]{3,20}" title="用户名为3到20个小写英文字母" class="mysui_input" value="{{ set_value('username') }}" autofocus="autofocus"/>
+					<label for="form_username">{{ lang('Username') }}</label><br/>
+					<input id="form_username" type="text" name="username" required="required" pattern="[0-9a-z]{3,20}" title="{{ lang('Username field') }}" class="mysui_input" value="{{ set_value('username') }}" autofocus="autofocus"/>
 					{{ form_error('username', '<div class="msoj_error">', '</div>') }}
 				</p>
 				<p>
-					<label for="form_password">密码</label><br/>
-					<input id="form_password" type="password" name="password" required="required" pattern=".{6,200}" title="密码长度至少为6个字母" class="mysui_input"/>
+					<label for="form_password">{{ lang('Password') }}</label><br/>
+					<input id="form_password" type="password" name="password" required="required" pattern=".{6,200}" title="{{ lang('Password field') }}" class="mysui_input"/>
 					{{ form_error('password', '<div class="msoj_error">', '</div>') }}
 				</p>
 				{% if error %}
-					<div class="msoj_error">用户名或密码错误</div>
+					<div class="msoj_error">{{ lang('Incorrect') }}</div>
 				{% endif %}
 			</div>
 			<div class="login2">
 				<p style="margin:0;">
 					{% if registration_enabled %}
-					<a href="{{ site_url('register') }}">注册</a> |
+					<a href="{{ site_url('register') }}">{{ lang('Register') }}</a> |
 					{% endif %}
-					<a href="{{ site_url('login/lost') }}">找回密码</a>
-					<input type="submit" value="Login" id="mysui_submit"/>
+					<a href="{{ site_url('login/lost') }}">{{ lang('Reset Password') }}</a>
+					<input type="submit" value="{{ lang('Login') }}" id="mysui_submit"/>
 				</p>
 			</div>
 		</div>
