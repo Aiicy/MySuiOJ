@@ -2,7 +2,7 @@
 /**
  * online judge
  * @file msoj_default_lang.php
- * @author MySuiOJ Team <mysuioj@gmail.com>
+ * @author MySui Team <mysuioj@gmail.com>
  */
 defined('BASEPATH') OR exit('No direct script access allowed');
 /*sider_bar*/
@@ -22,9 +22,9 @@ $lang['Collapse Menu']		= '隐藏侧边栏';
 $lang['Sign Out']		= '注销';
 $lang['Profile']		= '个人中心';
 $lang['Tools']		= '工具';
-$lang['Rejudge']		= '重新评价';
+$lang['Rejudge']		= '重新评测';
 $lang['Submission Queue']		= '提交队列';
-$lang['Cheat Detection']		= '欺骗检测';
+$lang['Cheat Detection']		= '作弊判定';
 $lang['All Assignments']		= '所有任务';
 //dashboard
 $lang['Calendar']		= '日历';
@@ -103,31 +103,33 @@ $lang['Final Score']		= '最终评分';
 $lang['No Delay']		= '没有超时';
 $lang['Uploaded']		= '已上传';
 $lang['Download']		= '下载';
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+//admin/settings
+$lang['Settings']		= '设置';
+$lang['Settings ups']		= '设置更新成功！';
+$lang['Settings upe']		= '设置保存失败';
+$lang['Tpath ncorrect']		= '需要修改 "Tester path"';
+$lang['list of timezones']		= '时区列表';
+$lang['Week Start Day']		= '一周的第一天';
+$lang['Sunday']		= '星期天';
+$lang['Monday']		= '星期一';
+$lang['Tuesday']		= '星期二';
+$lang['Wednesday']		= '星期三';
+$lang['Thursday']		= '星期四';
+$lang['Friday']		= '星期五';
+$lang['Saturday']		= '星期六';
+$lang['Full Path to']		= '文件夹';
+$lang['Path of']		= ' 的完整路径';
+$lang['Upload Size Limit']		= '上传大小限制 (kB)';
+$lang['Output Size Limit']		= '输出大小限制 (kB)';
+$lang['Results Per Page']		= '每页显示的数量';
+$lang['In All Submit']		= '在“所有的提交” 页面上';
+$lang['Enter 0 forl']		= '输入 0 为不限制';
+$lang['In Final Submit']		= '在“最近的提交” 页面上';
+$lang['Registration']		= '注册';
+$lang['Open Regist']		= '开放注册';
+$lang['Registration Code']		= '注册码';
+$lang['Set Registration Code']		= '如果你想要开放注册 (上面那个选项)，最好设置一个注册码';
+$lang['Enter 0 tod']		= '输入 0 为关闭';
 
 
 

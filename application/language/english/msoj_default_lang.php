@@ -103,23 +103,33 @@ $lang['Final Score']		= 'Final Score';
 $lang['No Delay']		= 'No Delay';
 $lang['Uploaded']		= 'Uploaded';
 $lang['Download']		= 'Download';
-
-//users
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+//admin/settings
+$lang['Settings']		= 'Settings';
+$lang['Settings ups']		= 'Settings updated successfully.';
+$lang['Settings upe']		= 'Error updating settings.';
+$lang['Tpath ncorrect']		= '"Tester path" is not correct.';
+$lang['list of timezones']		= 'list of timezones';
+$lang['Week Start Day']		= 'Week Start Day';
+$lang['Sunday']		= 'Sunday';
+$lang['Monday']		= 'Monday';
+$lang['Tuesday']		= 'Tuesday';
+$lang['Wednesday']		= 'Wednesday';
+$lang['Thursday']		= 'Thursday';
+$lang['Friday']		= 'Friday';
+$lang['Saturday']		= 'Saturday';
+$lang['Full Path to']		= 'Full Path to ';
+$lang['Path of']		= '';
+$lang['Upload Size Limit']		= 'Upload Size Limit (kB)';
+$lang['Output Size Limit']		= 'Output Size Limit (kB)';
+$lang['Results Per Page']		= 'Results Per Page';
+$lang['In All Submit']		= 'In "All Submissions"';
+$lang['Enter 0 forl']		= 'Enter 0 for no limit';
+$lang['In Final Submit']		= 'In "Final Submissions"';
+$lang['Registration']		= 'Registration';
+$lang['Open Regist']		= 'Open Public Registration.';
+$lang['Registration Code']		= 'Registration Code';
+$lang['Set Registration Code']		= 'If you want to enable registration (above option), It is better to give a registration code';
+$lang['Enter 0 tod']		= 'Enter 0 to disable';
 
 
 
