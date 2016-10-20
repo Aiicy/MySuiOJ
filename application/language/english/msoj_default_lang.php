@@ -178,6 +178,7 @@ $lang['Help']           = 'Help';
 $lang['for']           = 'for';
 $lang['Rules']           = 'Rules';
 $lang['Shield Rules']           = 'Shield Rules';
+$lang['Save Changes']           = 'Save Changes';
 
 /* End of file msoj_default_lang.php */
 /* Location: ./system/language/english/msoj_default_lang.php */

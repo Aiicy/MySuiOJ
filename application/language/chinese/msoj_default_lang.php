@@ -178,6 +178,7 @@ $lang['Help']           = '帮助';
 $lang['for']           = '为';
 $lang['Rules']           = '';
 $lang['Shield Rules']           = '防护规则';
+$lang['Save Changes']           = '保存修改';
 
 /* End of file msoj_default_lang.php */
 /* Location: ./system/language/chinese/msoj_default_lang.php */
