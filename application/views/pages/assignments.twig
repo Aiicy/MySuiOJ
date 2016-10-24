@@ -51,11 +51,11 @@
 <tr>
 	<td><i class="pointer select_assignment fa {{ item.id == user.selected_assignment.id ? 'fa-check-square-o color6' : 'fa-square-o' }} fa-2x" data-id="{{ item.id }}"></i></td>
 	<td dir="auto">{{ item.name }}</td>
-	<td><a href="{{ site_url('problems/'~item.id) }}">{{ item.problems }} problem{{ item.problems != 1 ? 's' }}</a></td>
-	<td>{{ item.total_submits }} submission{{ item.total_submits != 1 ? 's' }}</td>
+	<td><a href="{{ site_url('problems/'~item.id) }}">{{ item.problems }} {{ item.problem > 1 ? lang('problems') : lang('problems') }}</a></td>
+	<td>{{ item.total_submits }} {{ item.total_submits  > 1 ? lang('submissions') : lang('submission') }}</td>
 	<td>
 		{% if item.finished %}
-			<span style="color: red;">Finished</span>
+			<span style="color: red;">{{ lang('Finished') }}</span>
 		{% else %}
 			{{ item.coefficient }} %
 		{% endif %}
@@ -64,9 +64,9 @@
 	<td>{{ item.finish_time }}</td>
 	<td>
 		{% if item.open %}
-			<span style="color: green;">Open</span>
+			<span style="color: green;">{{ lang('Open') }}</span>
 		{% else %}
-			<span style="color: red;">Close</span>
+			<span style="color: red;">{{ lang('Close') }}</span>
 		{% endif %}
 	</td>
 	<td>

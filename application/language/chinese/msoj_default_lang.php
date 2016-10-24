@@ -61,6 +61,13 @@ $lang['Finish Time']                     = '截止时间';
 $lang['Status']                          = '状态';
 $lang['PDF']                             = 'PDF';
 $lang['Actions']                         = '操作';
+$lang['problem']                         = '个问题';
+$lang['problems']                         = '个问题';
+$lang['submission']                         = '个提交';
+$lang['submissions']                         = '个提交';
+$lang['Finished']                         = 'Finished';
+$lang['Open']                         = '开启';
+$lang['Close']                         = '关闭';
 $lang['Download Tests and Descriptions'] = '下载题目和描述文件';
 $lang['Download by user']                = '下载最后提交代码 (by user)';
 $lang['Download by problem']             = '下载最后提交代码 (by problem)';
@@ -229,7 +236,7 @@ $lang['Installation']          = '安装';
 $lang['Installed']             = 'MySui Online Judge 已安装';
 $lang['not writable']          = '对于PHP不可写。';
 $lang['security reasons']      = '出于安全原因，您应该手动更改加密密钥。';
-$lang['Open']                  = '打开';
+$lang['Open1']                  = '打开';
 $lang['change encryption key'] = '并更改该行的加密密钥';
 $lang['characters string']  = '加密密钥应该是一个32个字符的字符串，使用尽可能随机的数字、大写字母和小写字母。';
 $lang['random string']         = '你可以使用这个随机字符串';
@@ -276,12 +283,12 @@ $lang['syntax']         = '#每行的开始有一个#标志为注释
 # 你可以使用 RANDOM[n] 替代 PASSWORD 来生成一个n位随机密码。';
 $lang['Please wait'] = '正在添加用户... 请稍等';
 //add_nitification
-$lang['Edit Notification'] = '编辑通知';
+$lang['Edit Notification'] = '修改通知';
 $lang['New Notification']  = '新建通知';
 $lang['Title']             = '标题';
 $lang['Text']              = '内容';
 //add_assignment
-$lang['Edit Assignment']        = '编辑任务';
+$lang['Edit Assignment']        = '修改任务';
 $lang['Add Assignment']         = '添加任务';
 $lang['Assignment Name']        = '任务名称';
 $lang['Extra Time']             = '额外的时间';
