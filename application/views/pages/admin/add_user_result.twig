@@ -2,20 +2,21 @@
  # MySui Online Judge
  # file: add_user_result.twig
  # author: MySui Team <mysuioj@gmail.com>
+ #         airicy <airicy@outlook.com>
  #}
 {% if ok %}
-<p class="msoj_ok">These users added successfully:</p>
+<p class="msoj_ok">{{ lang('added successfully') }}:</p>
 <ol>
 	{% for item in ok %}
-	<li>Usename: {{ item[0] }} Email: {{ item[1] }} Password: <code>{{ item[2] }}</code> Role: {{ item[3] }}</li>
+	<li>{{ lang('Username') }}: {{ item[0] }} {{ lang('Email') }}: {{ item[1] }} {{ lang('Password') }}: <code>{{ item[2] }}</code> {{ lang('Role') }}: {{ item[3] }}</li>
 	{% endfor %}
 </ol>
 {% endif %}
 {% if error %}
-<p class="msoj_error">Error adding these users:</p>
+<p class="msoj_error">{{ lang('Error adding') }}:</p>
 <ol>
 	{% for item in error %}
-	<li>Usename: {{ item[0] }} Email: {{ item[1] }} Password: <code>{{ item[2] }}</code> Role: {{ item[3] }} ({{ item[4] }})</li>
+	<li>{{ lang('Username') }}: {{ item[0] }} {{ lang('Email') }}: {{ item[1] }} {{ lang('Password') }}: <code>{{ item[2] }}</code> {{ lang('Role') }}: {{ item[3] }} ({{ item[4] }})</li>
 	{% endfor %}
 </ol>
 {% endif %}

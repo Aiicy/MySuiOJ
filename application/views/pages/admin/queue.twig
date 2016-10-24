@@ -2,12 +2,13 @@
  # MySui Online Judge
  # file: queue.twig
  # author: MySui Team <mysuioj@gmail.com>
+ #         airicy <airicy@outlook.com>
  #}
 {% set selected = '' %}
 {% extends 'templates/base.twig' %}
-{% block icon %}fa-play{% endblock %}
-{% block title %}Submission Queue{% endblock %}
-{% block head_title %}Submission Queue{% endblock %}
+{% block icon %}fa-hourglass-half{% endblock %}
+{% block title %}{{ lang('Submission Queue') }}{% endblock %}
+{% block head_title %}{{ lang('Submission Queue') }}{% endblock %}
 
 
 
@@ -34,26 +35,26 @@
 {% block main_content %}
 <p>
 	{% if working %}
-		<i class="fa fa-play fa-lg color6"></i> Queue is working
+		<i class="fa fa-play fa-lg color6"></i> {{ lang('Queue working') }}
 	{% else %}
-		<i class="fa fa-pause fa-lg color10"></i> Queue is not working
+		<i class="fa fa-pause fa-lg color10"></i> {{ lang('Queue not working') }}
 	{% endif %}
-	| Total submissions in queue: {{ queue|length }}
+	| {{ lang('Total queue') }}: {{ queue|length }}
 </p>
 <p>
-	<a href="#" class="msoj_act" id="pause"><i class="fa fa-pause"></i> Pause</a> |
-	<a href="#" class="msoj_act" id="resume"><i class="fa fa-play"></i> Resume</a> |
-	<a href="#" class="msoj_act" id="empty_queue"><i class="fa fa-times-circle"></i> Empty Queue</a>
+	<a href="#" class="msoj_act" id="pause"><i class="fa fa-pause"></i> {{ lang('Pause') }}</a> |
+	<a href="#" class="msoj_act" id="resume"><i class="fa fa-play"></i> {{ lang('Resume') }}</a> |
+	<a href="#" class="msoj_act" id="empty_queue"><i class="fa fa-times-circle"></i> {{ lang('Empty Queue') }}</a>
 </p>
 <table class="mysui_table">
 	<thead>
 	<tr>
 		<th>#</th>
-		<th>Submit ID</th>
-		<th>Usename</th>
-		<th>Assignment</th>
-		<th>Problem</th>
-		<th>Type (judge/rejudge)</th>
+		<th>{{ lang('Submit ID') }}</th>
+		<th>{{ lang('Username') }}</th>
+		<th>{{ lang('Assignment') }}</th>
+		<th>{{ lang('Problem') }}</th>
+		<th>{{ lang('Type') }}</th>
 	</tr>
 	</thead>
 	{% for item in queue %}

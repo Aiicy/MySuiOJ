@@ -76,12 +76,12 @@ $(document).ready(function(){
 		<input id="form_a_path" type="text" name="assignments_root" class="mysui_input medium" value="{{ assignments_root }}"/>
 	</p>
 	<p class="input_p">
-		<label for="form_up_limit">{{ lang('Upload Size Limit') }}</label>
+		<label for="form_up_limit">{{ lang('Upload Size Limit') }} (kB)</label>
 		<input id="form_up_limit" type="text" name="file_size_limit" class="mysui_input medium" value="{{ file_size_limit }}"/>
 		{{ form_error('file_size_limit', '<div class="msoj_error">', '</div>') }}
 	</p>
 	<p class="input_p">
-		<label for="form_out_limit">{{ lang('Output Size Limit') }}</label>
+		<label for="form_out_limit">{{ lang('Output Size Limit') }} (kB)</label>
 		<input id="form_out_limit" type="text" name="output_size_limit" class="mysui_input medium" value="{{ output_size_limit }}"/><br>
 		<span class="form_comment clear">{{ lang('Sets limit output code') }}</span>
 		{{ form_error('output_size_limit', '<div class="msoj_error">', '</div>') }}
@@ -135,12 +135,12 @@ $(document).ready(function(){
 	</p>
 	<p class="input_p">
 		<label for="form_mail_reset">{{ lang('Password Reset Email') }}</label>
-		<span class="form_comment">{{ lang('You can use') }}{SITE_URL}, {RESET_LINK} {{ lang('and') }} {VALID_TIME}</span><br>
+		<span class="form_comment">{{ lang('You can use1') }}</span><br>
 		<textarea id="form_mail_reset" name="reset_password_mail" rows="15" class="mysui_input add_text clear">{{ reset_password_mail }}</textarea>
 	</p>
 	<p class="input_p">
 		<label for="form_mail_add">{{ lang('Add User Email') }}</label>
-		<span class="form_comment clear">{{ lang('You can use') }}{SITE_URL}, {LOGIN_URL}, {ROLE}, {USERNAME} {{ lang('and') }} {PASSWORD}</span><br>
+		<span class="form_comment clear">{{ lang('You can use2') }}</span><br>
 		<textarea id="form_mail_add" name="add_user_mail" rows="15" class="mysui_input add_text clear">{{ add_user_mail }}</textarea>
 	</p>
 

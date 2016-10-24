@@ -2,43 +2,44 @@
  # MySui Online Judge
  # file: users.twig
  # author: MySui Team <mysuioj@gmail.com>
+ #         airicy <airicy@outlook.com>
  #}
 {% set selected = 'users' %}
 {% extends 'templates/base.twig' %}
 {% block icon %}fa-users{% endblock %}
-{% block title %}Users{% endblock %}
-{% block head_title %}Users{% endblock %}
+{% block title %}{{ lang('Users') }}{% endblock %}
+{% block head_title %}{{ lang('Users') }}{% endblock %}
 
 
 
 {% block title_menu %}
-	<span class="title_menu_item"><a href="https://github.com/MySuiOJ/MySuiOJ/blob/docs/v1.4/users.md" target="_blank"><i class="fa fa-question-circle color6"></i> Help</a></span>
-	<span class="title_menu_item"><a href="{{ site_url('users/add') }}"><i class="fa fa-plus color11"></i> Add Users</a></span>
-	<span class="title_menu_item"><a href="{{ site_url('users/list_excel') }}"><i class="fa fa-download color9"></i> Excel</a></span>
+	<span class="title_menu_item"><a href="https://github.com/MySuiOJ/MySuiOJ/blob/docs/v1.4/users.md" target="_blank"><i class="fa fa-question-circle color6"></i> {{ lang('Help') }}</a></span>
+	<span class="title_menu_item"><a href="{{ site_url('users/add') }}"><i class="fa fa-plus color11"></i> {{ lang('Add Users') }}</a></span>
+	<span class="title_menu_item"><a href="{{ site_url('users/list_excel') }}"><i class="fa fa-download color9"></i> {{ lang('Excel') }}</a></span>
 {% endblock %}
 
 
 
 {% block main_content %}
 {% if deleted_user %}
-	<p class="msoj_ok">User deleted successfully.</p>
+	<p class="msoj_ok">{{ lang('User deleted') }}</p>
 {% endif %}
 {% if deleted_submissions %}
-	<p class="msoj_ok">Submissions of selected user deleted successfully.</p>
+	<p class="msoj_ok">{{ lang('Submissions user deleted') }}</p>
 {% endif %}
 <div style="height:15px"></div>
 <table class="mysui_table">
 	<thead>
 		<tr>
 			<th>#</th>
-			<th>User ID</th>
-			<th>Username</th>
-			<th>Display Name</th>
-			<th>Email</th>
-			<th>Role</th>
-			<th>First Login</th>
-			<th>Last Login</th>
-			<th>Actions</th>
+			<th>{{ lang('User ID') }}</th>
+			<th>{{ lang('Username') }}</th>
+			<th>{{ lang('Display Name') }}</th>
+			<th>{{ lang('Email') }}</th>
+			<th>{{ lang('Role') }}</th>
+			<th>{{ lang('First Login') }}</th>
+			<th>{{ lang('Last Login') }}</th>
+			<th>{{ lang('Actions') }}</th>
 		</tr>
 	</thead>
 	{% for user in users %}
@@ -52,10 +53,10 @@
 			<td>{{ user.first_login_time ? user.first_login_time : 'Never' }}</td>
 			<td>{{ user.last_login_time ? user.last_login_time : 'Never' }}</td>
 			<td>
-				<a title="Edit" href="{{ site_url('profile/'~user.id) }}"><i class="fa fa-pencil fa-lg color9"></i></a>
-				<a title="Submissions" href="{{ site_url('submissions/all/user/'~user.username) }}"><i class="fa fa-bars fa-lg color12"></i></a>
-				<span title="Delete User" class="delete_user pointer"><i title="Delete User" class="fa fa-times fa-lg color2"></i></span>
-				<span title="Delete Submissions" class="delete_submissions pointer"><i class="fa fa-times-circle fa-lg color1"></i></span>
+				<a title="{{ lang('Edit') }}" href="{{ site_url('profile/'~user.id) }}"><i class="fa fa-pencil fa-lg color9"></i></a>
+				<a title="{{ lang('Submissions') }}" href="{{ site_url('submissions/all/user/'~user.username) }}"><i class="fa fa-bars fa-lg color12"></i></a>
+				<span title="{{ lang('Delete User') }}" class="delete_user pointer"><i class="fa fa-times fa-lg color2"></i></span>
+				<span title="{{ lang('Delete Submissions') }}" class="delete_submissions pointer"><i class="fa fa-times-circle fa-lg color1"></i></span>
 			</td>
 		</tr>
 	{% endfor %}

@@ -2,29 +2,29 @@
  # MySui Online Judge
  # file: rejudge.twig
  # author: MySui Team <mysuioj@gmail.com>
+ #         airicy <airicy@outlook.com>
  #}
 {% set selected = 'assignments' %}
 {% extends 'templates/base.twig' %}
-{% block icon %}fa-refresh{% endblock %}
-{% block title %}Rejudge{% endblock %}
-{% block head_title %}Rejudge{% endblock %}
+{% block icon %}fa-repeat{% endblock %}
+{% block title %}{{ lang('Rejudge') }}{% endblock %}
+{% block head_title %}{{ lang('Rejudge') }}{% endblock %}
 
 
 {% block main_content %}
 <p>
-	Selected Assignment: <span dir="auto">{{ user.selected_assignment.name }}</span>
+	{{ lang('Selected Assignment') }}: <span dir="auto">{{ user.selected_assignment.name }}</span>
 </p>
 <p>
-	By clicking on rejudge, all submissions of selected problem will change to <code>PENDING</code> state. Then
-	MySui Online Judge rejudges them one by one.
+		{{ lang('clicking on rejudge1') }} <code>PENDING</code> {{ lang('clicking on rejudge2') }}
 </p>
 <p>
-	If you want to rejudge a single submission, you can click on rejudge button in <a href="{{ site_url('submissions/all') }}">All Submissions</a> or <a href="{{ site_url('submissions/final') }}">Final Submissions</a> page.
+	 	{{ lang('rejudge button') }}<a href="{{ site_url('submissions/all') }}">{{ lang('All Submissions') }}</a> {{ lang('or') }} <a href="{{ site_url('submissions/final') }}">{{ lang('Final Submissions') }}</a> {{ lang('page') }}.
 </p>
 {% for problem in problems %}
 	{{ form_open('rejudge') }}
 		<input type="hidden" name="problem_id" value="{{ problem.id }}"/>
-		<input type="submit" class="mysui_input" value="Rejudge Problem {{ problem.id }} ({{ problem.name }})"/>
+		<input type="submit" class="mysui_input" value="{{ lang('Rejudge Problem') }} {{ problem.id }} ({{ problem.name }})"/>
 	</form>
 {% endfor %}
 

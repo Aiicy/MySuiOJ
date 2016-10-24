@@ -2,12 +2,13 @@
  # MySui Online Judge
  # file: edit_problem_md.twig
  # author: MySui Team <mysuioj@gmail.com>
+ #         airicy <airicy@outlook.com>
  #}
 {% set selected = 'problems' %}
 {% extends 'templates/base.twig' %}
 {% block icon %}fa-edit{% endblock %}
-{% block title %}Edit Problem Description (Markdown){% endblock %}
-{% block head_title %}Edit Problem Description (Markdown){% endblock %}
+{% block title %}{{ lang('Edit Description') }} (Markdown){% endblock %}
+{% block head_title %}{{ lang('Edit Description') }} (Markdown){% endblock %}
 
 
 
@@ -24,7 +25,7 @@ $(document).ready(function(){
 
 {% block main_content %}
 <div class="pull-right md_cheatsheet">
-<h2>Markdown Cheatsheet</h2>
+<h2>Markdown {{ lang('Cheatsheet') }}</h2>
 From <a href="http://daringfireball.net/projects/markdown/dingus">Daring Fireball</a>
 <h3>Headers</h3>
 
@@ -172,15 +173,15 @@ Violets are blue.
 
 <div id="md_div">
 	<p>
-		Assignment {{ description_assignment.id }} (<span dir="auto">{{ description_assignment.name }}</span>)<br>
-		Problem {{ problem.id }}
+		{{ lang('Assignment') }} {{ description_assignment.id }} (<span dir="auto">{{ description_assignment.name }}</span>)<br>
+		{{ lang('Problem') }} {{ problem.id }}
 	</p>
 	{{ form_open("problems/edit/md/#{description_assignment.id}/#{problem.id}") }}
 	<p class="input_p">
 		<textarea dir="auto" name="text" rows="30" cols="75" class="mysui_input" id="md_editor">{{ problem.description }}</textarea>
 	</p>
 	<p class="input_p">
-		<input type="submit" value="Save" class="mysui_input"/>
+		<input type="submit" value="{{ lang('Save') }}" class="mysui_input"/>
 	</p>
 	</form>
 </div>
