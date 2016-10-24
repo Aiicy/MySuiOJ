@@ -82,7 +82,7 @@
 			<a href="{{ site_url("assignments/download_submissions/by_problem/#{item.id}") }}"><i title="{{ lang('Download by problem') }}" class="fa fa-download fa-lg color2"></i></a>
 		{% endif %}
 		{% if user.level >= 2 %}
-			<a href="{{ site_url('moss/'~item.id) }}"><i title="{{ lang('Detect Similar Codes') }}" class="fa fa-shield fa-lg color7"></i></a>
+			<a href="{{ site_url('moss/'~item.id) }}"><i title="{{ lang('Detect Similar Codes') }}" class="fa fa-list-alt fa-lg color7"></i></a>
 		{% endif %}
 		{% if user.level >= 2 %}
 			<a href="{{ site_url('assignments/edit/'~item.id) }}"><i title="{{ lang('Edit') }}" class="fa fa-pencil fa-lg color3"></i></a>
