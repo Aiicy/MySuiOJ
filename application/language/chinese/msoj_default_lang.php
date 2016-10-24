@@ -73,7 +73,6 @@ $lang['Edit HTML']       = '编辑 HTML';
 $lang['Edit Plain HTML'] = '编辑 Plain HTML';
 $lang['Problem']         = '问题';
 $lang['Score']           = '评分';
-$lang['Upload Only']     = '只上传';
 $lang['Select Language'] = '选择语言';
 $lang['Submit']          = '提交';
 //scoreboard
@@ -127,6 +126,7 @@ $lang['Settings']                 = '设置';
 $lang['Settings ups']             = '设置更新成功！';
 $lang['Settings upe']             = '设置保存失败';
 $lang['Tpath ncorrect']           = '需要修改 "Tester path"';
+$lang['Timezone']                 = '时区';
 $lang['list of timezones']        = '时区列表';
 $lang['Week Start Day']           = '一周的第一天';
 $lang['Sunday']                   = '星期天';

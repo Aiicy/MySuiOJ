@@ -19,7 +19,7 @@
 		{{ lang('clicking on rejudge1') }} <code>PENDING</code> {{ lang('clicking on rejudge2') }}
 </p>
 <p>
-	 	{{ lang('rejudge button') }}<a href="{{ site_url('submissions/all') }}">{{ lang('All Submissions') }}</a> {{ lang('or') }} <a href="{{ site_url('submissions/final') }}">{{ lang('Final Submissions') }}</a> {{ lang('page') }}.
+	 	{{ lang('rejudge button') }} <a href="{{ site_url('submissions/all') }}">{{ lang('All Submissions') }}</a> {{ lang('or') }} <a href="{{ site_url('submissions/final') }}">{{ lang('Final Submissions') }}</a> {{ lang('page') }}.
 </p>
 {% for problem in problems %}
 	{{ form_open('rejudge') }}

@@ -73,7 +73,6 @@ $lang['Edit HTML']       = 'Edit HTML';
 $lang['Edit Plain HTML'] = 'Edit Plain HTML';
 $lang['Problem']         = 'Problem';
 $lang['Score']           = 'Score';
-$lang['Upload Only']     = 'Upload<br>Only';
 $lang['Select Language'] = 'Select Language';
 $lang['Submit']          = 'Submit';
 //scoreboard
@@ -127,6 +126,7 @@ $lang['Settings']                 = 'Settings';
 $lang['Settings ups']             = 'Settings updated successfully.';
 $lang['Settings upe']             = 'Error updating settings.';
 $lang['Tpath ncorrect']           = '"Tester path" is not correct.';
+$lang['Timezone']                 = 'Timezone';
 $lang['list of timezones']        = 'list of timezones';
 $lang['Week Start Day']           = 'Week Start Day';
 $lang['Sunday']                   = 'Sunday';
