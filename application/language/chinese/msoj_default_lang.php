@@ -69,8 +69,8 @@ $lang['Finished']                         = 'Finished';
 $lang['Open']                         = '开启';
 $lang['Close']                         = '关闭';
 $lang['Download Tests and Descriptions'] = '下载题目和描述文件';
-$lang['Download by user']                = '下载最后提交代码 (by user)';
-$lang['Download by problem']             = '下载最后提交代码 (by problem)';
+$lang['Download by user']                = '下载最近用户的提交';
+$lang['Download by problem']             = '下载最近问题的提交';
 $lang['Detect Similar Codes']            = '删除相似代码';
 //notifications
 $lang['New'] = '新建';
