@@ -1,12 +1,12 @@
 <?php
 /**
  * MySui Online Judge
- * @file MSoj_pagination.php
+ * @file Msoj_pagination.php
  * @author MySui Team <mysuioj@gmail.com>
  */
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class MSoj_pagination
+class Msoj_pagination
 {
 
 	private $base_url;
@@ -78,5 +78,5 @@ class MSoj_pagination
 	}
 }
 
-/* End of file MSoj_pagination.php */
-/* Location: ./application/libraries/MSoj_pagination.php */
+/* End of file Msoj_pagination.php */
+/* Location: ./application/libraries/Msoj_pagination.php */

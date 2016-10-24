@@ -49,7 +49,7 @@ class Notifications extends CI_Controller
 			show_404();
 
 		$this->form_validation->set_rules('title', 'title', 'trim');
-		$this->form_validation->set_rules('text', 'text', ''); /* todo: xss clean */
+		$this->form_validation->set_rules('text', 'text', 'required'); /* todo: xss clean */
 
 		if($this->form_validation->run()){
 			if ($this->input->post('id') === NULL)
