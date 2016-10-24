@@ -231,15 +231,14 @@ $lang['not writable']          = '对于PHP不可写。';
 $lang['security reasons']      = '出于安全原因，您应该手动更改加密密钥。';
 $lang['Open']                  = '打开';
 $lang['change encryption key'] = '并更改该行的加密密钥';
-$lang['32-characters string']  = '加密密钥应该是一个32个字符的字符串，使用尽可能随机的数字、大写字母和小写字母。';
+$lang['characters string']  = '加密密钥应该是一个32个字符的字符串，使用尽可能随机的数字、大写字母和小写字母。';
 $lang['random string']         = '你可以使用这个随机字符串';
 $lang['Judge installed']       = 'MySui Online Judge 安装成功! 现在你可以';
 $lang['login']                 = '登录';
-$lang['Judge Installation']    = 'MySui Online Judge 安装';
 $lang['Admin Username']        = '管理员用户名';
 $lang['Admin Email']           = '管理员邮箱';
 $lang['Admin Password']        = '管理员密码';
-$lang['Continue']              = '继续';
+$lang['Continue']              = '安装';
 $lang['Username field2']       = '用户名为3到20个英文字母和数字';
 $lang['Password field2']       = '密码长度至少为6个英文字母和数字';
 //edit_problem

@@ -231,15 +231,14 @@ $lang['not writable']          = 'is not writable by PHP.';
 $lang['security reasons']      = 'For security reasons, you should change the encryption key manually.';
 $lang['Open']                  = 'Open';
 $lang['change encryption key'] = 'and change the encryption key in this line';
-$lang['32-characters string']  = 'The key should be a 32-characters string as random as possible, with numbers and uppercase and lowercase letters.';
+$lang['characters string']  = 'The key should be a 32-characters string as random as possible, with numbers and uppercase and lowercase letters.';
 $lang['random string']         = 'You can use this random string';
 $lang['Judge installed']       = 'MySui Online Judge installed! Now you can';
 $lang['login']                 = 'login';
-$lang['Judge Installation']    = 'MySui Online Judge Installation';
 $lang['Admin Username']        = 'Admin Username';
 $lang['Admin Email']           = 'Admin Email';
 $lang['Admin Password']        = 'Admin Password';
-$lang['Continue']              = 'Continue';
+$lang['Continue']              = 'Install';
 $lang['Username field2']       = 'The Username field must be between 3 and 20 characters in length, and contain only alpha-numeric characters';
 $lang['Password field2']       = 'The Password field must be between 6 and 30 characters in length, and contain only alpha-numeric characters';
 //edit_problem

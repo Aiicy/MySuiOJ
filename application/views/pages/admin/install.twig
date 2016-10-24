@@ -4,7 +4,7 @@
  # author: MySui Team <mysuioj@gmail.com>
  #         airicy <airicy@outlook.com>
  #}
-{% set title = {{ lang('Installation') }} %}
+{% set title = lang('Installation') %}
 {% include 'templates/simple_header.twig' %}
 
 {% if installed %}
@@ -20,7 +20,7 @@
 			</p>
 			<pre>$config['encryption_key'] = '{{ enc_key }}';</pre>
 			<p>
-				{{ lang('32-characters string') }<br>
+				{{ lang('characters string') }}<br>
 				{{ lang('random string') }}: <code>{{ random_key }}</code>
 			</p>
 			<br>
@@ -31,7 +31,9 @@
 {% else %}
 
 	<div id="install_form">
-		<h2>{{ lang('Judge Installation') }}</h2>
+		<div class="judge_logo">
+			<a href="{{ site_url() }}"><img src="{{ base_url('assets/images/banner.png') }}"/></a>
+		</div>
 		{{ form_open('install') }}
 		<p class="input_p">
 			<label for="form_username">{{ lang('Admin Username') }}：</label>
