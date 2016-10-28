@@ -8,7 +8,7 @@
  *
  */
 
-define('MSOJ_VERSION','v0.2');/**/
+define('MSOJ_VERSION','v1.0');/**/
 
 /**
  * CodeIgniter
