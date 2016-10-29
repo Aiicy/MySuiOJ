@@ -12,6 +12,8 @@ Python代码的测试目前还没有使用沙箱，仅使用一种低权限的�
 
 关于Online Judge完整的使用文档在 https://github.com/MySuiLab/MySuiOJ/wiki
 
+如果你在使用过程中遇到任何问题或有好的建议，欢迎加入http://club.mysui.org ，我们一起讨论。
+
 Demo(CA):[MySui Online Judge](http://demo.mysui.org)
 
 Demo(CN):[MySui Online Judge](http://demo.cn.mysui.org)
