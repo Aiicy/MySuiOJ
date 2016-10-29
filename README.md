@@ -1,6 +1,6 @@
 # MySui Online Judge
 
-![](http://p1.bpimg.com/4851/2ccddefb5f901956.png)
+![](http://p1.bqimg.com/4851/2da076e35603093d.png)
 [MySui Online Judge](https://github.com/MySuiLab/MySuiOJ) 是一个开源的在线评测 C, C++, Java 和
 Python 程序的系统,基于CodeIgniter框架开发。
 
