@@ -57,16 +57,20 @@ class Problems extends CI_Controller
 
 		$languages = explode(',',$data['all_problems'][$problem_id]['allowed_languages']);
 
-		$assignments_root = rtrim($this->settings_model->get_setting('assignments_root'),'/');
-		$problem_dir = "$assignments_root/assignment_{$assignment_id}/p{$problem_id}";
+		$problem_dir = FCPATH."files/assignment_{$assignment_id}/p{$problem_id}";
 		$data['problem'] = array(
 			'id' => $problem_id,
 			'description' => '<p>Description not found</p>',
 			'allowed_languages' => $languages,
-			'has_pdf' => glob("$problem_dir/*.pdf") != FALSE
+			'has_pdf' => FALSE,
 		);
 
 		$path = "$problem_dir/desc.html";
+		if(	$pdfurl = glob("$problem_dir/*.pdf"))
+        {   
+            $data['problem']['has_pdf'] = TRUE;
+			$data['problem']['pdfurl'] = substr($pdfurl[0],strlen(FCPATH));
+        }
 		if (file_exists($path))
 			$data['problem']['description'] = file_get_contents($path);
 
@@ -137,7 +141,7 @@ class Problems extends CI_Controller
 			'description' => ''
 		);
 
-		$path = rtrim($this->settings_model->get_setting('assignments_root'),'/')."/assignment_{$assignment_id}/p{$problem_id}/desc.".$ext;
+		$path = FCPATH."files/assignment_{$assignment_id}/p{$problem_id}/desc.".$ext;
 		if (file_exists($path))
 			$data['problem']['description'] = file_get_contents($path);
 

@@ -101,9 +101,9 @@ class Assignments extends CI_Controller
 	{
 		// Find pdf file
 		if ($problem_id === NULL)
-			$pattern = rtrim($this->settings_model->get_setting('assignments_root'),'/')."/assignment_{$assignment_id}/*.pdf";
+			$pattern = FCPATH."files/assignment_{$assignment_id}/*.pdf";
 		else
-			$pattern = rtrim($this->settings_model->get_setting('assignments_root'),'/')."/assignment_{$assignment_id}/p{$problem_id}/*.pdf";
+			$pattern = FCPATH."files/assignment_{$assignment_id}/p{$problem_id}/*.pdf";
 		$pdf_files = glob($pattern);
 		if ( ! $pdf_files )
 			show_error("File not found");
@@ -136,8 +136,7 @@ class Assignments extends CI_Controller
 
 		$number_of_problems = $assignment['problems'];
 
-		$root_path = rtrim($this->settings_model->get_setting('assignments_root'),'/').
-			"/assignment_{$assignment_id}";
+		$root_path = FCPATH."files/assignment_{$assignment_id}";
 
 		for ($i=1 ; $i<=$number_of_problems ; $i++)
 		{
@@ -199,7 +198,7 @@ class Assignments extends CI_Controller
 
 		$this->load->library('zip');
 
-		$assignments_root = rtrim($this->settings_model->get_setting('assignments_root'),'/');
+		$assignments_root = FCPATH."files";
 
 		foreach ($items as $item)
 		{
@@ -393,7 +392,8 @@ class Assignments extends CI_Controller
 		else
 			$the_id = $this->assignment_model->new_assignment_id();
 
-		$assignments_root = rtrim($this->settings_model->get_setting('assignments_root'), '/');
+		$assignments_root = FCPATH."files";
+        $assignments_root = rtrim($this->settings_model->get_setting('assignments_root'),'/');
 		$assignment_dir = "$assignments_root/assignment_{$the_id}";
 
 
@@ -486,12 +486,32 @@ class Assignments extends CI_Controller
 			// Create a temp directory
 			$tmp_dir_name = "msoj_tmp_directory";
 			$tmp_dir = "$assignments_root/$tmp_dir_name";
-			shell_exec("rm -rf $tmp_dir; mkdir $tmp_dir;");
+            $pdfs_path = FCPATH."files";
+			shell_exec("rm -rf $tmp_dir; mkdir $tmp_dir; mkdir $pdfs_path/assignment_{$the_id};");
 
 			// Extract new test cases and descriptions in temp directory
 			$this->load->library('unzip');
 			$this->unzip->allow(array('txt', 'cpp', 'html', 'md', 'pdf'));
 			$extract_result = $this->unzip->extract($u_data['full_path'], $tmp_dir);
+            function copy_dir($src,$dst) {
+              $dir = opendir($src);
+              @mkdir($dst);
+              while(false !== ( $file = readdir($dir)) ) {
+                if (( $file != '.' ) && ( $file != '..' )) {
+                  if ( is_dir($src . '/' . $file) ) {
+                    copy_dir($src . '/' . $file,$dst . '/' . $file);
+                    continue;
+                  }
+                  else {
+                    copy($src . '/' . $file,$dst . '/' . $file);
+                  }
+                }
+              }
+              closedir($dir);
+            }
+			 copy_dir($tmp_dir,"$pdfs_path/assignment_{$the_id}");
+		     shell_exec("cd $pdfs_path/assignment_{$the_id};"
+				." rm -rf */in; rm -rf */out; rm -f */tester.cpp; rm -f */tester.executable;");
 
 			// Remove the zip file
 			unlink($u_data['full_path']);
@@ -506,6 +526,7 @@ class Assignments extends CI_Controller
 					shell_exec("cd $assignment_dir; rm -f *.pdf");
 				// Copy new test cases from temp dir
 				shell_exec("cd $assignments_root; cp -R $tmp_dir_name/* assignment_{$the_id};");
+				shell_exec("cd $assignments_root/assignment_{$the_id}; rm -f */*.pdf;");
 				$this->messages[] = array(
 					'type' => 'success',
 					'text' => 'Tests (zip file) extracted successfully.'
@@ -565,5 +586,26 @@ class Assignments extends CI_Controller
 	}
 
 
+	/**
+	 * Show pdf file of an assignment (or problem) to browser
+	 */
+	public function showpdf($assignment_id, $problem_id = NULL)
+	{
+		// Find pdf file
+		if ($problem_id === NULL)
+			$pattern = FCPATH."files/assignment_{$assignment_id}/*.pdf";
+		else
+			$pattern = FCPATH."files/assignment_{$assignment_id}/p{$problem_id}/*.pdf";
+		$pdfurl = glob($pattern);
+		if ( ! $pdfurl )
+			show_error("File not found");
+
+		// Show the file to browser
+		$data = array(
+			'pdfurl' => substr($pdfurl[0],strlen(FCPATH))
+		);
+		$this->twig->display('pages/showpdf.twig', $data);
+	}
 
 }
+

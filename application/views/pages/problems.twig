@@ -55,10 +55,18 @@ $(document).ready(function(){
 
 
 {% block main_content %}
+{% if problem.has_pdf %}
+<br/>
+<div class="problem_description">
+<iframe src="{{ base_url(problem.pdfurl) }}" width="100%" height="500" scrolling="auto" frameborder="0">
+		You should be using firefox.
+</iframe>
+</div>
+{% else %}
 <div class="problem_description">
 	{{ problem.description|raw }}
 </div>
-
+{% endif %}
 <div id="right_sidebar">
 
 	<div class="problems_widget">

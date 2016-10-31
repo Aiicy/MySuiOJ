@@ -149,6 +149,7 @@ class Assignment_model extends CI_Model
 	 */
 	public function delete_assignment($assignment_id)
 	{
+        $pdfs_path = FCPATH."files";
 		$this->db->trans_start();
 
 		// Phase 1: Delete this assignment and its submissions from database
@@ -163,6 +164,7 @@ class Assignment_model extends CI_Model
 			// Phase 2: Delete assignment's folder (all test cases and submitted codes)
 			$cmd = 'rm -rf '.rtrim($this->settings_model->get_setting('assignments_root'), '/').'/assignment_'.$assignment_id;
 			shell_exec($cmd);
+			shell_exec("rm -rf $pdfs_path/assignment_{$assignment_id};");
 		}
 	}
 
