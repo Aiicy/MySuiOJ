@@ -136,7 +136,8 @@ class Assignments extends CI_Controller
 
 		$number_of_problems = $assignment['problems'];
 
-		$root_path = FCPATH."files/assignment_{$assignment_id}";
+		$root_path = rtrim($this->settings_model->get_setting('assignments_root'),'/').
+			"/assignment_{$assignment_id}";
 
 		for ($i=1 ; $i<=$number_of_problems ; $i++)
 		{
@@ -198,7 +199,7 @@ class Assignments extends CI_Controller
 
 		$this->load->library('zip');
 
-		$assignments_root = FCPATH."files";
+		$assignments_root = rtrim($this->settings_model->get_setting('assignments_root'),'/');
 
 		foreach ($items as $item)
 		{
@@ -392,8 +393,7 @@ class Assignments extends CI_Controller
 		else
 			$the_id = $this->assignment_model->new_assignment_id();
 
-		$assignments_root = FCPATH."files";
-        $assignments_root = rtrim($this->settings_model->get_setting('assignments_root'),'/');
+		$assignments_root = rtrim($this->settings_model->get_setting('assignments_root'), '/');
 		$assignment_dir = "$assignments_root/assignment_{$the_id}";
 
 
