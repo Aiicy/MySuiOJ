@@ -503,15 +503,14 @@ class Assignments extends CI_Controller
                     continue;
                   }
                   else {
-                    copy($src . '/' . $file,$dst . '/' . $file);
+                    if(pathinfo("$src/$file", PATHINFO_EXTENSION)=='pdf')
+                    rename("$src/$file","$dst/$file");
                   }
                 }
               }
               closedir($dir);
             }
 			 copy_dir($tmp_dir,"$pdfs_path/assignment_{$the_id}");
-		     shell_exec("cd $pdfs_path/assignment_{$the_id};"
-				." rm -rf */in; rm -rf */out; rm -f */tester.cpp; rm -f */tester.executable;");
 
 			// Remove the zip file
 			unlink($u_data['full_path']);
@@ -526,7 +525,6 @@ class Assignments extends CI_Controller
 					shell_exec("cd $assignment_dir; rm -f *.pdf");
 				// Copy new test cases from temp dir
 				shell_exec("cd $assignments_root; cp -R $tmp_dir_name/* assignment_{$the_id};");
-				shell_exec("cd $assignments_root/assignment_{$the_id}; rm -f */*.pdf;");
 				$this->messages[] = array(
 					'type' => 'success',
 					'text' => 'Tests (zip file) extracted successfully.'
