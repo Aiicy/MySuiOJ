@@ -36,8 +36,9 @@ Demo(CN):[MySui Online Judge](http://demo.cn.mysui.org)
 
 ## 安装要求
 
-要运行MySui Online Judge，需要一个linux系统，且满足以下条件：
 [详细安装文档](https://github.com/MySuiLab/MySuiOJ/wiki)
+
+要运行MySui Online Judge，需要一个linux系统，且满足以下条件：
 
   * 服务器运行的PHP的版本为5.3或更新，并且有着`mysqli`扩展
   * 装有PHP CLI (PHP的命令行界面, i.e. `php` shell 命令)
