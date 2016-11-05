@@ -36,8 +36,6 @@ Demo(CN):[MySui Online Judge](http://demo.cn.mysui.org)
 
 ## 安装要求
 
-[详细安装文档](https://github.com/MySuiLab/MySuiOJ/wiki)
-
 要运行MySui Online Judge，需要一个linux系统，且满足以下条件：
 
   * 服务器运行的PHP的版本为5.3或更新，并且有着`mysqli`扩展
@@ -48,6 +46,8 @@ Demo(CN):[MySui Online Judge](http://demo.cn.mysui.org)
   * 最好装有`perl`，使得能更精确的测量提交代码的运行时间和所耗内存以及体积大小。
 
 ## 安装
+
+[详细安装文档](https://github.com/MySuiLab/MySuiOJ/wiki)
 
   1. 下载需要版本的代码 [code page](https://github.com/MySuiLab/MySuiOJ/releases) ，把解压缩所得的文件放入网页文件夹里，例如apache2默认的文件夹是/var/www/html。
   2. **[可选]** 移动文件夹 `system` 和 `application` 到你的个人目录下， 并把所在目录的完整路径写在　`index.php`　文件里 （`$system_path`　和　`$application_folder` 这两个参数）。
